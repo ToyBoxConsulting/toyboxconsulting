@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Tools &amp; Resources — ToyBox Consulting &amp; Management</title>
+<link rel="icon" type="image/png" href="assets/logo-rust.png" />
+<meta name="description" content="Seven free, browser-based tools for mission-driven leaders: operational health check, fractional COO ROI, grant readiness, board governance, financial controls, COI, and reserve calculator." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Free Tools & Resources — ToyBox Consulting & Management" />
+<meta property="og:description" content="Seven free, browser-based tools for mission-driven leaders: operational health check, fractional COO ROI, grant readiness, board governance, financial controls, COI, and reserve calculator." />
+<meta property="og:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta property="og:url" content="https://toyboxconsulting.net/resources.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Tools & Resources — ToyBox Consulting & Management" />
+<meta name="twitter:description" content="Seven free, browser-based tools for mission-driven leaders: operational health check, fractional COO ROI, grant readiness, board governance, financial controls, COI, and reserve calculator." />
+<meta name="twitter:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta name="description" content="Free, browser-based tools for mission-driven leaders: operational health check, fractional COO ROI, grant readiness, board governance, financial controls, conflict of interest, and reserve calculator." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.62;}
+  .arrow{transition:transform .2s;} a:hover .arrow{transform:translateX(4px);}
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+  .hero{background:var(--navy-deep);color:var(--cream);padding:68px 0 64px;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{color:#fff;font-size:50px;margin:16px 0 16px;max-width:780px;}
+  .hero p{font-size:18.5px;color:rgba(245,240,232,.82);max-width:660px;}
+  section{padding:66px 0;}
+  .group-head{margin-bottom:30px;}
+  .group-head h2{font-size:30px;margin-bottom:8px;}
+  .group-head p{font-size:16px;color:var(--ink-soft);max-width:640px;}
+  .tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  @media(max-width:820px){.tool-grid{grid-template-columns:1fr;}}
+  .tool{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--greige-soft);border-radius:9px;padding:30px 30px;transition:.2s;}
+  .tool:hover{transform:translateY(-4px);box-shadow:0 26px 48px -30px rgba(27,58,92,.4);border-color:var(--greige);}
+  .tool .tag{align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(74,122,82,.12);padding:5px 11px;border-radius:30px;margin-bottom:14px;}
+  .tool .tag.flag{color:var(--rust);background:rgba(183,58,26,.1);}
+  .tool h3{font-size:23px;margin-bottom:9px;}
+  .tool p{font-size:14.5px;color:var(--ink-soft);margin-bottom:16px;flex:1;}
+  .tool .go{font-weight:600;color:var(--rust);font-size:14.5px;}
+  .note{font-size:13px;color:var(--ink-faint);margin-top:22px;}
+  .ctaband{background:var(--rust);color:#fff;text-align:center;}
+  .ctaband .kick{font-family:var(--serif);font-style:italic;font-size:21px;color:rgba(255,255,255,.86);margin-bottom:10px;}
+  .ctaband h2{color:#fff;font-size:42px;max-width:720px;margin:0 auto 18px;}
+  .ctaband p{font-size:18px;color:rgba(255,255,255,.9);margin-bottom:32px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:3px;transition:.2s;cursor:pointer;}
+  .btn-light{background:var(--cream);color:var(--rust);} .btn-light:hover{background:#fff;}
+  footer{background:var(--navy-deep);color:var(--greige);padding:60px 0 36px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(196,185,168,.18);max-width:1240px;margin:0 auto;}
+  footer .flogo img{height:52px;margin-bottom:16px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--cream);max-width:300px;line-height:1.45;}
+  .fcol h4{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--greige);margin-bottom:15px;font-weight:600;}
+  .fcol a{display:block;color:rgba(245,240,232,.72);font-size:14px;margin-bottom:10px;} .fcol a:hover{color:#fff;}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12.5px;color:rgba(196,185,168,.7);max-width:1240px;margin:0 auto;}
+</style>
+</head>
+<body data-screen-label="ToyBox — Resources">
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="index.html#workshops">Workshops</a>
+        <a class="active" href="resources.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="case-study.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a Discovery Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Free tools for mission-driven leaders</div>
+      <h1>Start before we even talk.</h1>
+      <p>Seven interactive tools built around the things my clients need most — diagnostics, calculators, and self-checks. Each runs entirely in your browser: free, private, no sign-up, and you can print or email yourself a branded report.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="group-head">
+        <div class="eyebrow">Diagnostics &amp; assessments</div>
+        <h2>See where you stand.</h2>
+        <p>Score your organization across the systems that matter, and get focus areas matched to the work that fixes them.</p>
+      </div>
+      <div class="tool-grid">
+        <a class="tool" href="tools/operational-health-check.html">
+          <span class="tag flag">Start here</span>
+          <h3>Operational Health Check</h3>
+          <p>A 25-point diagnostic across Governance, Finance, People, Programs &amp; Technology — live health score, weak-spot bars, and where to focus first.</p>
+          <span class="go">Take the health check <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="tools/grant-readiness.html">
+          <span class="tag">Free tool</span>
+          <h3>Grant Readiness Assessment</h3>
+          <p>Before you chase public money, make sure you can hold it — registration, financial capacity, compliance, and reporting against what funders expect.</p>
+          <span class="go">Check your readiness <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="tools/board-governance.html">
+          <span class="tag">Free tool</span>
+          <h3>Board Governance Self-Assessment</h3>
+          <p>Rate your board across composition, roles, fiduciary oversight, policies &amp; engagement. Great to run together as a board.</p>
+          <span class="go">Assess your board <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="tools/financial-controls.html">
+          <span class="tag">Free tool</span>
+          <h3>Financial Controls Self-Assessment</h3>
+          <p>A readiness check for publicly-funded nonprofits — auto-detects your WA reporting tier, flags gaps across 30+ controls, prints a gap report.</p>
+          <span class="go">Open the assessment <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--cream-2);border-top:1px solid var(--greige-soft);border-bottom:1px solid var(--greige-soft);">
+    <div class="wrap">
+      <div class="group-head">
+        <div class="eyebrow">Calculators &amp; checks</div>
+        <h2>Run the numbers.</h2>
+        <p>Quick, concrete answers to the questions leaders and boards ask most.</p>
+      </div>
+      <div class="tool-grid">
+        <a class="tool" href="tools/coo-roi-calculator.html">
+          <span class="tag">Free tool</span>
+          <h3>Do I Need a Fractional COO?</h3>
+          <p>A fit &amp; ROI snapshot — see the senior leadership time your operations are quietly eating, and how it compares to a fractional engagement.</p>
+          <span class="go">Run the numbers <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="tools/reserve-calculator.html">
+          <span class="tag">Free tool</span>
+          <h3>Operating Reserve &amp; Runway</h3>
+          <p>How many months could you keep the lights on if the money stopped? See your runway, a healthy target, and the gap to close.</p>
+          <span class="go">Calculate your runway <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="tools/conflict-of-interest.html">
+          <span class="tag">Free tool</span>
+          <h3>Conflict of Interest Self-Check</h3>
+          <p>The gut-check for the conflicts boards most often miss — answer honestly and it assembles a sign-ready annual disclosure.</p>
+          <span class="go">Open the self-check <span class="arrow">→</span></span>
+        </a>
+        <a class="tool" href="https://katoyapalmer.substack.com">
+          <span class="tag">Reading</span>
+          <h3>Field notes &amp; essays</h3>
+          <p>“Five Windows into a Fragile Economy” and more — writing on accountability, systems, and mission-driven leadership.</p>
+          <span class="go">Read on Substack <span class="arrow">→</span></span>
+        </a>
+      </div>
+      <p class="note">Every tool runs locally in your browser — nothing is uploaded or stored on a server. Use the “email me my results” option in any tool to send yourself (and Katoya) a copy.</p>
+    </div>
+  </section>
+
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="kick">Ran a tool and want a second set of eyes?</div>
+      <h2>What's next out the box?</h2>
+      <p>A free, 20-minute discovery call — bring your results and we'll talk through what they mean.</p>
+      <a class="btn btn-light" href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a Discovery Call <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div class="flogo"><img src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></div>
+        <div class="tag">Let's build clarity, culture, and credibility together.</div>
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services &amp; rates</a>
+        <a href="about.html">About Katoya</a>
+        <a href="case-study.html">Work</a>
+      </div>
+      <div class="fcol">
+        <h4>Connect</h4>
+        <a href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a call</a>
+        <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>
+        <a href="https://katoyapalmer.substack.com">katoyapalmer.substack.com</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ToyBox Consulting &amp; Management, LLC</span>
+      <span>What's next out the box?</span>
+    </div>
+  </footer>
+</body>
+</html>
