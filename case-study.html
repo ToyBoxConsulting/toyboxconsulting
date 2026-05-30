@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Study — Rebuilding a $12M Nonprofit Under Fire · ToyBox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.65;}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:3px;transition:.2s;cursor:pointer;}
+  .btn-light{background:var(--cream);color:var(--rust);} .btn-light:hover{background:#fff;}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);} .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+  .arrow{transition:transform .2s;} a:hover .arrow,.btn:hover .arrow{transform:translateX(4px);}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+
+  /* HERO */
+  .hero{background:var(--navy);color:var(--cream);padding:64px 0 0;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{color:#fff;font-size:48px;max-width:880px;margin:16px 0 18px;}
+  .hero .lede{font-size:18px;color:rgba(245,240,232,.84);max-width:640px;}
+  .hero .meta{display:flex;gap:34px;flex-wrap:wrap;margin:32px 0 0;padding:24px 0 40px;border-top:1px solid rgba(196,185,168,.26);}
+  .hero .meta div{font-size:13.5px;color:rgba(245,240,232,.7);}
+  .hero .meta b{display:block;font-family:var(--serif);font-size:17px;color:#fff;font-weight:500;margin-bottom:3px;}
+  /* stat band overlap */
+  .statband{background:var(--navy-deep);}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:34px 0;text-align:center;border-right:1px solid rgba(196,185,168,.18);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-family:var(--serif);font-size:42px;color:#fff;line-height:1;}
+  .stat .n span{color:var(--gold);}
+  .stat .l{font-size:12.5px;color:rgba(245,240,232,.66);margin-top:9px;}
+
+  section{padding:84px 0;}
+  .block{max-width:760px;}
+  .block .eyebrow{margin-bottom:14px;}
+  .block h2{font-size:33px;margin-bottom:20px;}
+  .block p{font-size:17.5px;color:var(--ink-soft);margin-bottom:18px;}
+  .block p strong{color:var(--ink);font-weight:600;}
+
+  .pull{background:var(--paper);border-top:1px solid var(--greige-soft);border-bottom:1px solid var(--greige-soft);}
+  .pull blockquote{font-family:var(--serif);font-style:italic;font-size:34px;line-height:1.32;color:var(--navy);max-width:900px;margin:0 auto;text-align:center;}
+
+  /* THE WORK — systems */
+  .systems{background:var(--cream-2);}
+  .sys-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--greige-soft);border:1px solid var(--greige-soft);border-radius:6px;overflow:hidden;margin-top:8px;}
+  .sys{background:var(--paper);padding:30px 30px;}
+  .sys .num{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:700;letter-spacing:.1em;}
+  .sys h3{font-size:21px;margin:8px 0 9px;}
+  .sys p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* OUTCOME list */
+  .out-list{list-style:none;margin-top:10px;}
+  .out-list li{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--greige-soft);font-size:16.5px;color:var(--ink);}
+  .out-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rust);flex:none;transform:translateY(-2px);}
+
+  .ctaband{background:var(--rust);color:#fff;text-align:center;}
+  .ctaband .kick{font-family:var(--serif);font-style:italic;font-size:21px;color:rgba(255,255,255,.86);margin-bottom:10px;}
+  .ctaband h2{color:#fff;font-size:42px;max-width:720px;margin:0 auto 18px;}
+  .ctaband p{font-size:18px;color:rgba(255,255,255,.9);margin-bottom:32px;}
+
+  footer{background:var(--navy-deep);color:var(--greige);padding:60px 0 36px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(196,185,168,.18);max-width:1240px;margin:0 auto;}
+  footer .flogo img{height:52px;margin-bottom:16px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--cream);max-width:300px;line-height:1.45;}
+  .fcol h4{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--greige);margin-bottom:15px;font-weight:600;}
+  .fcol a{display:block;color:rgba(245,240,232,.72);font-size:14px;margin-bottom:10px;} .fcol a:hover{color:#fff;}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12.5px;color:rgba(196,185,168,.7);max-width:1240px;margin:0 auto;}
+</style>
+</head>
+<body data-screen-label="ToyBox — Case Study">
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><img src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="index.html#workshops">Workshops</a>
+        <a href="services.html#tools">Tools</a>
+        <a href="about.html">About</a>
+        <a class="active" href="case-study.html">Work</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a Discovery Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Featured engagement · Fractional COO</div>
+      <h1>A $12M public-safety &amp; health organization, rebuilt under fire.</h1>
+      <p class="lede">Brought in during organizational crisis, I rebuilt all five core systems at once — and stabilized a team of 80+ that was close to collapse.</p>
+      <div class="meta">
+        <div><b>Sector</b>Public safety &amp; health nonprofit</div>
+        <div><b>Scale</b>$12M budget · 80+ staff</div>
+        <div><b>Role</b>Chief Operating Officer</div>
+        <div><b>Engagement</b>Crisis turnaround</div>
+      </div>
+    </div>
+  </header>
+  <div class="statband">
+    <div class="wrap">
+      <div class="stat-grid">
+        <div class="stat"><div class="n">5</div><div class="l">Core systems rebuilt at once</div></div>
+        <div class="stat"><div class="n">80<span>+</span></div><div class="l">Staff stabilized</div></div>
+        <div class="stat"><div class="n">$300K<span>+</span></div><div class="l">Raised in crisis fundraising</div></div>
+        <div class="stat"><div class="n">100<span>%</span></div><div class="l">Funder confidence restored</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITUATION -->
+  <section>
+    <div class="wrap block">
+      <div class="eyebrow">The situation</div>
+      <h2>Mission intact. Operations on fire.</h2>
+      <p>The organization did vital, visible work — but its operations couldn't keep up with its reputation. A financial shock had shaken funder confidence, key systems were improvised or broken, and an 80-person team was absorbing risk no one had assigned them. Burnout was climbing, and the next funding cycle was at stake.</p>
+      <p>This is the hard version of the work: not a tidy redesign, but five interdependent systems failing at the same time, with payroll, programs, and public trust all riding on the fix.</p>
+    </div>
+  </section>
+
+  <!-- PULL -->
+  <div class="pull">
+    <div class="wrap" style="padding:70px 64px;">
+      <blockquote>“I didn't just manage operations. I rebuilt the organization's ability to keep its promises.”</blockquote>
+    </div>
+  </div>
+
+  <!-- THE WORK -->
+  <section class="systems">
+    <div class="wrap block" style="max-width:none;">
+      <div class="eyebrow">The work</div>
+      <h2 style="max-width:640px;">Five systems, rebuilt in parallel.</h2>
+      <div class="sys-grid">
+        <div class="sys"><div class="num">01 · FINANCE</div><h3>Financial controls &amp; reporting</h3><p>Rebuilt budgeting, controls, and board-grade reporting — restoring a clear, trustworthy financial picture for funders and leadership.</p></div>
+        <div class="sys"><div class="num">02 · HR</div><h3>HR &amp; people infrastructure</h3><p>Stood up the policies, roles, and accountability structures that let an 80-person team stop absorbing unassigned risk.</p></div>
+        <div class="sys"><div class="num">03 · IT</div><h3>IT &amp; operations systems</h3><p>Replaced improvised tools with reliable operational systems the staff could actually depend on.</p></div>
+        <div class="sys"><div class="num">04 · GRANTS</div><h3>Grants &amp; compliance</h3><p>Built grant management and compliance infrastructure to federal-readiness standards — protecting current funding and unlocking the next.</p></div>
+        <div class="sys"><div class="num">05 · COMMS</div><h3>Communications &amp; trust</h3><p>Re-established internal and external communications to rebuild confidence with staff, board, and funders alike.</p></div>
+        <div class="sys" style="background:var(--navy);color:var(--cream);display:flex;flex-direction:column;justify-content:center;"><h3 style="color:#fff;">All five — at once.</h3><p style="color:rgba(245,240,232,.8);">The systems failed together, so they had to be rebuilt together. Knowing what to triage first is the difference between recovery and collapse.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section>
+    <div class="wrap block">
+      <div class="eyebrow">The outcome</div>
+      <h2>A team that could breathe — and a balance sheet funders could trust.</h2>
+      <ul class="out-list">
+        <li>All five core systems rebuilt and operating, with clear ownership and accountability.</li>
+        <li>A team of 80+ stabilized, with risk properly assigned instead of silently absorbed.</li>
+        <li><strong>$300K+ raised</strong> in crisis fundraising to bridge the organization through.</li>
+        <li>Funder confidence restored — and the organization positioned to keep its commitments.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ctaband">
+    <div class="wrap">
+      <div class="kick">Your organization doesn't have to be on fire to call.</div>
+      <h2>What's next out the box?</h2>
+      <p>If any of this sounds familiar, let's talk before it becomes a crisis. A free, 20-minute discovery call.</p>
+      <a class="btn btn-light" href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a Discovery Call <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <div class="flogo"><img src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></div>
+        <div class="tag">Let's build clarity, culture, and credibility together.</div>
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services &amp; rates</a>
+        <a href="about.html">About Katoya</a>
+        <a href="events.html">Events</a>
+      </div>
+      <div class="fcol">
+        <h4>Connect</h4>
+        <a href="https://calendly.com/toyboxcm/new-meeting-1">Schedule a call</a>
+        <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>
+        <a href="https://katoyapalmer.substack.com">katoyapalmer.substack.com</a>
+        <a href="#">Bellevue, Washington</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ToyBox Consulting &amp; Management, LLC</span>
+      <span>What's next out the box?</span>
+    </div>
+  </footer>
+
+</body>
+</html>
