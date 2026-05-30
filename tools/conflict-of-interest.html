@@ -287,13 +287,14 @@ function buildPrint(){
   const p=state.profile;
   const d=p.date?new Date(p.date+'T00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}):'';
   const flagged=TYPES.filter(t=>state.flags[t.id]==='yes');
-  let html=`<h2>Annual Conflict of Interest Disclosure</h2><div class="meta">${(p.name||'[Name]')}${p.role?' · '+p.role:''}${p.org?' · '+p.org:''}${d?' · '+d:''}</div>`;
+  let html=`<div class="printbrand-row" style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #B73A1A;padding-bottom:10px;margin-bottom:18px;"><img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" style="height:40px;"><div style="text-align:right;font-size:10.5px;color:#555;line-height:1.5;">Annual COI Disclosure<br>toyboxconsulting.net</div></div><h2>Annual Conflict of Interest Disclosure</h2><div class="meta">${(p.name||'[Name]')}${p.role?' · '+p.role:''}${p.org?' · '+p.org:''}${d?' · '+d:''}</div>`;
   if(flagged.length===0){ html+=`<div class="blk">I have reviewed the categories of potential conflict and, to the best of my knowledge, I have no conflict of interest to report at this time.</div>`; }
   else { html+=`<div class="blk"><b>Disclosed interest(s):</b></div>`; flagged.forEach((t,i)=>{ html+=`<div class="blk"><b>${i+1}. ${t.t}</b>${(state.details[t.id]||'[detail to be provided]')}</div>`; }); }
   const affMap={received:'I have received a copy of the Conflict of Interest Policy.',read:'I have read and understand the Policy.',comply:'I agree to comply with the Policy.',charitable:'I understand the organization is charitable and must primarily serve its tax-exempt purposes.',current:'This disclosure is current and complete; I will update it as circumstances change.'};
   const got=Object.keys(affMap).filter(k=>state.aff[k]);
   if(got.length){ html+=`<div class="blk"><b>Affirmations:</b>${got.map(k=>'• '+affMap[k]).join('<br>')}</div>`; }
   html+=`<div class="sig">Signature &nbsp; / &nbsp; Date</div>`;
+  html+=`<div style="margin-top:34px;border-top:1px solid #ccc;padding-top:9px;font-size:9.5px;color:#888;">Prepared with ToyBox Consulting &amp; Management · toyboxconsulting.net · This self-check is informational and is not legal advice.</div>`;
   document.getElementById('printDoc').innerHTML=html;
 }
 

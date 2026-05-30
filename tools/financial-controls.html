@@ -105,8 +105,13 @@
 
   .footnote{max-width:1180px;margin:0 auto;padding:0 32px 60px;font-size:12.5px;color:var(--ink-faint);}
 
+  .printbrand,.printfoot{display:none;}
   /* gap report (print) */
   @media print{
+    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #B73A1A;padding-bottom:12px;margin-bottom:22px;}
+    .printbrand img{height:42px;}
+    .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
+    .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
     header.bar,.hero,.side,.actions,.bar-in .cta{display:none!important;}
     .layout{grid-template-columns:1fr;padding:0;}
     .sec-h{cursor:default;}
@@ -115,6 +120,7 @@
 </style>
 </head>
 <body>
+<div class="printbrand"><img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /><div class="pm"><b>Financial Controls Self-Assessment</b><br>Prepared with ToyBox Consulting &amp; Management<br>toyboxconsulting.net · katoya@toyboxconsulting.net</div></div>
 <header class="bar">
   <div class="bar-in">
     <img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" />
@@ -192,6 +198,7 @@
   </aside>
 </div>
 
+<div class="printfoot">© 2026 ToyBox Consulting &amp; Management, LLC · toyboxconsulting.net · This assessment is informational and is not legal, tax, or accounting advice.</div>
 <div class="footnote">
   Representative authorities are named per control; confirm against the client's actual funder agreements. Federal (FED) items apply only when the organization expends federal funds, including federal awards passed through a county, the state, or another nonprofit. This tool is informational and is not legal, tax, or accounting advice. · Prepared with ToyBox Consulting &amp; Management.
 </div>
