@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grant Readiness Assessment · ToyBox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A;
+    --green:#4A7A52; --amber:#C9943A; --red:#B5482F;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  a{color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em;}
+  .lab{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  header.bar{background:var(--cream);border-bottom:1px solid var(--greige-soft);position:sticky;top:0;z-index:30;}
+  .bar-in{max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .bar-in img{height:40px;}
+  .bar-in .cta{font-size:13px;font-weight:600;color:#fff;background:var(--rust);padding:9px 16px;border-radius:3px;text-decoration:none;}
+  .hero{background:var(--navy);color:var(--cream);padding:52px 32px 46px;}
+  .hero-in{max-width:1180px;margin:0 auto;}
+  .hero .lab{color:var(--gold);}
+  .hero h1{color:#fff;font-size:40px;margin:14px 0 14px;max-width:780px;}
+  .hero p{color:rgba(245,240,232,.82);font-size:17px;max-width:700px;}
+  .layout{max-width:1180px;margin:0 auto;padding:38px 32px 80px;display:grid;grid-template-columns:1fr 322px;gap:40px;align-items:start;}
+  @media(max-width:980px){.layout{grid-template-columns:1fr;}}
+  .card{background:var(--paper);border:1px solid var(--greige-soft);border-radius:8px;padding:26px 30px;margin-bottom:24px;}
+  .card h2{font-size:22px;margin-bottom:5px;}
+  .card .sub{font-size:14px;color:var(--ink-soft);margin-bottom:18px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr;}}
+  .field label{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .field input{width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:5px;padding:11px 13px;outline:none;}
+  .field input:focus{border-color:var(--rust);background:#fff;}
+  .sec{background:var(--paper);border:1px solid var(--greige-soft);border-radius:8px;margin-bottom:18px;overflow:hidden;}
+  .sec-h{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;background:var(--cream-2);border-bottom:1px solid var(--greige-soft);}
+  .sec-h .l{display:flex;align-items:baseline;gap:13px;}
+  .sec-h .ltr{font-family:var(--serif);font-size:17px;color:var(--rust);font-weight:700;}
+  .sec-h h3{font-size:19px;}
+  .sec-h .mini{font-size:12.5px;color:var(--ink-faint);font-weight:600;}
+  .q{display:grid;grid-template-columns:1fr 250px;gap:18px;padding:17px 26px;border-bottom:1px solid var(--greige-soft);align-items:center;}
+  .q:last-child{border-bottom:none;}
+  .q .name{font-size:15px;font-weight:500;color:var(--ink);}
+  .q .ref{font-size:12px;color:var(--ink-faint);margin-top:3px;}
+  .rate{display:flex;gap:6px;}
+  .rate button{flex:1;font-family:var(--sans);font-size:11.5px;font-weight:600;border:1px solid var(--greige-soft);background:var(--cream-2);color:var(--ink-soft);padding:9px 4px;border-radius:5px;cursor:pointer;transition:.13s;}
+  .rate button:hover{border-color:var(--ink-faint);}
+  .rate button.sel[data-v="2"]{background:var(--green);border-color:var(--green);color:#fff;}
+  .rate button.sel[data-v="1"]{background:var(--amber);border-color:var(--amber);color:#fff;}
+  .rate button.sel[data-v="0"]{background:var(--red);border-color:var(--red);color:#fff;}
+  .rate button.sel[data-v="na"]{background:var(--ink-faint);border-color:var(--ink-faint);color:#fff;}
+  .side{position:sticky;top:84px;}
+  .scorecard{background:var(--navy);color:var(--cream);border-radius:10px;padding:26px 24px;box-shadow:0 24px 50px -30px rgba(27,58,92,.6);}
+  .scorecard .lab{color:var(--gold);}
+  .ring-wrap{display:flex;justify-content:center;margin:16px 0 4px;}
+  .ring{position:relative;width:150px;height:150px;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .ring .pct .n{font-family:var(--serif);font-size:40px;color:#fff;line-height:1;}
+  .ring .pct .x{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--greige);margin-top:4px;}
+  .verdict{text-align:center;font-family:var(--serif);font-size:18px;margin:6px 0 2px;color:#fff;}
+  .bars{margin-top:18px;}
+  .bar{margin-bottom:13px;}
+  .bar .top{display:flex;justify-content:space-between;font-size:12.5px;color:rgba(245,240,232,.86);margin-bottom:5px;}
+  .bar .top b{color:#fff;font-weight:600;}
+  .bar .track{height:7px;background:rgba(255,255,255,.12);border-radius:5px;overflow:hidden;}
+  .bar .fill{height:100%;border-radius:5px;background:var(--gold);width:0;transition:width .4s;}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+  .btn{font-family:var(--sans);font-size:14px;font-weight:600;text-align:center;padding:12px;border-radius:5px;cursor:pointer;border:none;text-decoration:none;display:block;}
+  .btn-rust{background:var(--rust);color:#fff;} .btn-rust:hover{background:var(--rust-dark);}
+  .btn-line{background:transparent;border:1px solid rgba(196,185,168,.4);color:var(--cream);} .btn-line:hover{background:rgba(255,255,255,.08);}
+  .lead{margin-top:14px;border-top:1px solid rgba(196,185,168,.28);padding-top:15px;}
+  .lead .lead-h{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+  .lead input{width:100%;font-family:var(--sans);font-size:14px;padding:11px 12px;border-radius:5px;border:1px solid rgba(196,185,168,.4);background:rgba(255,255,255,.07);color:#fff;margin-bottom:9px;outline:none;}
+  .lead input::placeholder{color:rgba(245,240,232,.5);}
+  .lead .btn{width:100%;margin-bottom:8px;}
+  .lead .lead-note{font-size:11px;color:rgba(245,240,232,.62);margin-top:7px;line-height:1.45;}
+  .reco{background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:8px;padding:22px 24px;margin-top:8px;}
+  .reco h3{font-size:18px;margin-bottom:6px;}
+  .reco .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .reco-item{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--greige-soft);font-size:14px;}
+  .reco-item:first-of-type{border-top:none;}
+  .reco-item .d{width:9px;height:9px;border-radius:50%;flex:none;margin-top:5px;}
+  .reco-item .svc{color:var(--rust);font-weight:600;}
+  .reco-empty{font-size:14px;color:var(--ink-soft);}
+  .footnote{max-width:1180px;margin:0 auto;padding:0 32px 60px;font-size:12.5px;color:var(--ink-faint);}
+  .printbrand,.printfoot{display:none;}
+  @media print{
+    header.bar,.hero,.side,.actions,.bar-in .cta,.field input{display:none!important;}
+    .layout{grid-template-columns:1fr;padding:0;} body{background:#fff;}
+    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #B73A1A;padding-bottom:12px;margin-bottom:22px;}
+    .printbrand img{height:42px;} .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
+    .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
+  }
+</style>
+</head>
+<body>
+<div class="printbrand"><img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /><div class="pm"><b>Grant Readiness Assessment</b><br>Prepared with ToyBox Consulting &amp; Management<br>toyboxconsulting.net · katoya@toyboxconsulting.net</div></div>
+<header class="bar">
+  <div class="bar-in">
+    <img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" />
+    <a class="cta" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-in">
+    <div class="lab">ToyBox · Client Tool</div>
+    <h1>Grant Readiness Assessment</h1>
+    <p>Before you chase public money, make sure you can hold it. This 20-point check covers what federal and state funders actually expect — registration, financial capacity, compliance infrastructure, reporting, and organizational backbone. Your readiness score and gaps update live, in your browser.</p>
+  </div>
+</section>
+<div class="layout">
+  <main>
+    <div class="card">
+      <h2>Organization profile</h2>
+      <div class="sub">Optional — used only to label your report.</div>
+      <div class="grid2">
+        <div class="field"><label>Organization</label><input id="org" placeholder="Organization name" /></div>
+        <div class="field"><label>Target funder(s)</label><input id="prep" placeholder="e.g. WA Commerce, HUD, King County" /></div>
+      </div>
+    </div>
+    <div id="sections"></div>
+    <div class="card" style="margin-top:6px;">
+      <div class="lab">What to fix first</div>
+      <h2 style="margin:8px 0 6px;">Your readiness gaps</h2>
+      <div class="sub">Areas scoring below 70% are flagged here — these are what put an award (or a clean audit) at risk.</div>
+      <div class="reco" id="reco"></div>
+    </div>
+  </main>
+  <aside class="side">
+    <div class="scorecard">
+      <div class="lab">Grant readiness</div>
+      <div class="ring-wrap">
+        <div class="ring">
+          <svg width="150" height="150" viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="13"/>
+            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C9943A" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+          </svg>
+          <div class="pct"><span class="n" id="scoreN">—</span><span class="x">Ready</span></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict">Start rating →</div>
+      <div class="bars" id="bars"></div>
+      <div class="actions">
+        <button class="btn btn-rust" onclick="window.print()">Download / print report</button>
+        <button class="btn btn-line" id="resetBtn">Reset</button>
+      </div>
+      <div class="lead">
+        <div class="lead-h">Email me my results</div>
+        <input id="leadEmail" type="email" placeholder="you@organization.org" />
+        <button class="btn btn-rust" id="emailBtn">Send my results →</button>
+        <a class="btn btn-line" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call to review your results →</a>
+        <p class="lead-note">Sends a copy to you and to Katoya, so we can pick up exactly where you left off. Nothing is stored anywhere else.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+<div class="footnote">
+  Directional self-assessment, not legal/accounting advice or a guarantee of award. Reflects common federal (2 CFR 200 Uniform Guidance) and Washington state expectations; confirm against each funder's actual terms. · Prepared with ToyBox Consulting &amp; Management.
+</div>
+<script>
+const DATA=[
+  {ltr:"A", key:"reg", title:"Registration &amp; Eligibility", svc:"Government Contracting &amp; TA", items:[
+    {t:"Active SAM.gov registration with a current UEI", r:"Required for federal awards"},
+    {t:"IRS tax-exempt determination letter on file", r:"501(c)(3) status"},
+    {t:"Washington charitable registration current (RCW 19.09)", r:"State eligibility"},
+    {t:"Not excluded/debarred — clean SAM.gov exclusion check", r:"2 CFR 200.214"},
+  ]},
+  {ltr:"B", key:"fin", title:"Financial Capacity", svc:"Nonprofit Development &amp; Compliance", items:[
+    {t:"Accrual-basis accounting with grant/class tracking", r:"GAAP / fund accounting"},
+    {t:"Indirect cost rate in place (NICRA on file or 10% de minimis elected)", r:"2 CFR 200.414"},
+    {t:"Audit / 990 current and without material findings", r:"Single Audit if ≥ $1M federal"},
+    {t:"Cash-flow capacity to operate on reimbursement", r:"Most grants pay in arrears"},
+    {t:"Segregation of duties over cash and approvals", r:"2 CFR 200.303 internal control"},
+  ]},
+  {ltr:"C", key:"comp", title:"Compliance Infrastructure", svc:"Government Contracting &amp; TA", items:[
+    {t:"Written procurement policy with competition thresholds", r:"2 CFR 200.317–.327"},
+    {t:"Allowable-cost policy (reasonable, allocable, allowable)", r:"2 CFR 200 Subpart E"},
+    {t:"Time-and-effort / payroll certification process", r:"2 CFR 200.430"},
+    {t:"Document retention policy (records kept ≥ longest applicable term)", r:"2 CFR 200.334"},
+    {t:"Documented internal control framework", r:"COSO / GAO Green Book"},
+  ]},
+  {ltr:"D", key:"prog", title:"Program &amp; Reporting", svc:"Strategy &amp; outcomes systems", items:[
+    {t:"Logic model / defined outcomes for the funded work", r:"Funder expectation"},
+    {t:"Data systems to track and report outcomes", r:"Performance reporting"},
+    {t:"Track record of meeting prior reporting deadlines", r:"Past performance matters"},
+    {t:"Capacity to evaluate and document impact", r:"Evaluation"},
+  ]},
+  {ltr:"E", key:"org", title:"Organizational Backbone", svc:"Fractional Executive Leadership", items:[
+    {t:"Active board oversight with financial review", r:"Governance"},
+    {t:"Key staff capacity to manage the award", r:"Grants management"},
+    {t:"Ability to document match / in-kind if required", r:"Cost share"},
+  ]},
+];
+const KEY="tbx_grant_v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+state.scores=state.scores||{}; state.profile=state.profile||{};
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+const secWrap=document.getElementById('sections');
+DATA.forEach((sec,si)=>{
+  const el=document.createElement('div'); el.className='sec';
+  el.innerHTML=`
+    <div class="sec-h"><div class="l"><span class="ltr">${sec.ltr}</span><h3>${sec.title}</h3></div><span class="mini" data-mini="${si}"></span></div>
+    <div>${sec.items.map((it,ii)=>{
+      const id=si+'-'+ii;
+      return `<div class="q"><div><div class="name">${it.t}</div><div class="ref">${it.r}</div></div>
+        <div class="rate" data-set="${id}">
+          <button data-v="2">Yes</button>
+          <button data-v="1">Partly</button>
+          <button data-v="0">No</button>
+          <button data-v="na">N/A</button>
+        </div></div>`;
+    }).join('')}</div>`;
+  secWrap.appendChild(el);
+});
+document.querySelectorAll('.rate button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const id=b.parentElement.dataset.set, v=b.dataset.v;
+    if(state.scores[id]===v) delete state.scores[id]; else state.scores[id]=v;
+    syncRow(id); save(); recompute();
+  });
+});
+function syncRow(id){ const set=document.querySelector(`.rate[data-set="${id}"]`); set.querySelectorAll('button').forEach(x=>x.classList.toggle('sel', state.scores[id]===x.dataset.v)); }
+['org','prep'].forEach(f=>{ const el=document.getElementById(f); if(state.profile[f])el.value=state.profile[f]; el.addEventListener('input',()=>{state.profile[f]=el.value;save();}); });
+function domainPct(si){ let got=0,max=0; DATA[si].items.forEach((_,ii)=>{ const v=state.scores[si+'-'+ii]; if(v===undefined||v==='na')return; got+=parseInt(v);max+=2; }); return max?Math.round(got/max*100):null; }
+function color(p){ return p>=80?'#6FAE79':p>=60?'#C9943A':'#D0644A'; }
+function recompute(){
+  const bars=document.getElementById('bars'); bars.innerHTML='';
+  let got=0,max=0,answered=0; const weak=[];
+  DATA.forEach((sec,si)=>{
+    const pct=domainPct(si);
+    sec.items.forEach((_,ii)=>{ const v=state.scores[si+'-'+ii]; if(v!==undefined)answered++; if(v!==undefined&&v!=='na'){got+=parseInt(v);max+=2;} });
+    const mini=document.querySelector(`[data-mini="${si}"]`); if(mini)mini.textContent=pct===null?'—':pct+'%';
+    const row=document.createElement('div'); row.className='bar';
+    row.innerHTML=`<div class="top"><span>${sec.title.replace('&amp;','&')}</span><b>${pct===null?'—':pct+'%'}</b></div><div class="track"><div class="fill"></div></div>`;
+    bars.appendChild(row);
+    const fill=row.querySelector('.fill'); if(pct!==null){fill.style.width=pct+'%';fill.style.background=color(pct);}
+    if(pct!==null&&pct<70) weak.push(sec);
+  });
+  const overall=max?Math.round(got/max*100):null;
+  document.getElementById('scoreN').textContent=overall===null?'—':overall+'%';
+  document.getElementById('ringFill').style.strokeDashoffset=overall===null?402:402-(402*overall/100);
+  document.getElementById('ringFill').style.stroke=overall===null?'#C9943A':color(overall);
+  const v=document.getElementById('verdict');
+  if(overall===null)v.textContent='Start rating →';
+  else if(overall>=85)v.textContent='Grant-ready';
+  else if(overall>=70)v.textContent='Nearly there';
+  else if(overall>=45)v.textContent='Gaps to close first';
+  else v.textContent='Not yet ready';
+  const reco=document.getElementById('reco');
+  if(answered===0){ reco.innerHTML='<div class="reco-empty">Rate the items above and your readiness gaps will appear here.</div>'; return; }
+  if(weak.length===0){ reco.innerHTML='<h3>No major readiness gaps flagged.</h3><div class="sub">Every area you have rated is at 70% or above. You are in strong shape to pursue funding — a discovery call can help target the right opportunities and sharpen the application.</div>'; return; }
+  reco.innerHTML='<h3>Close these before you apply</h3><div class="sub">Areas under 70% — matched to the work that closes them.</div>'+
+    weak.map(s=>`<div class="reco-item"><span class="d" style="background:${color(domainPct(DATA.indexOf(s)))}"></span><div><b>${s.title.replace('&amp;','&')}</b> — ${domainPct(DATA.indexOf(s))}%<br><span class="svc">→ ${s.svc.replace('&amp;','&')}</span></div></div>`).join('');
+}
+document.getElementById('resetBtn').addEventListener('click',()=>{ if(!confirm('Clear all answers on this device?'))return; localStorage.removeItem(KEY); location.reload(); });
+document.getElementById('emailBtn').addEventListener('click',()=>{
+  const email=(document.getElementById('leadEmail').value||'').trim();
+  const org=(state.profile.org||'').trim()||'(organization)';
+  let lines=DATA.map((s,si)=>{const p=domainPct(si);return s.title.replace('&amp;','&')+': '+(p===null?'not rated':p+'%');}).join('\n');
+  const subject='Grant Readiness Assessment — '+org;
+  const body='Organization: '+org+'\nFunder(s): '+(state.profile.prep||'(n/a)')+'\nOverall grant readiness: '+document.getElementById('scoreN').textContent+'\n\n'+lines+'\n\nLet\u2019s set up a call to review these results: https://calendly.com/toyboxcm/new-meeting-1\n\n(Generated at toyboxconsulting.net)';
+  const cc=email?('&cc='+encodeURIComponent(email)):'';
+  window.location.href='mailto:katoya@toyboxconsulting.net?subject='+encodeURIComponent(subject)+cc+'&body='+encodeURIComponent(body);
+});
+Object.keys(state.scores).forEach(syncRow);
+recompute();
+</script>
+</body>
+</html>

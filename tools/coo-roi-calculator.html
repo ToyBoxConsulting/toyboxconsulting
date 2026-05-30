@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do I Need a Fractional COO? · ToyBox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;}
+  a{color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em;}
+  .lab{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+
+  header.bar{background:var(--cream);border-bottom:1px solid var(--greige-soft);position:sticky;top:0;z-index:30;}
+  .bar-in{max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .bar-in img{height:40px;}
+  .bar-in .cta{font-size:13px;font-weight:600;color:#fff;background:var(--rust);padding:9px 16px;border-radius:3px;text-decoration:none;}
+
+  .hero{background:var(--navy);color:var(--cream);padding:52px 32px 46px;}
+  .hero-in{max-width:1180px;margin:0 auto;}
+  .hero .lab{color:var(--gold);}
+  .hero h1{color:#fff;font-size:40px;margin:14px 0 14px;max-width:760px;}
+  .hero p{color:rgba(245,240,232,.82);font-size:17px;max-width:680px;}
+
+  .layout{max-width:1180px;margin:0 auto;padding:38px 32px 80px;display:grid;grid-template-columns:1fr 330px;gap:40px;align-items:start;}
+  @media(max-width:980px){.layout{grid-template-columns:1fr;}}
+
+  .card{background:var(--paper);border:1px solid var(--greige-soft);border-radius:8px;padding:26px 30px;margin-bottom:22px;}
+  .card h2{font-size:21px;margin-bottom:5px;}
+  .card .sub{font-size:14px;color:var(--ink-soft);margin-bottom:18px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .field .hint{font-weight:400;color:var(--ink-faint);font-size:12px;}
+  .field input[type=number],.field input[type=text]{width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:5px;padding:11px 13px;outline:none;}
+  .field input:focus{border-color:var(--rust);background:#fff;}
+  .range-row{display:flex;align-items:center;gap:14px;}
+  .range-row input[type=range]{flex:1;accent-color:var(--rust);}
+  .range-row .val{font-family:var(--serif);font-size:20px;color:var(--navy);min-width:74px;text-align:right;}
+
+  .signals{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
+  @media(max-width:600px){.signals{grid-template-columns:1fr;}}
+  .sig{display:flex;gap:11px;align-items:flex-start;font-size:14px;color:var(--ink);padding:9px 0;cursor:pointer;}
+  .sig input{margin-top:3px;width:17px;height:17px;accent-color:var(--rust);flex:none;}
+
+  .side{position:sticky;top:84px;}
+  .scorecard{background:var(--navy);color:var(--cream);border-radius:10px;padding:26px 24px;box-shadow:0 24px 50px -30px rgba(27,58,92,.6);}
+  .scorecard .lab{color:var(--gold);}
+  .ring-wrap{display:flex;justify-content:center;margin:16px 0 4px;}
+  .ring{position:relative;width:150px;height:150px;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring .pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .ring .pct .n{font-family:var(--serif);font-size:38px;color:#fff;line-height:1;}
+  .ring .pct .x{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--greige);margin-top:4px;}
+  .verdict{text-align:center;font-family:var(--serif);font-size:19px;margin:4px 0 0;color:#fff;}
+  .figs{margin-top:18px;}
+  .fig{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-top:1px solid rgba(196,185,168,.24);font-size:13.5px;color:rgba(245,240,232,.84);}
+  .fig .v{font-family:var(--serif);font-size:18px;color:#fff;}
+  .fig .v.gold{color:var(--gold);}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:10px;}
+  .btn{font-family:var(--sans);font-size:14px;font-weight:600;text-align:center;padding:12px;border-radius:5px;cursor:pointer;border:none;text-decoration:none;display:block;}
+  .btn-rust{background:var(--rust);color:#fff;} .btn-rust:hover{background:var(--rust-dark);}
+  .btn-line{background:transparent;border:1px solid rgba(196,185,168,.4);color:var(--cream);} .btn-line:hover{background:rgba(255,255,255,.08);}
+  .lead{margin-top:14px;border-top:1px solid rgba(196,185,168,.28);padding-top:15px;}
+  .lead .lead-h{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+  .lead input{width:100%;font-family:var(--sans);font-size:14px;padding:11px 12px;border-radius:5px;border:1px solid rgba(196,185,168,.4);background:rgba(255,255,255,.07);color:#fff;margin-bottom:9px;outline:none;}
+  .lead input::placeholder{color:rgba(245,240,232,.5);}
+  .lead .btn{width:100%;margin-bottom:8px;}
+  .lead .lead-note{font-size:11px;color:rgba(245,240,232,.62);margin-top:7px;line-height:1.45;}
+
+  .readout{background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:8px;padding:22px 24px;}
+  .readout h3{font-size:18px;margin-bottom:8px;}
+  .readout p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .readout .big{font-family:var(--serif);font-size:21px;color:var(--navy);line-height:1.3;}
+
+  .footnote{max-width:1180px;margin:0 auto;padding:0 32px 60px;font-size:12.5px;color:var(--ink-faint);}
+
+  .printbrand,.printfoot{display:none;}
+  @media print{
+    header.bar,.hero,.side,.actions,.bar-in .cta{display:none!important;}
+    .layout{grid-template-columns:1fr;padding:0;} body{background:#fff;}
+    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #B73A1A;padding-bottom:12px;margin-bottom:22px;}
+    .printbrand img{height:42px;} .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
+    .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
+  }
+</style>
+</head>
+<body>
+<div class="printbrand"><img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /><div class="pm"><b>Fractional COO — Fit &amp; ROI Snapshot</b><br>Prepared with ToyBox Consulting &amp; Management<br>toyboxconsulting.net · katoya@toyboxconsulting.net</div></div>
+<header class="bar">
+  <div class="bar-in">
+    <img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" />
+    <a class="cta" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="lab">ToyBox · Client Tool</div>
+    <h1>Do you need a fractional COO?</h1>
+    <p>You don't need a full-time executive to get executive-level operations. Answer a few questions and see your fit, the senior leadership time your operations are quietly eating, and how that compares to a fractional engagement. All math stays in your browser.</p>
+  </div>
+</section>
+
+<div class="layout">
+  <main>
+    <div class="card">
+      <h2>Your organization</h2>
+      <div class="sub">Rough numbers are fine — this is a directional estimate.</div>
+      <div class="field"><label>Annual operating budget <span class="hint">(USD)</span></label><input id="budget" type="number" min="0" placeholder="e.g. 1500000" /></div>
+      <div class="field"><label>Number of staff (FTE)</label><input id="staff" type="number" min="0" placeholder="e.g. 25" /></div>
+      <div class="field">
+        <label>Hours/week you or your ED spend on operations, admin &amp; firefighting <span class="hint">(not mission or fundraising)</span></label>
+        <div class="range-row"><input id="hrs" type="range" min="0" max="40" step="1" value="10" /><span class="val" id="hrsVal">10 hrs</span></div>
+      </div>
+      <div class="field"><label>That leader's approximate annual compensation <span class="hint">(to value the time — optional)</span></label><input id="comp" type="number" min="0" placeholder="e.g. 110000" /></div>
+    </div>
+
+    <div class="card">
+      <h2>Which of these sound familiar?</h2>
+      <div class="sub">Each one is a signal that operations have outgrown the current setup.</div>
+      <div class="signals" id="signals"></div>
+    </div>
+
+    <div class="readout" id="readout">
+      <h3>Your snapshot</h3>
+      <p>Fill in the numbers above and your fit, reclaimable leadership time, and the engagement comparison appear here and in the sidebar.</p>
+    </div>
+  </main>
+
+  <aside class="side">
+    <div class="scorecard">
+      <div class="lab">Fractional COO fit</div>
+      <div class="ring-wrap">
+        <div class="ring">
+          <svg width="150" height="150" viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="13"/>
+            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C9943A" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+          </svg>
+          <div class="pct"><span class="n" id="scoreN">—</span><span class="x">Fit score</span></div>
+        </div>
+      </div>
+      <div class="verdict" id="verdict">Enter your numbers →</div>
+      <div class="figs">
+        <div class="fig"><span>Leadership hrs/yr on ops</span><span class="v" id="figHrs">—</span></div>
+        <div class="fig"><span>Value of that time</span><span class="v gold" id="figVal">—</span></div>
+        <div class="fig"><span>Fractional COO (typical)</span><span class="v" id="figCoo">$6–12K/mo</span></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-rust" onclick="window.print()">Download / print snapshot</button>
+        <button class="btn btn-line" id="resetBtn">Reset</button>
+      </div>
+      <div class="lead">
+        <div class="lead-h">Email me my results</div>
+        <input id="leadEmail" type="email" placeholder="you@organization.org" />
+        <button class="btn btn-rust" id="emailBtn">Send my results →</button>
+        <a class="btn btn-line" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call to review your results →</a>
+        <p class="lead-note">Sends a copy to you and to Katoya, so we can pick up exactly where you left off. Nothing is stored anywhere else.</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<div class="footnote">
+  This is a directional estimate to support a conversation — not a guarantee of savings or outcomes. Time value is your leader's comp ÷ 2,080 work-hours, applied to the operations hours you enter. Fractional engagement ranges reflect typical ToyBox retainers and vary by scope. · Prepared with ToyBox Consulting &amp; Management.
+</div>
+
+<script>
+const SIGNALS=[
+  "We don't get monthly financials we can trust",
+  "We've had audit findings or messy books",
+  "Staff turnover or burnout is a real problem",
+  "We've missed grant deadlines or compliance dates",
+  "Key processes live in one person's head — no SOPs",
+  "The board wants better reporting than we produce",
+  "Growth is outpacing our systems",
+  "Leadership is too deep in the weeds to lead",
+];
+const KEY="tbx_coo_roi_v1";
+let state=JSON.parse(localStorage.getItem(KEY)||"{}");
+state.f=state.f||{}; state.sig=state.sig||{};
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+
+// build signals
+const sw=document.getElementById('signals');
+SIGNALS.forEach((s,i)=>{
+  const l=document.createElement('label'); l.className='sig';
+  l.innerHTML=`<input type="checkbox" data-sig="${i}"><span>${s}</span>`;
+  sw.appendChild(l);
+});
+
+const fields=['budget','staff','hrs','comp'];
+fields.forEach(f=>{ const el=document.getElementById(f); if(state.f[f]!=null&&state.f[f]!=='') el.value=state.f[f];
+  el.addEventListener('input',()=>{state.f[f]=el.value; if(f==='hrs') document.getElementById('hrsVal').textContent=el.value+' hrs'; save(); calc();}); });
+document.getElementById('hrsVal').textContent=(state.f.hrs||10)+' hrs';
+document.querySelectorAll('[data-sig]').forEach(c=>{ if(state.sig[c.dataset.sig]) c.checked=true;
+  c.addEventListener('change',()=>{state.sig[c.dataset.sig]=c.checked; save(); calc();}); });
+
+function money(n){ if(n>=1000000) return '$'+(n/1000000).toFixed(n>=10000000?0:1)+'M'; if(n>=1000) return '$'+Math.round(n/1000)+'K'; return '$'+Math.round(n); }
+
+function calc(){
+  const B=parseFloat(state.f.budget)||0;
+  const S=parseFloat(state.f.staff)||0;
+  const H=parseFloat(state.f.hrs)||0;
+  const C=parseFloat(state.f.comp)||0;
+  const P=Object.keys(state.sig).filter(k=>state.sig[k]).length;
+  const anyInput = B||S||H||P||C;
+  // fit score
+  let score=0;
+  score += B>=3000000?25:B>=1000000?20:B>=500000?14:B>=250000?8:B>0?4:0;
+  score += S>=50?15:S>=20?12:S>=8?8:S>0?4:0;
+  score += H>=20?25:H>=12?18:H>=6?11:H>0?5:0;
+  score += Math.min(P*5,35);
+  score=Math.min(score,100);
+  // time value
+  const hourly = C>0 ? C/2080 : 60;
+  const hrsYear = H*50;
+  const valYear = hrsYear*hourly;
+  // paint
+  document.getElementById('figHrs').textContent = H? Math.round(hrsYear).toLocaleString()+' hrs' : '—';
+  document.getElementById('figVal').textContent = (H&&valYear)? money(valYear) : '—';
+  document.getElementById('scoreN').textContent = anyInput? score+'%' : '—';
+  const off = anyInput? 402-(402*score/100) : 402;
+  document.getElementById('ringFill').style.strokeDashoffset=off;
+  const stroke = score>=70?'#6FAE79':score>=45?'#C9943A':'#D0644A';
+  document.getElementById('ringFill').style.stroke = anyInput?stroke:'#C9943A';
+  const v=document.getElementById('verdict');
+  let verdict;
+  if(!anyInput){ verdict='Enter your numbers →'; }
+  else if(score>=70){ verdict='Strong fit — high ROI likely'; }
+  else if(score>=45){ verdict='Worth a serious look'; }
+  else { verdict='Maybe a lighter project first'; }
+  v.textContent=verdict;
+  // readout
+  const r=document.getElementById('readout');
+  if(!anyInput){ r.innerHTML='<h3>Your snapshot</h3><p>Fill in the numbers above and your fit, reclaimable leadership time, and the engagement comparison appear here and in the sidebar.</p>'; return; }
+  let msg;
+  if(score>=70) msg='At your scale and pain level, executive-grade operations would pay for themselves quickly — mostly by giving senior leadership back to mission and fundraising.';
+  else if(score>=45) msg='There\u2019s a real case here. A fractional COO — or a scoped systems project — could relieve the biggest pressure points without a full-time hire.';
+  else msg='You may not need ongoing executive capacity yet. A focused project (finance systems, SOPs, or a governance tune-up) might be the right-sized first step.';
+  r.innerHTML='<h3>Your snapshot</h3>'+
+    (H? '<p class="big">Operations are absorbing about <b>'+Math.round(hrsYear).toLocaleString()+' hours</b> of senior leadership a year'+(C>0||true?' — roughly <b>'+money(valYear)+'</b> of leadership time</b>':'')+'.</p>':'')+
+    '<p>'+msg+'</p>'+
+    '<p style="font-size:13.5px;color:var(--ink-faint);">A fractional COO typically runs $6–12K/month — a fraction of a full-time COO (often $140K+ loaded). The trade to weigh: that cost against the senior time you\u2019d reclaim, plus reduced risk and faster, cleaner decisions.</p>';
+}
+
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  if(!confirm('Clear your inputs on this device?')) return;
+  localStorage.removeItem(KEY); location.reload();
+});
+document.getElementById('emailBtn').addEventListener('click',()=>{
+  const email=(document.getElementById('leadEmail').value||'').trim();
+  const subject='Fractional COO fit snapshot';
+  const body='Fit score: '+document.getElementById('scoreN').textContent+' ('+document.getElementById('verdict').textContent+')'+
+    '\nBudget: '+(state.f.budget||'(n/a)')+'  ·  Staff: '+(state.f.staff||'(n/a)')+'  ·  Ops hrs/wk: '+(state.f.hrs||'(n/a)')+
+    '\nLeadership hrs/yr on ops: '+document.getElementById('figHrs').textContent+'  ·  Value: '+document.getElementById('figVal').textContent+
+    '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/new-meeting-1\n\n(Generated at toyboxconsulting.net)';
+  const cc=email?('&cc='+encodeURIComponent(email)):'';
+  window.location.href='mailto:katoya@toyboxconsulting.net?subject='+encodeURIComponent(subject)+cc+'&body='+encodeURIComponent(body);
+});
+
+calc();
+</script>
+</body>
+</html>

@@ -88,6 +88,12 @@
   .btn-rust{background:var(--rust);color:#fff;} .btn-rust:hover{background:var(--rust-dark);}
   .btn-ghost{background:transparent;border:1px solid rgba(196,185,168,.4);color:var(--cream);}
   .btn-ghost:hover{background:rgba(255,255,255,.08);}
+  .lead{margin-top:14px;border-top:1px solid rgba(196,185,168,.28);padding-top:15px;}
+  .lead .lead-h{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;}
+  .lead input{width:100%;font-family:var(--sans);font-size:14px;padding:11px 12px;border-radius:5px;border:1px solid rgba(196,185,168,.4);background:rgba(255,255,255,.07);color:#fff;margin-bottom:9px;outline:none;}
+  .lead input::placeholder{color:rgba(245,240,232,.5);}
+  .lead .btn{width:100%;margin-bottom:8px;}
+  .lead .lead-note{font-size:11px;color:rgba(245,240,232,.62);margin-top:7px;line-height:1.45;}
   .note-help{font-size:12px;color:var(--ink-faint);margin-top:14px;}
 
   .footnote{max-width:1180px;margin:0 auto;padding:0 32px 60px;font-size:12.5px;color:var(--ink-faint);}
@@ -165,7 +171,13 @@
       <div class="actions">
         <button class="btn btn-rust" id="copyBtn">Copy disclosure text</button>
         <button class="btn btn-ghost" onclick="buildPrint();window.print();">Download / print to sign</button>
-        <a class="btn btn-ghost" href="https://calendly.com/toyboxcm/new-meeting-1">Need a full COI policy? Talk to us →</a>
+      </div>
+      <div class="lead">
+        <div class="lead-h">Email me my results</div>
+        <input id="leadEmail" type="email" placeholder="you@organization.org" />
+        <button class="btn btn-rust" id="emailBtn">Send my results →</button>
+        <a class="btn btn-ghost" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call to review your results →</a>
+        <p class="lead-note">Sends a copy to you and to Katoya, so we can pick up exactly where you left off. Nothing is stored anywhere else.</p>
       </div>
       <div class="note-help">ToyBox builds board-adopted COI policies tailored to Washington nonprofit law and your funders' requirements. This self-check is informational, not legal advice.</div>
     </div>
@@ -276,6 +288,16 @@ function render(){
   document.getElementById('sAff').textContent=affN+'/5';
   document.getElementById('preview').textContent=statementText();
 }
+
+document.getElementById('emailBtn').addEventListener('click',()=>{
+  const email=(document.getElementById('leadEmail').value||'').trim();
+  const p=state.profile; const who=(p.name||'(name)')+(p.org?' · '+p.org:'');
+  const flagged=TYPES.filter(t=>state.flags[t.id]==='yes').length;
+  const subject='COI Self-Check — '+(p.org||p.name||'disclosure');
+  const body=who+'\nInterests flagged: '+flagged+'\n\n'+statementText()+'\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/new-meeting-1\n\n(Generated at toyboxconsulting.net)';
+  const cc=email?('&cc='+encodeURIComponent(email)):'';
+  window.location.href='mailto:katoya@toyboxconsulting.net?subject='+encodeURIComponent(subject)+cc+'&body='+encodeURIComponent(body);
+});
 
 document.getElementById('copyBtn').addEventListener('click',async()=>{
   try{ await navigator.clipboard.writeText(statementText());
