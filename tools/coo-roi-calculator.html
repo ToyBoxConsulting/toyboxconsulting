@@ -512,7 +512,7 @@
         <input id="leadEmail" type="email" placeholder="you@organization.org" />
         <button class="btn btn-rust" id="emailBtn">Send my results →</button>
         <a class="btn btn-line" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call to review your results →</a>
-        <p class="lead-note">Sends a copy to you and to Katoya, so we can pick up exactly where you left off. Nothing is stored anywhere else.</p>
+        <p class="lead-note">We email a copy to you and to Katoya so we can pick up where you left off. Inputs aren't stored on our servers — they exist only in the email.</p>
       </div>
     </div>
   </aside>
@@ -612,8 +612,26 @@ document.getElementById('emailBtn').addEventListener('click',()=>{
     '\nBudget: '+(state.f.budget||'(n/a)')+'  ·  Staff: '+(state.f.staff||'(n/a)')+'  ·  Ops hrs/wk: '+(state.f.hrs||'(n/a)')+
     '\nLeadership hrs/yr on ops: '+document.getElementById('figHrs').textContent+'  ·  Value: '+document.getElementById('figVal').textContent+
     '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/new-meeting-1\n\n(Generated at toyboxconsulting.net)';
-  const cc=email?('&cc='+encodeURIComponent(email)):'';
-  window.location.href='mailto:katoya@toyboxconsulting.net?subject='+encodeURIComponent(subject)+cc+'&body='+encodeURIComponent(body);
+  const _btn=document.getElementById('emailBtn');
+  const _orig=_btn.textContent;
+  _btn.disabled=true;_btn.textContent='Sending…';
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({
+      access_key:'b73a3e30-4c97-4e50-92ab-eeab470fdfe0',
+      from_name:'ToyBox Consulting & Management',
+      replyto:'katoya@toyboxconsulting.net',
+      subject:subject,
+      name:(email||'site visitor'),
+      email:(email||'no-reply@toyboxconsulting.net'),
+      cc:(email||''),
+      message:body
+    })
+  }).then(r=>r.json()).then(d=>{
+    if(d.success){_btn.textContent='Sent ✓ check your inbox';setTimeout(()=>{_btn.textContent=_orig;_btn.disabled=false;},6000);}
+    else{_btn.textContent='Send failed — try again';_btn.disabled=false;console.error('Web3Forms error',d);}
+  }).catch(e=>{_btn.textContent='Send failed — try again';_btn.disabled=false;console.error(e);});
 });
 
 calc();
