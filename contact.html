@@ -517,13 +517,64 @@
           <div class="eyebrow">Prefer to write?</div>
           <h2>Send a note.</h2>
         </div>
-        <form class="formcard" action="mailto:katoya@toyboxconsulting.net" method="post" enctype="text/plain">
-          <div class="field"><label>Name</label><input name="name" type="text" placeholder="Your name" required /></div>
-          <div class="field"><label>Email</label><input name="email" type="email" placeholder="you@organization.org" required /></div>
-          <div class="field"><label>Organization</label><input name="organization" type="text" placeholder="Where you work" /></div>
-          <div class="field"><label>What can I help with?</label><textarea name="message" placeholder="A sentence or two about what's going on…"></textarea></div>
-          <button class="submit" type="submit">Send note →</button>
+        <form class="formcard" id="contactForm">
+          <div class="field"><label>Name</label><input name="name" id="cf_name" type="text" placeholder="Your name" required /></div>
+          <div class="field"><label>Email</label><input name="email" id="cf_email" type="email" placeholder="you@organization.org" required /></div>
+          <div class="field"><label>Organization</label><input name="organization" id="cf_org" type="text" placeholder="Where you work" /></div>
+          <div class="field"><label>What can I help with?</label><textarea name="message" id="cf_message" placeholder="A sentence or two about what's going on…"></textarea></div>
+          <p style="font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin:2px 0 12px;">By sending this note you agree to our <a href="privacy.html" style="color:var(--rust);">Privacy Policy</a>. Your message goes to katoya@toyboxconsulting.net.</p>
+          <button class="submit" type="submit" id="cf_submit">Send note →</button>
+          <p id="cf_status" style="font-size:13.5px;margin-top:10px;display:none;"></p>
         </form>
+        <script>
+(function(){
+  var form=document.getElementById('contactForm');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('cf_submit');
+    var status=document.getElementById('cf_status');
+    var orig=btn.textContent;
+    btn.disabled=true;btn.textContent='Sending…';
+    status.style.display='none';
+    var payload={
+      access_key:'b73a3e30-4c97-4e50-92ab-eeab470fdfe0',
+      from_name:'ToyBox Consulting & Management — contact form',
+      replyto:document.getElementById('cf_email').value,
+      subject:'Contact form: '+(document.getElementById('cf_name').value||'visitor')+(document.getElementById('cf_org').value?' ('+document.getElementById('cf_org').value+')':''),
+      name:document.getElementById('cf_name').value,
+      email:document.getElementById('cf_email').value,
+      organization:document.getElementById('cf_org').value,
+      message:document.getElementById('cf_message').value
+    };
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(payload)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.success){
+        status.style.display='block';
+        status.style.color='#4A7A52';
+        status.textContent='Thanks — note sent. I will respond within a business day.';
+        form.reset();
+        btn.textContent=orig;btn.disabled=false;
+      } else {
+        status.style.display='block';
+        status.style.color='var(--rust)';
+        status.textContent='Something went wrong. Email katoya@toyboxconsulting.net directly.';
+        btn.textContent=orig;btn.disabled=false;
+        console.error('Web3Forms error',d);
+      }
+    }).catch(function(err){
+      status.style.display='block';
+      status.style.color='var(--rust)';
+      status.textContent='Something went wrong. Email katoya@toyboxconsulting.net directly.';
+      btn.textContent=orig;btn.disabled=false;
+      console.error(err);
+    });
+  });
+})();
+</script>
         <div class="details">
           <div class="drow"><span class="k">Email</span><a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a></div>
           <div class="drow"><span class="k">Based in</span><span>Bellevue, Washington</span></div>
