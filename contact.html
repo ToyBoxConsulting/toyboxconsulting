@@ -456,6 +456,7 @@
 <!-- Crisp Live Chat -->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1e80e613-fbba-47f3-95d8-f68cc1e7a8a4";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 <!-- End Crisp Live Chat -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body data-screen-label="ToyBox — Contact">
 
@@ -530,6 +531,7 @@
           <div class="field"><label>Organization</label><input name="organization" id="cf_org" type="text" placeholder="Where you work" /></div>
           <div class="field"><label>What can I help with?</label><textarea name="message" id="cf_message" placeholder="A sentence or two about what's going on…"></textarea></div>
           <p style="font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin:2px 0 12px;">By sending this note you agree to our <a href="privacy.html" style="color:var(--rust);">Privacy Policy</a>. Your message goes to katoya@toyboxconsulting.net.</p>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADdaBxGQR-Ydi8HM" data-theme="light" data-action="contact-form" style="margin:14px 0"></div>
           <button class="submit" type="submit" id="cf_submit">Send note →</button>
           <p id="cf_status" style="font-size:13.5px;margin-top:10px;display:none;"></p>
         </form>
@@ -544,7 +546,10 @@
     var orig=btn.textContent;
     btn.disabled=true;btn.textContent='Sending…';
     status.style.display='none';
+    var _cfToken=(document.querySelector('input[name="cf-turnstile-response"]')||{}).value||'';
+    if(!_cfToken){btn.disabled=false;btn.textContent=orig;status.style.display='block';status.style.color='#B73A1A';status.textContent='Please complete the spam check.';return;}
     var payload={
+      'cf-turnstile-response': _cfToken,
       access_key:'b73a3e30-4c97-4e50-92ab-eeab470fdfe0',
       from_name:'ToyBox Consulting & Management — contact form',
       replyto:document.getElementById('cf_email').value,
