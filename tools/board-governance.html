@@ -451,6 +451,7 @@
 <!-- Crisp Live Chat -->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="1e80e613-fbba-47f3-95d8-f68cc1e7a8a4";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 <!-- End Crisp Live Chat -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div class="printbrand"><img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /><div class="pm"><b>Board Governance Self-Assessment</b><br>Prepared with ToyBox Consulting &amp; Management<br>toyboxconsulting.net · katoya@toyboxconsulting.net</div></div>
@@ -506,6 +507,7 @@
       <div class="lead">
         <div class="lead-h">Email me my results</div>
         <input id="leadEmail" type="email" placeholder="you@organization.org" />
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADdaBxGQR-Ydi8HM" data-theme="light" data-action="tool-email" style="margin:10px 0 6px"></div>
         <button class="btn btn-rust" id="emailBtn">Send my results →</button>
         <a class="btn btn-line" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Book a call to review your results →</a>
         <p class="lead-note">We email your results to you and copy Katoya so we can pick up where you left off. Inputs aren't stored on our servers — they live only in the email.</p>
@@ -613,6 +615,8 @@ function recompute(){
 document.getElementById('resetBtn').addEventListener('click',()=>{ if(!confirm('Clear all answers on this device?'))return; localStorage.removeItem(KEY); location.reload(); });
 document.getElementById('emailBtn').addEventListener('click',()=>{
   const email=(document.getElementById('leadEmail').value||'').trim();
+  const _cfToken=(document.querySelector('input[name="cf-turnstile-response"]')||{}).value||'';
+  if(!_cfToken){alert('Please complete the spam check before sending.');return;}
   const org=(state.profile.org||'').trim()||'(organization)';
   let lines=DATA.map((s,si)=>{const p=domainPct(si);return s.title.replace('&amp;','&')+': '+(p===null?'not rated':p+'%');}).join('\n');
   const subject='Board Governance Self-Assessment — '+org;
@@ -624,6 +628,7 @@ document.getElementById('emailBtn').addEventListener('click',()=>{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
+      'cf-turnstile-response':_cfToken,
       toolName:'Board Governance Self-Assessment',
       subject:subject,
       userEmail:email,
