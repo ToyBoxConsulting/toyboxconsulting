@@ -447,7 +447,7 @@
 <header class="bar">
   <div class="bar-in">
     <img src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" />
-    <a class="cta" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call</a>
+    <a class="cta" href="https://calendly.com/toyboxcm/discovery-call">Book a call</a>
   </div>
 </header>
 
@@ -511,7 +511,7 @@
         <div class="lead-h">Email me my results</div>
         <input id="leadEmail" type="email" placeholder="you@organization.org" />
         <button class="btn btn-rust" id="emailBtn">Send my results →</button>
-        <a class="btn btn-line" href="https://calendly.com/toyboxcm/new-meeting-1">Book a call to review your results →</a>
+        <a class="btn btn-line" href="https://calendly.com/toyboxcm/discovery-call">Book a call to review your results →</a>
         <p class="lead-note">We email your results to you and copy Katoya so we can pick up where you left off. Inputs aren't stored on our servers — they live only in the email.</p>
       </div>
     </div>
@@ -611,7 +611,7 @@ document.getElementById('emailBtn').addEventListener('click',()=>{
   const body='Fit score: '+document.getElementById('scoreN').textContent+' ('+document.getElementById('verdict').textContent+')'+
     '\nBudget: '+(state.f.budget||'(n/a)')+'  ·  Staff: '+(state.f.staff||'(n/a)')+'  ·  Ops hrs/wk: '+(state.f.hrs||'(n/a)')+
     '\nLeadership hrs/yr on ops: '+document.getElementById('figHrs').textContent+'  ·  Value: '+document.getElementById('figVal').textContent+
-    '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/new-meeting-1\n\n(Generated at toyboxconsulting.net)';
+    '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/discovery-call\n\n(Generated at toyboxconsulting.net)';
   const _btn=document.getElementById('emailBtn');
   const _orig=_btn.textContent;
   _btn.disabled=true;_btn.textContent='Sending…';
