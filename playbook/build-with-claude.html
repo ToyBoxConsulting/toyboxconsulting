@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://www.toyboxconsulting.net/playbook/build-with-claude.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://*.sibforms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://*.sibforms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://*.sibforms.com; upgrade-insecure-requests">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Build-With-Claude Playbook — ToyBox Consulting</title>
+<link rel="icon" type="image/png" href="../assets/logo-rust.png" />
+<meta name="description" content="A 15-page step-by-step playbook on how Katoya Palmer migrated three brand sites off paid hosting and onto a fully analytics-instrumented, search-indexed, SSL-secured GitHub Pages stack — using Claude as her co-pilot. Free PDF." />
+<meta name="author" content="Katoya Raquell Palmer" />
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ToyBox Consulting" />
+<meta property="og:title" content="The Build-With-Claude Playbook — Free PDF" />
+<meta property="og:description" content="The exact path from paid Wix subscription to GitHub-hosted, fully analytics-instrumented, search-indexed stack — using Claude as your co-pilot. Free, 15 pages, no fluff." />
+<meta property="og:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta property="og:url" content="https://www.toyboxconsulting.net/playbook/build-with-claude.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Build-With-Claude Playbook — Free PDF" />
+<meta name="twitter:description" content="From paid Wix to free GitHub-hosted, with Claude as co-pilot. 15 pages, free, no fluff." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.62;}
+  .arrow{transition:transform .2s;} a:hover .arrow{transform:translateX(4px);}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+
+  /* HERO */
+  .hero{padding:90px 0 60px;background:var(--cream);}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;}
+  .hero h1{font-size:62px;line-height:1.05;margin:18px 0 22px;}
+  .hero h1 em{font-style:italic;color:var(--rust);}
+  .hero .lede{font-size:19px;color:var(--ink-soft);max-width:520px;margin-bottom:28px;}
+  .hero .stats{display:flex;gap:30px;padding:18px 0;border-top:1px solid var(--greige-soft);border-bottom:1px solid var(--greige-soft);margin-bottom:0;}
+  .hero .stats .stat{font-size:13px;color:var(--ink-soft);}
+  .hero .stats .stat strong{display:block;font-family:var(--serif);font-size:24px;color:var(--rust);margin-bottom:3px;font-weight:600;}
+
+  /* COVER */
+  .cover-wrap{position:relative;}
+  .cover{background:linear-gradient(135deg,#FBF6EA 0%,#F3EBDB 100%);border:1px solid var(--greige);padding:50px 40px;aspect-ratio:8.5/11;border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -25px rgba(20,44,70,.35);transform:rotate(-2deg);transition:transform .3s;}
+  .cover:hover{transform:rotate(-1deg) translateY(-4px);}
+  .cover .ribbon{background:var(--rust);color:#fff;font-size:10px;font-weight:700;letter-spacing:.25em;padding:6px 12px;align-self:flex-start;margin-bottom:24px;}
+  .cover .ribbon-2{background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.25em;padding:6px 12px;align-self:flex-start;margin-bottom:auto;}
+  .cover h3{font-size:38px;line-height:1.06;font-weight:600;margin-bottom:10px;}
+  .cover .sub{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ink-soft);line-height:1.4;margin-bottom:30px;}
+  .cover .byline{font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--rust);text-transform:uppercase;margin-bottom:6px;}
+  .cover .author{font-family:var(--serif);font-size:18px;font-weight:600;}
+  .cover .meta{margin-top:24px;padding-top:18px;border-top:1px solid var(--greige);font-size:11px;color:var(--ink-faint);letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;}
+
+  /* WHAT'S INSIDE */
+  .inside{padding:90px 0;background:var(--paper);}
+  .inside-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;}
+  .inside-col h4{font-family:var(--serif);font-size:22px;margin-bottom:14px;}
+  .inside-col p{font-size:15px;color:var(--ink-soft);}
+  .inside-col .n{font-family:var(--serif);font-style:italic;font-size:48px;color:var(--rust);font-weight:400;line-height:1;margin-bottom:14px;}
+
+  /* CHAPTERS */
+  .chapters{padding:90px 0;background:var(--cream-2);border-top:1px solid var(--greige-soft);border-bottom:1px solid var(--greige-soft);}
+  .chapters h2{font-size:42px;margin-bottom:14px;text-align:center;}
+  .chapters .sub{text-align:center;font-size:17px;color:var(--ink-soft);max-width:600px;margin:0 auto 50px;}
+  .chap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px;max-width:900px;margin:0 auto;}
+  .chap{display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--greige);font-size:15px;}
+  .chap .num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--rust);font-weight:600;flex-shrink:0;min-width:36px;}
+  .chap .ttl{color:var(--ink);font-weight:500;}
+
+  /* FORM */
+  .form-section{padding:100px 0;background:var(--navy);color:#fff;text-align:center;}
+  .form-section .eyebrow{color:var(--gold);}
+  .form-section h2{color:#fff;font-size:46px;margin:18px 0 16px;max-width:680px;margin-left:auto;margin-right:auto;}
+  .form-section h2 em{font-style:italic;color:var(--gold);}
+  .form-section .sub{font-size:17px;color:rgba(245,240,232,.85);max-width:560px;margin:0 auto 40px;}
+
+  .form-box{max-width:520px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(201,148,58,.4);padding:36px;border-radius:8px;backdrop-filter:blur(8px);}
+  .form-box form{display:flex;gap:10px;}
+  .form-box input[type="email"]{flex:1;padding:14px 18px;font-size:15px;font-family:var(--sans);background:#fff;color:var(--ink);border:1px solid var(--greige);border-radius:3px;}
+  .form-box input[type="email"]:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,148,58,.2);}
+  .form-box button{padding:14px 26px;font-size:15px;font-weight:600;background:var(--rust);color:#fff;border:none;border-radius:3px;cursor:pointer;transition:.2s;font-family:var(--sans);white-space:nowrap;}
+  .form-box button:hover{background:var(--rust-dark);}
+  .form-box button:disabled{opacity:.6;cursor:wait;}
+  .form-box .fine{margin-top:14px;font-size:12px;color:rgba(245,240,232,.6);}
+  .form-box .fine a{color:var(--gold);text-decoration:underline;}
+  /* Honeypot — visually hidden */
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+
+  /* SUCCESS STATE */
+  .success{display:none;text-align:left;}
+  .success.show{display:block;}
+  .success-head{font-family:var(--serif);font-size:28px;color:#fff;margin-bottom:10px;}
+  .success-msg{font-size:15px;color:rgba(245,240,232,.85);margin-bottom:24px;}
+  .download-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:700;font-size:15px;padding:16px 28px;border-radius:3px;transition:.2s;}
+  .download-btn:hover{background:#d6a247;transform:translateY(-2px);}
+
+  /* AUTHOR */
+  .author-block{padding:80px 0;background:var(--paper);}
+  .author-grid{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;max-width:780px;margin:0 auto;}
+  .author-block img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--greige-soft);}
+  .author-block h3{font-size:28px;margin-bottom:10px;}
+  .author-block p{font-size:15.5px;color:var(--ink-soft);}
+  .author-block a{color:var(--rust);font-weight:600;}
+
+  /* CTABAND (matches resources.html) */
+  .ctaband{padding:80px 0;background:var(--rust);color:#fff;text-align:center;}
+  .ctaband .kick{font-family:var(--serif);font-style:italic;font-size:21px;color:rgba(255,255,255,.86);margin-bottom:10px;}
+  .ctaband h2{color:#fff;font-size:42px;max-width:720px;margin:0 auto 18px;}
+  .ctaband p{font-size:18px;color:rgba(255,255,255,.9);margin-bottom:32px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:15px 26px;border-radius:3px;transition:.2s;cursor:pointer;}
+  .btn-light{background:var(--cream);color:var(--rust);} .btn-light:hover{background:#fff;}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:var(--greige);padding:60px 0 36px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(196,185,168,.18);max-width:1240px;margin:0 auto;padding-left:64px;padding-right:64px;}
+  footer .flogo img{height:52px;margin-bottom:16px;}
+  footer .tag{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--greige);}
+  footer .fcol h4{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:18px;}
+  footer .fcol a{display:block;font-size:14px;color:rgba(196,185,168,.85);padding:5px 0;transition:.2s;}
+  footer .fcol a:hover{color:var(--gold);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;max-width:1240px;margin:30px auto 0;padding:0 64px;font-size:13px;color:var(--ink-faint);}
+
+  @media(max-width:980px){
+    .wrap{padding:0 32px;}
+    .nav-inner{padding:18px 32px;}
+    .nav-links{display:none;}
+    .nav-links .nav-cta{display:inline-flex;}
+    .nav-links{display:flex;gap:14px;}
+    .nav-links a:not(.nav-cta){display:none;}
+    .hero{padding:60px 0 40px;}
+    .hero-grid{grid-template-columns:1fr;gap:50px;}
+    .hero h1{font-size:42px;}
+    .cover{transform:none;max-width:340px;margin:0 auto;padding:36px 26px;}
+    .cover:hover{transform:translateY(-4px);}
+    .cover h3{font-size:30px;}
+    .inside-grid{grid-template-columns:1fr;gap:30px;}
+    .chapters h2,.ctaband h2,.form-section h2{font-size:32px;}
+    .chap-grid{grid-template-columns:1fr;}
+    .form-box{padding:24px;}
+    .form-box form{flex-direction:column;}
+    .author-grid{grid-template-columns:1fr;text-align:center;}
+    .author-block img{margin:0 auto;}
+    .foot-grid{grid-template-columns:1fr 1fr;padding-left:32px;padding-right:32px;}
+    .foot-bottom{padding:0 32px;flex-direction:column;gap:8px;text-align:center;}
+  }
+</style>
+</head>
+<body data-screen-label="ToyBox — Build-With-Claude Playbook">
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img decoding="async" loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+    <div class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../index.html#workshops">Workshops</a>
+      <a class="active" href="../resources.html">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../case-study.html">Work</a>
+      <a href="../events.html">Events</a>
+      <a href="../contact.html">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a Discovery Call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Free Playbook · No 01</div>
+        <h1>How I built my site <em>with Claude.</em></h1>
+        <p class="lede">The exact path from a paid Wix subscription to a GitHub-hosted, fully analytics-instrumented, search-indexed, mobile-polished, SSL-secured stack — for three live brand sites. Hosting now costs me almost nothing.</p>
+        <div class="stats">
+          <div class="stat"><strong>15</strong>pages</div>
+          <div class="stat"><strong>11</strong>phases</div>
+          <div class="stat"><strong>$0</strong>monthly hosting</div>
+          <div class="stat"><strong>~25 min</strong>read</div>
+        </div>
+      </div>
+      <div class="cover-wrap">
+        <div class="cover">
+          <span class="ribbon">FREE PLAYBOOK</span>
+          <span class="ribbon-2">NO 01</span>
+          <h3>How I Built My Site With Claude</h3>
+          <p class="sub">A step-by-step playbook for media personalities, creators, and multi-brand humans who want to leave Wix behind.</p>
+          <div>
+            <div class="byline">Written by</div>
+            <div class="author">Katoya Raquell Palmer</div>
+          </div>
+          <div class="meta">
+            <span>15 PAGES</span>
+            <span>JUNE 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block;">What's inside</div>
+    <h2 style="text-align:center;font-size:42px;margin-top:14px;">Three things you'll walk away with.</h2>
+    <div class="inside-grid">
+      <div class="inside-col">
+        <div class="n">01</div>
+        <h4>A working stack</h4>
+        <p>GitHub Pages, custom domain, HTTPS, mobile-first design, security headers — the same setup running three of my live sites today.</p>
+      </div>
+      <div class="inside-col">
+        <div class="n">02</div>
+        <h4>A discovery engine</h4>
+        <p>SEO tags, sitemap, JSON-LD schema, Google Search Console, Bing Webmaster, plus four free analytics tools layered for different questions.</p>
+      </div>
+      <div class="inside-col">
+        <div class="n">03</div>
+        <h4>A way to work with Claude</h4>
+        <p>How I treat Claude as a co-pilot — what to delegate, what to keep, and how the same approach can be applied to almost anything you build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section class="chapters">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;display:block;">The full table of contents</div>
+    <h2>Eleven phases, all<br/>built on what shipped.</h2>
+    <p class="sub">Every chapter is from something I actually built — not theorized about. No filler.</p>
+    <div class="chap-grid">
+      <div class="chap"><span class="num">01</span><span class="ttl">Plan your brand architecture</span></div>
+      <div class="chap"><span class="num">02</span><span class="ttl">Set up Claude as your co-pilot</span></div>
+      <div class="chap"><span class="num">03</span><span class="ttl">GitHub, domains, and DNS</span></div>
+      <div class="chap"><span class="num">04</span><span class="ttl">Design your pages with Claude</span></div>
+      <div class="chap"><span class="num">05</span><span class="ttl">Deploy to GitHub Pages</span></div>
+      <div class="chap"><span class="num">06</span><span class="ttl">SEO and search-engine discovery</span></div>
+      <div class="chap"><span class="num">07</span><span class="ttl">Install your analytics stack</span></div>
+      <div class="chap"><span class="num">08</span><span class="ttl">Mobile, accessibility, security</span></div>
+      <div class="chap"><span class="num">09</span><span class="ttl">Legal pages and consent</span></div>
+      <div class="chap"><span class="num">10</span><span class="ttl">Email and audience</span></div>
+      <div class="chap"><span class="num">11</span><span class="ttl">Real-time visitor pings</span></div>
+      <div class="chap"><span class="num">+</span><span class="ttl">Closing: what I'd do differently</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="get">
+  <div class="wrap">
+    <div class="eyebrow">Get the playbook</div>
+    <h2>Drop your email. <em>Get the PDF.</em></h2>
+    <p class="sub">I'll send the playbook straight to your inbox and add you to ToyBox's quarterly Systems &amp; Ops note. Unsubscribe in one click — I respect inboxes.</p>
+
+    <div class="form-box">
+      <!-- Brevo form: ToyBox Mailing List Signup -->
+      <form id="brevo-form" novalidate>
+        <input type="email" name="EMAIL" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" />
+        <input class="hp" type="text" name="email_address_check" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="locale" value="en" />
+        <button type="submit" id="brevo-submit">Get the playbook →</button>
+      </form>
+      <p class="fine">By signing up, you agree to receive emails from ToyBox Consulting. See our <a href="../privacy.html">Privacy Policy</a>. Free, no spam, easy unsubscribe.</p>
+
+      <!-- SUCCESS STATE -->
+      <div class="success" id="success">
+        <div class="success-head">Check your inbox.</div>
+        <p class="success-msg">You'll get a confirmation email shortly. In the meantime — your playbook is below. Read it, share it, build with it.</p>
+        <a class="download-btn" href="/assets/playbook/how-i-built-my-site-with-claude.pdf" download>
+          ↓ Download the PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="author-block">
+  <div class="wrap">
+    <div class="author-grid">
+      <img src="../assets/katoya-keynote.jpg" alt="Katoya Raquell Palmer" />
+      <div>
+        <div class="eyebrow">About the author</div>
+        <h3>Katoya Raquell Palmer</h3>
+        <p>Founder of ToyBox Consulting &amp; Management. Systems strategist, fractional COO, and writer behind <em>Five Windows into a Fragile Economy</em>. I help mission-driven leaders build clarity, culture, and credibility — and increasingly, I help them do it with Claude. <a href="../about.html">More about me →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTABAND -->
+<section class="ctaband">
+  <div class="wrap">
+    <div class="kick">If you'd rather skip the DIY,</div>
+    <h2>Let ToyBox build it with you.</h2>
+    <p>Custom stacks, brand architecture, AI-enabled operations. Built for nonprofits, small businesses, and creators who want to own their tools.</p>
+    <a class="btn btn-light" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a Discovery Call <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="flogo"><img decoding="async" loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></div>
+      <div class="tag">Let's build clarity, culture, and credibility together.</div>
+    </div>
+    <div class="fcol">
+      <h4>Explore</h4>
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services &amp; rates</a>
+      <a href="../resources.html">Tools</a>
+      <a href="../about.html">About Katoya</a>
+      <a href="../case-study.html">Work</a>
+    </div>
+    <div class="fcol">
+      <h4>Connect</h4>
+      <a href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a call</a>
+      <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>
+      <a href="https://katoyapalmer.substack.com">katoyapalmer.substack.com</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="fcol">
+      <h4>Legal</h4>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms of Use</a>
+      <a href="../cookies.html">Cookie Notice</a>
+      <a href="#" onclick="tbReopenConsent && tbReopenConsent(); return false;">Cookie settings</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 ToyBox Consulting &amp; Management, LLC</span>
+    <span>What's next out the box?</span>
+  </div>
+</footer>
+
+<script>
+  // Brevo form submit — POST then reveal download
+  const BREVO_URL = "https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==";
+
+  const form = document.getElementById('brevo-form');
+  const btn  = document.getElementById('brevo-submit');
+  const success = document.getElementById('success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.EMAIL.value.trim();
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      form.EMAIL.focus();
+      return;
+    }
+    if (form.email_address_check.value) return; // honeypot tripped
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const fd = new FormData(form);
+    try {
+      // POST to Brevo (no-cors — fire and forget; we cannot read the response)
+      await fetch(BREVO_URL, { method: 'POST', body: fd, mode: 'no-cors' });
+    } catch (err) {
+      // Even if fetch fails, the optimistic UX continues — the PDF is the thing they came for.
+      console.warn('Brevo submit error (non-blocking):', err);
+    }
+    // Track in GA if present
+    if (window.gtag) gtag('event', 'playbook_download', { method: 'build_with_claude' });
+    // Reveal success state
+    form.style.display = 'none';
+    success.classList.add('show');
+    // Auto-trigger download for the impatient
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = '/assets/playbook/how-i-built-my-site-with-claude.pdf';
+      a.download = 'How-I-Built-My-Site-With-Claude.pdf';
+      document.body.appendChild(a); a.click(); a.remove();
+    }, 600);
+  });
+</script>
+
+<!-- Sitewide Analytics (matches resources.html) -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e77598fcc78b422885ae3087ca52fac9"}'></script>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","wzu2tuzmct");</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVTKETZGVC"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GVTKETZGVC');</script>
+<script type="text/javascript">window._nQc="89849633",function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="https://serve.albacross.com/track.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}();</script>
+
+</body>
+</html>
