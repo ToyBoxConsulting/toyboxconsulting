@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#10243A" />
 <link rel="canonical" href="https://toyboxconsulting.net/about.html" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(), display-capture=()">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website" />
@@ -336,7 +336,7 @@
       <input type="checkbox" id="tb-cat-b2b" />
       <span class="tb-cat-text">
         <strong>Visitor identification (B2B)</strong>
-        <span>Albacross — resolves visitor company by IP where possible.</span>
+        <span>RB2B — identifies business visitors (person-level, US) where possible.</span>
       </span>
     </label>
 
@@ -354,7 +354,8 @@
     ga4MeasurementId:   'G-XXXXXXXXXX',                                   // TODO when GA4 properties are created (file 04 process)
     bingUetTagId:       '00000000',                                       // TODO when UET tag retrieved
     clarityProjectId:   'wzu2tuzmct',                                     // ToyBox Clarity project (live)
-    albacrossId:        '89849633',                                       // ToyBox Albacross workspace (live)
+    albacrossId:        '',                                               // Albacross retired 2026-07 (trial ended)
+    rb2bKey:            '961Y0HD2EMNG',                                   // RB2B person-level visitor ID (free tier)
     cloudflareAnalyticsToken: 'e77598fcc78b422885ae3087ca52fac9',        // ToyBox CF Web Analytics (live)
     cookieName:         'toybox_consent',
     cookieDays:         365
@@ -423,15 +424,16 @@
     window.__tbClarityLoaded = true;
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",CONFIG.clarityProjectId);
   }
-  function loadAlbacross() {
-    if (window.__tbAlbaLoaded || !CONFIG.albacrossId || CONFIG.albacrossId === '000000000') return;
-    window.__tbAlbaLoaded = true;
-    window._nQc = CONFIG.albacrossId;
-    var s = document.createElement('script');
+  function loadAlbacross() { // B2B slot — RB2B since 2026-07 (Albacross retired)
+    if (window.reb2b || !CONFIG.rb2bKey) return;
+    window.reb2b = {loaded: true};
+    var s = document.createElement("script");
     s.async = true;
-    s.src = 'https://serve.albacross.com/track.js';
-    document.head.appendChild(s);
+    s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + CONFIG.rb2bKey + "/" + CONFIG.rb2bKey + ".js.gz";
+    var f = document.getElementsByTagName("script")[0];
+    f.parentNode.insertBefore(s, f);
   }
+
   function loadCloudflareAnalytics() {
     if (window.__tbCFLoaded || !CONFIG.cloudflareAnalyticsToken) return;
     window.__tbCFLoaded = true;
