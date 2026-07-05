@@ -422,22 +422,9 @@
 <script src="/tb-events.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ToyBox Consulting & Management","alternateName":"TBCM","url":"https://www.toyboxconsulting.net","logo":"https://www.toyboxconsulting.net/assets/logo.png","founder":{"@type":"Person","name":"Katoya Raquell Palmer","jobTitle":"Founder, Systems Strategist, Fractional COO","url":"https://www.katoyapalmer.com"},"address":{"@type":"PostalAddress","addressLocality":"Bellevue","addressRegion":"WA","postalCode":"98007","addressCountry":"US"},"email":"katoya@toyboxconsulting.net","areaServed":"United States","knowsAbout":["Fractional COO","Operations Strategy","Governance","Nonprofit Operations","Financial Controls","Board Governance"]}</script>
 <style>
-.botbn-bar{display:none;background:linear-gradient(90deg,#C9943A 0%,#D6A247 100%);color:#142C46;font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;padding:11px 60px 11px 24px;text-align:center;position:relative;border-bottom:1px solid rgba(20,44,70,.18);line-height:1.4;z-index:100;}
-.botbn-bar strong{font-weight:700;}
-.botbn-bar em{font-style:italic;font-weight:600;color:#8B2C14;}
-.botbn-bar a.botbn-cta{color:#142C46;font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:8px;white-space:nowrap;}
-.botbn-bar a.botbn-cta:hover{color:#B73A1A;}
-.botbn-bar .botbn-dismiss{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#142C46;font-size:22px;cursor:pointer;line-height:1;opacity:.65;padding:6px 12px;font-weight:300;}
-.botbn-bar .botbn-dismiss:hover{opacity:1;}
-@media (max-width:820px){.botbn-bar{font-size:12.5px;padding:10px 46px 10px 18px;}.botbn-bar a.botbn-cta{display:inline-block;margin-top:2px;}}
 </style>
 </head>
 <body>
-<div class="botbn-bar" id="botbn-bar" data-source="toybox" style="display:none;">
-  Katoya R. Palmer nominated for <strong>Best Community Leader</strong> in <em>The Seattle Medium’s Best of the Best Northwest</em>
-  <a class="botbn-cta" id="botbn-vote" href="https://www.bestofthebestnorthwest.com/?utm_source=toyboxconsulting&utm_medium=announcement_bar&utm_campaign=botbn_vote_2026" target="_blank" rel="noopener noreferrer">Vote by June 19 →</a>
-  <button class="botbn-dismiss" id="botbn-dismiss" aria-label="Dismiss announcement">×</button>
-</div>
   <img decoding="async" loading="lazy" src="assets/logo-white.png" alt="ToyBox Consulting and Management" />
   <div class="code">4<span>0</span>4</div>
   <h1>This page took a wrong turn.</h1>
@@ -460,16 +447,5 @@
     </div>
   </div>
 </footer>
-<script>(function(){var EXPIRE=new Date('2026-06-20T06:59:59Z');/* Jun 19 23:59:59 PT */
-if(new Date()>EXPIRE)return;
-if(localStorage.getItem('botbn_dismissed_2026'))return;
-var bar=document.getElementById('botbn-bar');if(!bar)return;
-bar.style.display='block';
-document.body.classList.add('botbn-visible');
-var d=document.getElementById('botbn-dismiss');
-if(d)d.addEventListener('click',function(e){e.preventDefault();localStorage.setItem('botbn_dismissed_2026','1');bar.style.display='none';document.body.classList.remove('botbn-visible');});
-var v=document.getElementById('botbn-vote');
-if(v)v.addEventListener('click',function(){if(window.gtag)gtag('event','vote_click',{campaign:'botbn_2026',source:bar.dataset.source||''});});
-})();</script>
 </body>
 </html>
