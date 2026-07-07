@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — ToyBox Consulting & Management</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}">
+  <link rel="canonical" href="https://www.toyboxconsulting.net{{ page.url }}">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(), display-capture=()">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" type="image/png" href="/assets/logo-rust.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF; --rust:#B73A1A; --rust-lt:#D9572F;
+            --greige:#C4B9A8; --greige-soft:#E3DBCD; --navy:#1B3A5C; --navy-deep:#10243A;
+            --gold:#C9943A; --gold-lt:#DDB465; --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
+            --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sans);background:var(--cream-2);color:var(--ink);line-height:1.7}
+    nav{background:var(--navy-deep);padding:1rem 5%;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+    nav a{color:var(--cream);text-decoration:none;font-size:.92rem}
+    nav a.brand{font-family:var(--serif);font-size:1.15rem;color:var(--gold-lt);margin-right:auto}
+    nav a.cta{background:var(--rust);padding:.5rem 1rem;border-radius:4px}
+    article{max-width:720px;margin:0 auto;padding:3.5rem 1.25rem}
+    .kicker{color:var(--rust);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:600}
+    h1{font-family:var(--serif);font-size:2.3rem;line-height:1.2;color:var(--navy-deep);margin:.4rem 0 1rem}
+    .meta{color:var(--ink-faint);font-size:.88rem;margin-bottom:2.2rem}
+    article h2{font-family:var(--serif);color:var(--navy);margin:2.2rem 0 .8rem;font-size:1.45rem}
+    article p,article ul,article ol{margin-bottom:1.1rem}
+    article a{color:var(--rust)}
+    blockquote{border-left:3px solid var(--gold);padding-left:1.1rem;color:var(--ink-soft);font-style:italic;margin:1.4rem 0}
+    .subscribe{background:var(--navy-deep);color:var(--cream);border-radius:8px;padding:1.6rem;margin-top:3rem}
+    .subscribe a{color:var(--gold-lt);font-weight:600}
+    footer{background:var(--navy-deep);color:var(--greige);text-align:center;padding:2rem 5%;font-size:.85rem;margin-top:4rem}
+    footer a{color:var(--cream)}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="/">ToyBox Consulting</a>
+    <a href="/blog/">Blog</a><a href="/services.html">Services</a><a href="/resources.html">Tools</a>
+    <a href="/about.html">About</a><a href="/case-study.html">Work</a><a href="/contact.html">Contact</a>
+    <a class="cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a Discovery Call</a>
+  </nav>
+  <article>
+    <p class="kicker">{{ page.category | default: "Field Notes" }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: "%B %-d, %Y" }} · Katoya Palmer</p>
+    {{ content }}
+    <div class="subscribe">
+      Get these in your inbox — operations infrastructure, governance, and the occasional build log.
+      <a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==" target="_blank" rel="noopener noreferrer">Join the ToyBox list →</a>
+    </div>
+  </article>
+  <footer>© 2026 ToyBox Consulting &amp; Management LLC · <a href="/privacy.html">Privacy</a> · <a href="/cookies.html">Cookies</a></footer>
+</body>
+</html>
