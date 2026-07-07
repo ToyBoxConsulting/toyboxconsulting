@@ -3,3 +3,7 @@
 # (like assetlinks.json, apple-app-site-association) are served.
 include:
   - ".well-known"
+
+# TBCM blog (added 2026-07-07)
+permalink: /blog/:year/:title/
+markdown: kramdown
