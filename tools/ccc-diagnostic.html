@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCC Diagnostic — ToyBox Consulting</title>
+<link rel="canonical" href="https://toyboxconsulting.net/tools/ccc-diagnostic.html" />
+<meta name="description" content="Where is your organization actually stuck? A 2-minute diagnostic across Clarity, Culture, and Credibility — the CCC Cycle from ToyBox Consulting & Management." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ToyBox Consulting &amp; Management" />
+<meta property="og:title" content="The CCC Diagnostic — Where is your organization actually stuck?" />
+<meta property="og:description" content="Nine questions across Clarity, Culture, and Credibility show you exactly where the gap is. Free, private, no sign-up." />
+<meta property="og:url" content="https://toyboxconsulting.net/tools/ccc-diagnostic.html" />
+<link rel="icon" type="image/png" href="../assets/logo-rust.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14211E;
+    --paper:#EEF0EA;
+    --card:#F7F8F4;
+    --line:#D7DBD2;
+    --muted:#5F6B64;
+    --clarity:#127D6E;
+    --culture:#D69A2E;
+    --credibility:#3C5A8A;
+    --focus:#BF5C41;
+    --gold:#E0A43B;
+    --shadow:0 1px 2px rgba(20,33,30,.06),0 12px 32px rgba(20,33,30,.09);
+    --r:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ToyBox nav bar (matches tool convention) */
+  .tbx-bar{max-width:760px;margin:0 auto;padding:20px 20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .tbx-bar a{font-size:13.5px;font-weight:600;text-decoration:none}
+  .tbx-back{color:var(--muted)} .tbx-back:hover{color:var(--ink)}
+  .tbx-cta{color:var(--ink);background:var(--gold);padding:9px 16px;border-radius:999px}
+  .tbx-cta:hover{filter:brightness(1.04)}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 20px 56px}
+  .stage{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--r);
+    box-shadow:var(--shadow);
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .eyebrow{
+    font-family:"Space Mono",monospace;
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 14px;
+  }
+  h1{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:800;font-size:clamp(30px,6vw,44px);line-height:1.02;
+    letter-spacing:-.02em;margin:0 0 16px;
+  }
+  h1 .cyc{color:var(--clarity)}
+  .lede{font-size:17px;color:var(--muted);max-width:52ch;margin:0 0 22px;min-height:3em}
+  /* audience toggle */
+  .aud-label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 9px}
+  .aud{display:inline-flex;background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:4px;gap:4px}
+  .aud button{
+    font-family:"Inter",sans-serif;font-size:13.5px;font-weight:600;
+    padding:9px 18px;border-radius:999px;color:var(--muted);transition:all .15s ease;
+  }
+  .aud button.on{background:var(--ink);color:#F7F8F4}
+  .aud button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .meta{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--muted);margin:22px 0 24px}
+  .meta span{color:var(--ink)}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--ink);color:#F7F8F4;
+    font-weight:600;font-size:15px;
+    padding:14px 24px;border-radius:999px;
+    transition:transform .15s ease,box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(20,33,30,.22)}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .btn.gold{background:var(--gold);color:var(--ink)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+  /* ---- cycle motif ---- */
+  .loop-wrap{display:flex;justify-content:center;margin:26px 0 6px}
+  .loop{width:100%;max-width:340px;height:auto}
+  .loop .arc{fill:none;stroke:var(--line);stroke-width:2.5}
+  .loop .flow{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:14 320;opacity:.85}
+  .node-label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;fill:var(--muted);text-transform:uppercase}
+  .node-ring{fill:var(--card)}
+  .node-disc{transform-box:fill-box;transform-origin:center;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+  .node-score{font-family:"Space Mono",monospace;font-weight:700;font-size:15px;fill:#F7F8F4}
+  .node-focus-tag{font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.1em;fill:var(--focus);text-transform:uppercase}
+  @keyframes travel{to{stroke-dashoffset:-334}}
+  .flow.run{animation:travel 5.5s linear infinite}
+  /* ---- questions ---- */
+  .phasebar{display:flex;gap:6px;margin:0 0 26px}
+  .phasebar .seg{flex:1;height:5px;border-radius:99px;background:var(--line);overflow:hidden}
+  .phasebar .seg i{display:block;height:100%;width:0;border-radius:99px;transition:width .4s ease}
+  .seg.c0 i{background:var(--clarity)}
+  .seg.c1 i{background:var(--culture)}
+  .seg.c2 i{background:var(--credibility)}
+  .qtag{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px}
+  .qtag.c0{color:var(--clarity)} .qtag.c1{color:var(--culture)} .qtag.c2{color:var(--credibility)}
+  .qcount{color:var(--muted)}
+  .question{
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:600;
+    font-size:clamp(21px,3.6vw,27px);line-height:1.18;letter-spacing:-.01em;
+    margin:0 0 26px;min-height:2.2em;
+  }
+  .scale{display:grid;grid-template-columns:1fr;gap:8px}
+  .opt{
+    text-align:left;width:100%;
+    border:1.5px solid var(--line);background:var(--card);
+    border-radius:12px;padding:14px 16px;font-size:15px;color:var(--ink);
+    display:flex;align-items:center;gap:13px;
+    transition:border-color .14s ease,background .14s ease,transform .08s ease;
+  }
+  .opt:hover{border-color:var(--ink)}
+  .opt:active{transform:scale(.995)}
+  .opt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .opt .dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none;transition:all .14s}
+  .opt.sel{border-color:var(--ink);background:#fff}
+  .opt.sel .dot{border-color:var(--ink);background:var(--ink);box-shadow:inset 0 0 0 3px #fff}
+  .navrow{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+  .navrow .back{color:var(--muted);font-size:14px;font-weight:500;padding:8px 4px}
+  .navrow .back:hover{color:var(--ink)}
+  .navrow .back[disabled]{opacity:.35;cursor:default}
+  /* ---- results ---- */
+  .res-head{text-align:center;margin-bottom:6px}
+  .band{
+    display:inline-block;font-family:"Space Mono",monospace;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+  }
+  .res-title{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(24px,5vw,34px);letter-spacing:-.02em;margin:0}
+  /* pattern readout panel */
+  .readout{
+    margin:26px 0 2px;padding:22px 24px;
+    border:1px solid var(--line);border-left:4px solid var(--gold);
+    border-radius:14px;background:#fff;
+  }
+  .readout .r-tag{
+    font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin:0 0 10px;
+  }
+  .readout p{margin:0 0 12px;font-size:15.5px;line-height:1.65;color:var(--ink)}
+  .readout p:last-child{margin-bottom:0}
+  .cards{display:grid;grid-template-columns:1fr;gap:12px;margin:28px 0 4px}
+  .ccard{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--card)}
+  .ccard.focus{border-color:var(--focus);box-shadow:0 0 0 1px var(--focus) inset}
+  .ccard .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .ccard .name{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;display:flex;align-items:center;gap:9px}
+  .ccard .name .swatch{width:11px;height:11px;border-radius:3px;flex:none}
+  .ccard .sc{font-family:"Space Mono",monospace;font-weight:700;font-size:20px}
+  .ccard .tagfocus{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--focus)}
+  .ccard p{margin:0;font-size:14.5px;color:var(--muted)}
+  .cta-block{margin-top:26px;padding:22px;border-radius:14px;background:var(--ink);color:#EEF0EA;text-align:center}
+  .cta-block h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:20px;margin:0 0 6px;color:#F7F8F4}
+  .cta-block p{margin:0 0 16px;font-size:14.5px;color:#B9C2BB}
+  .cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .retake{display:block;margin:18px auto 0;color:var(--muted);font-size:13px;font-weight:500;text-decoration:underline;text-underline-offset:3px}
+  .hide{display:none!important}
+  .note{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted);text-align:center;margin-top:22px}
+  a{color:inherit}
+  @media (max-width:520px){ .stage{padding:26px 20px} }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="tbx-bar">
+  <a class="tbx-back" href="../resources.html">← All ToyBox tools</a>
+  <a class="tbx-cta" href="https://calendly.com/toyboxcm/clarity-call" target="_blank" rel="noopener">Book a clarity call</a>
+</div>
+<div class="wrap">
+  <div class="stage" id="stage">
+    <!-- INTRO -->
+    <section id="screen-intro">
+      <p class="eyebrow">The CCC Cycle · A ToyBox diagnostic</p>
+      <h1>Where is your organization <span class="cyc">actually</span> stuck?</h1>
+      <p class="lede" id="lede"></p>
+      <p class="aud-label">Tailor it to your world</p>
+      <div class="aud" id="aud" role="tablist" aria-label="Choose audience">
+        <button data-aud="business" role="tab">Business</button>
+        <button data-aud="nonprofit" role="tab">Nonprofit</button>
+      </div>
+      <div class="loop-wrap">
+        <svg class="loop" viewBox="0 0 300 260" role="img" aria-label="The CCC Cycle: Clarity, Culture, Credibility">
+          <path class="arc" d="M150 54 A96 96 0 0 1 233 202"/>
+          <path class="arc" d="M233 202 A96 96 0 0 1 67 202"/>
+          <path class="arc" d="M67 202 A96 96 0 0 1 150 54"/>
+          <path class="flow run" d="M150 54 A96 96 0 0 1 233 202 A96 96 0 0 1 67 202 A96 96 0 0 1 150 54"/>
+          <g>
+            <circle class="node-ring" cx="150" cy="54" r="26" stroke="var(--clarity)" stroke-width="2.5"/>
+            <text class="node-label" x="150" y="20" text-anchor="middle">Clarity</text>
+          </g>
+          <g>
+            <circle class="node-ring" cx="233" cy="202" r="26" stroke="var(--culture)" stroke-width="2.5"/>
+            <text class="node-label" x="233" y="248" text-anchor="middle">Culture</text>
+          </g>
+          <g>
+            <circle class="node-ring" cx="67" cy="202" r="26" stroke="var(--credibility)" stroke-width="2.5"/>
+            <text class="node-label" x="67" y="248" text-anchor="middle">Credibility</text>
+          </g>
+        </svg>
+      </div>
+      <p class="meta">Takes about <span>2 minutes</span> · No email required to see results</p>
+      <button class="btn gold" id="start">Start the diagnostic →</button>
+    </section>
+    <!-- QUESTIONS -->
+    <section id="screen-q" class="hide">
+      <div class="phasebar" id="phasebar">
+        <div class="seg c0"><i></i></div>
+        <div class="seg c1"><i></i></div>
+        <div class="seg c2"><i></i></div>
+      </div>
+      <p class="qtag" id="qtag"></p>
+      <p class="question" id="qtext"></p>
+      <div class="scale" id="scale"></div>
+      <div class="navrow">
+        <button class="back" id="back">← Back</button>
+        <span class="qtag qcount" id="qofn" style="letter-spacing:.12em"></span>
+      </div>
+    </section>
+    <!-- RESULTS -->
+    <section id="screen-res" class="hide">
+      <div class="res-head">
+        <span class="band" id="band"></span>
+        <p class="res-title" id="restitle"></p>
+      </div>
+      <div class="loop-wrap">
+        <svg class="loop" id="reslogo" viewBox="0 0 300 260" role="img" aria-label="Your CCC results">
+          <path class="arc" d="M150 54 A96 96 0 0 1 233 202"/>
+          <path class="arc" d="M233 202 A96 96 0 0 1 67 202"/>
+          <path class="arc" d="M67 202 A96 96 0 0 1 150 54"/>
+          <g>
+            <circle class="node-ring" cx="150" cy="54" r="30" stroke="var(--clarity)" stroke-width="2.5"/>
+            <circle class="node-disc" data-disc="0" cx="150" cy="54" r="30" fill="var(--clarity)" style="transform:scale(0)"/>
+            <text class="node-label" x="150" y="16" text-anchor="middle">Clarity</text>
+            <text class="node-score" data-score="0" x="150" y="59" text-anchor="middle"></text>
+            <text class="node-focus-tag" data-tag="0" x="150" y="94" text-anchor="middle"></text>
+          </g>
+          <g>
+            <circle class="node-ring" cx="233" cy="202" r="30" stroke="var(--culture)" stroke-width="2.5"/>
+            <circle class="node-disc" data-disc="1" cx="233" cy="202" r="30" fill="var(--culture)" style="transform:scale(0)"/>
+            <text class="node-label" x="233" y="252" text-anchor="middle">Culture</text>
+            <text class="node-score" data-score="1" x="233" y="207" text-anchor="middle"></text>
+            <text class="node-focus-tag" data-tag="1" x="233" y="171" text-anchor="middle"></text>
+          </g>
+          <g>
+            <circle class="node-ring" cx="67" cy="202" r="30" stroke="var(--credibility)" stroke-width="2.5"/>
+            <circle class="node-disc" data-disc="2" cx="67" cy="202" r="30" fill="var(--credibility)" style="transform:scale(0)"/>
+            <text class="node-label" x="67" y="252" text-anchor="middle">Credibility</text>
+            <text class="node-score" data-score="2" x="67" y="207" text-anchor="middle"></text>
+            <text class="node-focus-tag" data-tag="2" x="67" y="171" text-anchor="middle"></text>
+          </g>
+        </svg>
+      </div>
+      <div class="readout" id="readout">
+        <p class="r-tag">Your readout</p>
+        <div id="readoutBody"></div>
+      </div>
+      <div class="cards" id="cards"></div>
+      <div class="cta-block">
+        <h3 id="ctahead">Let's close that gap.</h3>
+        <p id="ctasub"></p>
+        <div class="cta-row">
+          <a class="btn gold" id="bookcall" href="https://calendly.com/toyboxcm/clarity-call" target="_blank" rel="noopener">Book a clarity call</a>
+          <a class="btn ghost" href="../resources.html" target="_blank" rel="noopener">See the free tools</a>
+        </div>
+      </div>
+      <button class="retake" id="retake">Retake the diagnostic</button>
+      <p class="note">Built on the CCC Cycle · ToyBox Consulting &amp; Management</p>
+    </section>
+  </div>
+</div>
+<script>
+(function(){
+  "use strict";
+  /* ================= EDITABLE CONTENT ==================================== */
+  /* Two audiences share the CCC frame; only the wording changes.            */
+  /* Each item scores 1 (Strongly disagree) .. 5 (Strongly agree).           */
+  /* INSIGHT[phase][band]  band: 0=Emerging, 1=Developing, 2=Strong          */
+  var PHASE_META = [
+    { key:"Clarity",     cls:"c0", color:"var(--clarity)" },
+    { key:"Culture",     cls:"c1", color:"var(--culture)" },
+    { key:"Credibility", cls:"c2", color:"var(--credibility)" }
+  ];
+  var CONTENT = {
+    business:{
+      lede:"Whether you're scaling a team or steadying one, most companies know something's off but can't name it. Nine questions across Clarity, Culture, and Credibility show you exactly where the gap is.",
+      items:[
+        // Clarity
+        [ "Our leadership team would state our top three priorities the same way — without checking the deck.",
+          "We have current financials — cash, margin, pipeline — that we actually run the business on.",
+          "Roles and decision rights are clear. People know who owns what, and who decides." ],
+        // Culture
+        [ "We operate from shared standards, not individual habits and heroics.",
+          "We can surface bad news and disagree without it getting personal or buried.",
+          "Our processes scale with us instead of breaking every time we grow." ],
+        // Credibility
+        [ "Customers and partners trust us to deliver what we promised, on time.",
+          "We meet our contractual, financial, and regulatory obligations without last-minute scrambles.",
+          "Our brand promise and the actual customer experience are the same thing." ]
+      ],
+      insight:{
+        Clarity:[
+          "Priorities and numbers are fuzzy. Naming three real priorities and getting financials you run the business on is the first unlock — growth built on guesswork gets expensive fast.",
+          "You have direction, but it drifts when things get busy. Tightening decision rights and financial visibility keeps strategy from slipping as you scale.",
+          "Direction and numbers are solid. Protect it — this clarity is what lets you move fast without breaking things."
+        ],
+        Culture:[
+          "The team is running on heroics. Shared standards and honest conflict need real scaffolding before more growth compounds the strain.",
+          "The culture mostly holds, but friction and unspoken tension tax every project. Small fixes to norms and process pay back quickly.",
+          "People trust each other and the process. That's your real capacity to absorb growth and change."
+        ],
+        Credibility:[
+          "Customer and partner trust is fragile — missed promises and obligation scrambles put revenue and reputation at risk. This is where a stumble costs the most.",
+          "You're credible, with a few exposures. Closing the gap between the brand promise and the actual customer experience is your highest-leverage move.",
+          "Customers, partners, and investors trust you to deliver. Lead with this — it's an asset, not just a safeguard."
+        ]
+      }
+    },
+    nonprofit:{
+      lede:"Most nonprofits know something's off but can't name it. Nine questions across Clarity, Culture, and Credibility will show you exactly where the gap is — and what to do about it.",
+      items:[
+        [ "Leadership and board would describe our top three priorities the same way — without checking notes.",
+          "We have current financial reporting that leadership actually uses to make decisions.",
+          "People know who owns what. Decision rights are clear, not assumed." ],
+        [ "We operate from shared values, not a patchwork of individual preferences.",
+          "We can name hard truths and disagree without it getting personal or stuck.",
+          "Our internal processes support the work instead of adding friction." ],
+        [ "Funders and partners trust our reporting and our follow-through.",
+          "We meet compliance and governance obligations without a last-minute scramble.",
+          "Our public story and our internal reality are the same story." ]
+      ],
+      insight:{
+        Clarity:[
+          "Priorities and money are blurry right now. Naming three real priorities and getting reporting leadership trusts is the first unlock — everything downstream depends on it.",
+          "You have direction, but it drifts under pressure. Tightening decision rights and financial visibility will keep the strategy from slipping when things get busy.",
+          "Your direction and numbers are solid. Protect this — clarity is the foundation the other two C's stand on."
+        ],
+        Culture:[
+          "The internal engine is straining. Shared values and honest conflict need scaffolding here before new strategy will stick.",
+          "The culture mostly holds, but friction and unspoken tension leak energy. Small process and norm fixes compound fast.",
+          "People trust each other and the process. That's rare and valuable — it's your capacity to absorb change."
+        ],
+        Credibility:[
+          "External trust is fragile — compliance scrambles and story-reality gaps put funding at risk. This is where a stumble costs the most.",
+          "You're credible, with a few exposures. Closing the gap between the public story and the internal reality is the highest-leverage move.",
+          "Funders and partners trust you, and your house is in order. This is an asset to lead with, not just defend."
+        ]
+      }
+    }
+  };
+  var LABELS = ["Strongly disagree","Disagree","Mixed","Agree","Strongly agree"];
+  var BANDS = [ {max:54,name:"Emerging"}, {max:78,name:"Developing"}, {max:101,name:"Strong"} ];
+  var TITLES = ["Your foundation needs shoring up.","You've got real momentum to build on.","You're operating from strength."];
+  /* ---- PATTERN READOUTS -------------------------------------------------
+     One paragraph for every combination of bands across the three C's.
+     Key = Clarity band + Culture band + Credibility band
+     (0 = Emerging, 1 = Developing, 2 = Strong). Example: "201" means
+     Clarity strong, Culture emerging, Credibility developing.
+     These read the RELATIONSHIP between scores — edit freely.            */
+  var PATTERNS = {
+    business:{
+      "000":"Everything is under strain at once — direction, team, and external trust are all running on fumes. The honest read: don't try to fix all three. Start with Clarity, because until priorities and numbers are nailed down, culture fixes won't stick and promises to customers will keep slipping.",
+      "001":"Your external reputation is holding up better than what's behind it — customers still trust you, but internally, direction is foggy and the team is straining. That gap is borrowed time. Lock down priorities and decision rights first, before the internal wobble starts showing up in delivery.",
+      "002":"Customers trust you and you deliver — but inside, priorities are fuzzy and the team is running on heroics. You've built credibility on effort, not systems, and effort doesn't scale. Clarity is the fix: name the priorities, fix the numbers, and let your strong reputation buy you the time to do it.",
+      "010":"Your team's culture is the one thing holding while direction and external trust both wobble. That's an asset — people who trust each other can absorb hard changes. Spend that trust on a clarity reset: priorities, financial visibility, decision rights. Credibility recovers once the inside is coherent.",
+      "011":"Culture and credibility are workable, but everything sits on a foggy foundation — unclear priorities, soft numbers, assumed decision rights. Teams like yours often feel busy and productive right up until a growth spurt exposes the fog. Fix Clarity now, while the other two C's can still cover for it.",
+      "012":"You deliver, and customers know it — but ask three people on your team what the top priority is and you'd get three answers. Strong credibility with weak clarity means you're winning on execution while steering by feel. Naming real priorities and tightening the numbers turns a good operation into a scalable one.",
+      "020":"Your team is genuinely strong — shared standards, honest conflict — but it's pointed in an unclear direction and customers are feeling the wobble. A great engine with no map. Clarity work here pays off fast, because a healthy culture executes a clear strategy almost immediately.",
+      "021":"A strong team is compensating for a fuzzy strategy, and mostly pulling it off — credibility is holding at decent levels. But compensating is expensive: your best people are burning judgment on decisions that clear priorities would make automatic. Give this culture a clear direction and everything compounds.",
+      "022":"Your team and your reputation are both strong — the only thing missing is a sharp answer to 'what are we actually building, and how do the numbers say it's going?' That's a champagne problem, but a real one: strong execution of an unclear strategy eventually scales the wrong things. Clarity is your unlock.",
+      "100":"You have a rough sense of direction, but the team is straining and external trust is fragile — the strategy exists mostly on paper. The move is Culture first: shared standards and honest conflict are what turn a written strategy into delivered promises. Credibility follows delivery.",
+      "101":"Direction and reputation are both middling while the team runs on heroics underneath. Heroics feel like commitment, but they're actually your biggest risk — one departure or one bad quarter and both other C's drop with it. Invest in Culture: standards, process, and the ability to say hard things out loud.",
+      "102":"Customers trust you — genuinely strong credibility — but internally the team is straining and the strategy is only half-clear. You're delivering on relationships and effort. Culture is the priority: build the shared standards that make delivery repeatable, so your reputation stops depending on individual burnout.",
+      "110":"Direction and team are both developing, but external trust is lagging behind — promises are slipping somewhere between intention and delivery. That's usually a follow-through problem, not a strategy problem. Focus on Credibility: pick the two or three obligations you keep scrambling on and systematize them.",
+      "111":"Everything is at a workable middle — nothing broken, nothing strong. That's the most common profile and the most deceptive one, because 'fine everywhere' often means 'exceptional nowhere.' Pick the C closest to your next growth move and push it to strong; the other two will get pulled along.",
+      "112":"Customers trust you more than your internal state would predict — credibility is your strong suit while direction and culture are still developing. Protect that asset by closing the gap behind it: sharpen priorities and standards now, so the outside story and inside reality stay the same story.",
+      "120":"Your culture is genuinely strong and your direction is workable, but external trust is fragile — obligations get scrambled, promises slip. A team this healthy can fix credibility fast; it's usually a systems gap, not a people gap. Pick your three most visible external obligations and make them boringly reliable.",
+      "121":"A strong team, decent direction, decent reputation. The pattern says your culture is ahead of your systems — people are good, process is catching up. The highest-leverage move is finishing the Clarity work: crisp priorities and numbers turn a good team's energy into compounding results.",
+      "122":"Culture and credibility are both strong — people trust each other inside and customers trust you outside. Direction is the lagging piece, and with this foundation, that's very fixable. A focused clarity sprint (three priorities, real financial visibility, named decision rights) is likely all that separates you from firing on all cylinders.",
+      "200":"Your strategy is sharp — priorities, numbers, decision rights all clear — but the engine executing it is straining and customers are feeling it. Clarity without culture is a plan without a team. Shift your energy to Culture: shared standards and honest conflict are what convert your clear strategy into kept promises.",
+      "201":"You know exactly where you're going; the strain is in how you're getting there. A clear strategy with a straining team means your best thinking is being executed by people running on fumes — and credibility is only holding at middling because of it. Culture is the bottleneck, and the fix.",
+      "202":"Sharp strategy, trusted brand — and a team quietly straining in the middle. This profile often belongs to founder-led companies where clarity and reputation both flow from one person. The Culture work — standards, process, honest conflict — is what makes the whole thing survivable and sellable beyond you.",
+      "210":"Direction is sharp and the team is solid, but external trust hasn't caught up — obligations slip, promises wobble. With this internal strength, credibility is the easiest C to fix: it's almost always a follow-through system, not a capability gap. Make your external commitments boringly reliable and the profile completes itself.",
+      "211":"Strong clarity with everything else developing is the classic scaling profile: the strategy has outrun the organization. That's normal and fixable — the risk is only if it persists. Focus on Culture next; shared standards are what let the team execute the strategy without you in every room.",
+      "212":"Clear strategy, trusted reputation, and a culture that's good but not yet great. You're one push from a genuinely strong profile. The move: invest in the team's operating standards — the processes and norms that make your clarity executable by everyone, not just leadership.",
+      "220":"Inside, you're excellent — sharp direction, strong team. Outside, trust is fragile, which usually means a delivery or follow-through gap that your internal strength hasn't been aimed at yet. Point this organization at Credibility deliberately: audit where promises slip and systematize the fixes. It will move fast.",
+      "221":"Strong direction, strong team, decent reputation — you're close. The last mile is making external trust as reliable as your internal operation: contractual obligations met without scrambles, brand promise matching customer experience every time. Small, boring reliability wins finish this profile.",
+      "222":"Strong across all three C's — clear direction, healthy team, trusted brand. The work now isn't fixing; it's protecting and leveraging. Lead with this credibility in your market, and guard the clarity as you grow, because scale is what erodes strong profiles first."
+    },
+    nonprofit:{
+      "000":"Everything is under strain at once — direction, culture, and funder trust are all running on fumes. The honest read: don't try to fix all three. Start with Clarity, because until priorities and reporting are nailed down, culture fixes won't stick and external trust will keep eroding.",
+      "001":"Your external reputation is holding better than what's behind it — funders still trust you, but internally direction is foggy and the team is straining. That gap is borrowed time. Lock down priorities and decision rights first, before the internal wobble shows up in your reporting.",
+      "002":"Funders and partners trust you — but inside, priorities are fuzzy and the culture is straining. You've built credibility on relationships and effort, and effort doesn't scale. Clarity is the fix: name the priorities, fix the reporting, and let your strong reputation buy the time to do it.",
+      "010":"Your culture is the one thing holding while direction and external trust both wobble. That's a real asset — people who share values and trust each other can absorb hard change. Spend that trust on a clarity reset: priorities, financial visibility, decision rights. Credibility recovers once the inside is coherent.",
+      "011":"Culture and credibility are workable, but everything sits on a foggy foundation — unclear priorities, reporting no one fully trusts, assumed decision rights. Organizations like yours feel busy and mission-driven right up until a big grant or audit exposes the fog. Fix Clarity now, while the other C's can cover for it.",
+      "012":"Funders trust you, and your team mostly holds together — but ask three people what the top priority is and you'd get three answers. Strong credibility with weak clarity means you're winning on reputation while steering by feel. Real priorities and reporting leadership trusts turn a good organization into a durable one.",
+      "020":"Your culture is genuinely strong — shared values, honest conflict — but it's pointed in an unclear direction and funders are sensing the wobble. A great team with no map. Clarity work pays off fast here, because a healthy culture executes a clear strategy almost immediately.",
+      "021":"A strong culture is compensating for a fuzzy strategy, and mostly pulling it off — credibility is holding. But compensating is expensive: your best people are burning judgment on decisions that clear priorities would make automatic. Give this culture a clear direction and everything compounds.",
+      "022":"Your culture and your reputation are both strong — what's missing is a sharp answer to 'what are our real priorities, and what do the numbers say?' A champagne problem, but a real one: strong execution of an unclear strategy eventually scales the wrong programs. Clarity is your unlock.",
+      "100":"You have a rough sense of direction, but the culture is straining and funder trust is fragile — the strategy exists mostly on paper. The move is Culture first: shared values and honest conflict are what turn a written strategy into kept commitments. Credibility follows follow-through.",
+      "101":"Direction and reputation are both middling while the team runs on heroics underneath. Heroics feel like mission commitment, but they're your biggest risk — one departure or one hard quarter drops the other two C's with it. Invest in Culture: shared norms, process, and the ability to name hard truths.",
+      "102":"Funders and partners genuinely trust you — but internally the culture is straining and the strategy is half-clear. You're delivering on relationships and dedication. Culture is the priority: build the shared norms that make the work repeatable, so your reputation stops depending on individual burnout.",
+      "110":"Direction and culture are both developing, but external trust is lagging — reporting slips, compliance scrambles happen. That's usually a follow-through problem, not a mission problem. Focus on Credibility: pick the two or three obligations you keep scrambling on and systematize them.",
+      "111":"Everything is at a workable middle — nothing broken, nothing strong. That's the most common profile and the most deceptive one, because 'fine everywhere' often means 'exceptional nowhere.' Pick the C closest to your next big move — a campaign, a grant cycle, a leadership transition — and push it to strong.",
+      "112":"Funders trust you more than your internal state would predict — credibility is your strong suit while direction and culture are still developing. Protect that asset by closing the gap behind it: sharpen priorities and norms now, so the public story and the internal reality stay the same story.",
+      "120":"Your culture is genuinely strong and direction is workable, but external trust is fragile — compliance scrambles, reporting slips. A team this healthy can fix credibility fast; it's a systems gap, not a people gap. Pick your three most visible external obligations and make them boringly reliable.",
+      "121":"A strong culture, decent direction, decent reputation. The pattern says your people are ahead of your systems. The highest-leverage move is finishing the Clarity work: crisp priorities and reporting leadership trusts turn this team's energy into compounding results.",
+      "122":"Culture and credibility are both strong — people trust each other inside and funders trust you outside. Direction is the lagging piece, and with this foundation it's very fixable. A focused clarity sprint — three priorities, real financial visibility, named decision rights — is likely all that separates you from full strength.",
+      "200":"Your strategy is sharp — priorities, reporting, decision rights all clear — but the culture executing it is straining and funders are feeling it. Clarity without culture is a plan without a team. Shift energy to Culture: shared values and honest conflict convert your clear strategy into kept commitments.",
+      "201":"You know exactly where you're going; the strain is in how you're getting there. Clear strategy, straining culture — your best thinking is being executed by people running on fumes, and credibility is only holding at middling because of it. Culture is the bottleneck, and the fix.",
+      "202":"Sharp strategy, trusted reputation — and a culture quietly straining in the middle. This profile often belongs to founder- or ED-led organizations where clarity and credibility both flow from one person. The Culture work is what makes the whole thing sustainable beyond any single leader.",
+      "210":"Direction is sharp and the culture is solid, but external trust hasn't caught up — reporting slips, compliance gets scrambled. With this internal strength, credibility is the easiest C to fix: it's a follow-through system, not a capability gap. Make external commitments boringly reliable and the profile completes itself.",
+      "211":"Strong clarity with everything else developing is the classic growth profile: the strategy has outrun the organization. Normal, and fixable — the risk is only if it persists. Focus on Culture next; shared norms are what let the team execute the strategy without leadership in every room.",
+      "212":"Clear strategy, trusted reputation, and a culture that's good but not yet great. You're one push from a genuinely strong profile. The move: invest in the team's operating norms — the processes and shared standards that make your clarity executable by everyone, not just leadership.",
+      "220":"Inside, you're excellent — sharp direction, strong culture. Outside, trust is fragile, which usually means a follow-through gap your internal strength hasn't been aimed at yet. Point the organization at Credibility deliberately: audit where reporting and obligations slip, systematize the fixes. It will move fast.",
+      "221":"Strong direction, strong culture, decent reputation — you're close. The last mile is making external trust as reliable as your internal operation: obligations met without scrambles, public story matching internal reality every time. Small, boring reliability wins finish this profile.",
+      "222":"Strong across all three C's — clear direction, healthy culture, trusted reputation. The work now isn't fixing; it's protecting and leveraging. Lead with this credibility in funding conversations, and guard the clarity as you grow, because growth is what erodes strong profiles first."
+    }
+  };
+  /* ---------------------------------------------------------------------- */
+  /* ===================================================================== */
+  function bandIndex(s){ for(var i=0;i<BANDS.length;i++){ if(s<=BANDS[i].max) return i; } return 2; }
+  var audience = "business";
+  var QUESTIONS = [], answers = [], idx = 0;
+  var el = function(id){ return document.getElementById(id); };
+  var screenIntro=el("screen-intro"), screenQ=el("screen-q"), screenRes=el("screen-res");
+  function show(n){ [screenIntro,screenQ,screenRes].forEach(function(s){s.classList.add("hide");}); n.classList.remove("hide"); }
+  // audience toggle
+  function setAudience(a){
+    audience=a;
+    var btns=document.querySelectorAll("#aud button");
+    btns.forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-aud")===a); b.setAttribute("aria-selected", b.getAttribute("data-aud")===a?"true":"false"); });
+    el("lede").textContent = CONTENT[a].lede;
+  }
+  document.querySelectorAll("#aud button").forEach(function(b){
+    b.addEventListener("click", function(){ setAudience(b.getAttribute("data-aud")); });
+  });
+  setAudience("business");
+  function buildQuestions(){
+    QUESTIONS=[];
+    CONTENT[audience].items.forEach(function(phaseItems, pi){
+      phaseItems.forEach(function(text, qi){ QUESTIONS.push({phase:pi,q:qi,text:text}); });
+    });
+    answers=new Array(QUESTIONS.length).fill(null);
+  }
+  el("start").addEventListener("click", function(){ buildQuestions(); idx=0; show(screenQ); renderQ(); });
+  el("retake").addEventListener("click", function(){ idx=0; show(screenIntro); });
+  el("back").addEventListener("click", function(){ if(idx>0){ idx--; renderQ(); } });
+  function renderQ(){
+    var item=QUESTIONS[idx], phase=PHASE_META[item.phase];
+    el("qtag").className="qtag "+phase.cls;
+    el("qtag").textContent=phase.key;
+    el("qtext").textContent=item.text;
+    el("qofn").textContent="Q"+(idx+1)+" / "+QUESTIONS.length;
+    el("back").disabled=(idx===0);
+    var segs=document.querySelectorAll("#phasebar .seg i");
+    for(var pi=0;pi<3;pi++){
+      var n=0; QUESTIONS.forEach(function(q,qi){ if(q.phase===pi && answers[qi]!==null) n++; });
+      segs[pi].style.width=(n/3*100)+"%";
+    }
+    var scale=el("scale"); scale.innerHTML="";
+    LABELS.forEach(function(lab,li){
+      var val=li+1;
+      var b=document.createElement("button");
+      b.className="opt"+(answers[idx]===val?" sel":"");
+      b.setAttribute("aria-pressed", answers[idx]===val?"true":"false");
+      b.innerHTML='<span class="dot"></span>'+lab;
+      b.addEventListener("click", function(){
+        answers[idx]=val;
+        setTimeout(function(){
+          if(idx<QUESTIONS.length-1){ idx++; renderQ(); } else { computeAndShow(); }
+        },180);
+      });
+      scale.appendChild(b);
+    });
+  }
+  function phaseScore(pi){
+    var vals=QUESTIONS.map(function(q,qi){ return q.phase===pi?answers[qi]:null; }).filter(function(v){return v!==null;});
+    if(!vals.length) return 0;
+    return Math.round(vals.reduce(function(a,b){return a+b;},0)/(vals.length*5)*100);
+  }
+  function computeAndShow(){
+    var scores=[phaseScore(0),phaseScore(1),phaseScore(2)];
+    var overall=Math.round((scores[0]+scores[1]+scores[2])/3);
+    var focus=scores.indexOf(Math.min.apply(null,scores));
+    var oBand=bandIndex(overall);
+    el("band").textContent="Overall · "+BANDS[oBand].name+" · "+overall;
+    el("restitle").textContent=TITLES[oBand];
+    var svg=el("reslogo");
+    for(var i=0;i<3;i++){
+      svg.querySelector('[data-score="'+i+'"]').textContent=scores[i];
+      svg.querySelector('[data-tag="'+i+'"]').textContent=(i===focus)?"◀ start here":"";
+      (function(node,val){ setTimeout(function(){ node.style.transform="scale("+(0.28+val/100*0.72)+")"; },120); })
+        (svg.querySelector('[data-disc="'+i+'"]'), scores[i]);
+    }
+    var ins=CONTENT[audience].insight;
+    var cards=el("cards"); cards.innerHTML="";
+    PHASE_META.forEach(function(p,pi){
+      var s=scores[pi], bi=bandIndex(s);
+      var c=document.createElement("div");
+      c.className="ccard"+(pi===focus?" focus":"");
+      c.innerHTML=
+        '<div class="top">'+
+          '<span class="name"><span class="swatch" style="background:'+p.color+'"></span>'+p.key+
+            (pi===focus?' <span class="tagfocus">· focus</span>':'')+'</span>'+
+          '<span class="sc" style="color:'+p.color+'">'+s+'</span>'+
+        '</div>'+
+        '<p>'+ins[p.key][bi]+'</p>';
+      cards.appendChild(c);
+    });
+    el("ctasub").textContent="Your biggest lever right now is "+PHASE_META[focus].key+
+      ". A 30-minute clarity call turns this readout into a first move.";
+    // pattern readout: key = band of each C, e.g. "201"
+    var key = scores.map(function(s){ return bandIndex(s); }).join("");
+    var pattern = (PATTERNS[audience] && PATTERNS[audience][key]) || "";
+    var rb = el("readoutBody"); rb.innerHTML = "";
+    if(pattern){
+      var p = document.createElement("p");
+      p.textContent = pattern;
+      rb.appendChild(p);
+      el("readout").classList.remove("hide");
+    } else {
+      el("readout").classList.add("hide");
+    }
+    show(screenRes);
+    el("stage").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+})();
+</script>
+</body>
+</html>
