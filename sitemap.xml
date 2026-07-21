@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://toyboxconsulting.net/</loc><priority>1.0</priority></url>
-  <url><loc>https://toyboxconsulting.net/services.html</loc><priority>0.9</priority></url>
-  <url><loc>https://toyboxconsulting.net/resources.html</loc><priority>0.9</priority></url>
-  <url><loc>https://toyboxconsulting.net/about.html</loc><priority>0.8</priority></url>
-  <url><loc>https://toyboxconsulting.net/case-study.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/contact.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/events.html</loc><priority>0.5</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/operational-health-check.html</loc><priority>0.8</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/coo-roi-calculator.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/grant-readiness.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/board-governance.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/financial-controls.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/conflict-of-interest.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools/reserve-calculator.html</loc><priority>0.7</priority></url>
-  <url><loc>https://toyboxconsulting.net/playbook/build-with-claude.html</loc><priority>0.8</priority></url>
-  <url><loc>https://toyboxconsulting.net/tools.html</loc><priority>0.9</priority></url>
+  <url><loc>https://toyboxconsulting.net/services</loc><priority>0.9</priority></url>
+  <url><loc>https://toyboxconsulting.net/resources</loc><priority>0.9</priority></url>
+  <url><loc>https://toyboxconsulting.net/about</loc><priority>0.8</priority></url>
+  <url><loc>https://toyboxconsulting.net/case-study</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/events</loc><priority>0.5</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/operational-health-check</loc><priority>0.8</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/coo-roi-calculator</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/grant-readiness</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/board-governance</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/financial-controls</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/conflict-of-interest</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools/reserve-calculator</loc><priority>0.7</priority></url>
+  <url><loc>https://toyboxconsulting.net/playbook/build-with-claude</loc><priority>0.8</priority></url>
+  <url><loc>https://toyboxconsulting.net/tools</loc><priority>0.9</priority></url>
 </urlset>
