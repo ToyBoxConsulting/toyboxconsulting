@@ -1,58 +1,188 @@
----
-layout: null
-title: Blog
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — ToyBox Consulting & Management</title>
-  <meta name="description" content="Operations infrastructure, nonprofit governance, and build logs from ToyBox Consulting & Management.">
-  <link rel="canonical" href="https://www.toyboxconsulting.net/blog/">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(), display-capture=()">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="icon" type="image/png" href="/assets/logo-rust.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root { --cream:#F5F0E8; --cream-2:#FBF8F2; --rust:#B73A1A; --navy:#1B3A5C; --navy-deep:#10243A;
-            --gold-lt:#DDB465; --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D; --greige:#C4B9A8;
-            --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif; }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:var(--sans);background:var(--cream-2);color:var(--ink);line-height:1.7}
-    nav{background:var(--navy-deep);padding:1rem 5%;display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
-    nav a{color:#F5F0E8;text-decoration:none;font-size:.92rem}
-    nav a.brand{font-family:var(--serif);font-size:1.15rem;color:var(--gold-lt);margin-right:auto}
-    main{max-width:760px;margin:0 auto;padding:3.5rem 1.25rem}
-    h1{font-family:var(--serif);font-size:2.4rem;color:var(--navy-deep);margin-bottom:.4rem}
-    .sub{color:var(--ink-soft);margin-bottom:2.6rem}
-    .post{border-bottom:1px solid var(--greige);padding:1.6rem 0}
-    .post a{font-family:var(--serif);font-size:1.35rem;color:var(--navy);text-decoration:none}
-    .post a:hover{color:var(--rust)}
-    .date{color:var(--ink-faint);font-size:.85rem}
-    .excerpt{color:var(--ink-soft);margin-top:.4rem}
-    footer{background:var(--navy-deep);color:var(--greige);text-align:center;padding:2rem 5%;font-size:.85rem;margin-top:4rem}
-    footer a{color:#F5F0E8}
-  </style>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://toyboxconsulting.net/blog/">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https:; connect-src 'self' https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The ToyBox Blog — Frameworks, Field Notes, Receipts</title>
+<link rel="icon" type="image/png" href="../assets/logo-rust.png" />
+<meta name="description" content="The public voice of ToyBox Consulting & Management. Frameworks, cross-sector field notes, and the receipts from twenty years of operational infrastructure work." />
+<meta name="author" content="Katoya Raquell Palmer" />
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ToyBox Consulting" />
+<meta property="og:title" content="The ToyBox Blog — Frameworks, Field Notes, Receipts" />
+<meta property="og:description" content="The public voice of ToyBox Consulting & Management. Frameworks, cross-sector field notes, and the receipts from twenty years of operational infrastructure work." />
+<meta property="og:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta property="og:url" content="https://toyboxconsulting.net/blog/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The ToyBox Blog — Frameworks, Field Notes, Receipts" />
+<meta name="twitter:description" content="The public voice of ToyBox Consulting & Management. Frameworks, cross-sector field notes, and the receipts from twenty years of operational infrastructure work." />
+<meta name="twitter:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 40px;}
+  .wrap-wide{max-width:1200px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.7;}
+
+  /* NAV (matches other TBCM pages) */
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+  @media(max-width:900px){.nav-links{display:none;}.nav-cta{display:inline-block!important;}}
+
+  /* ARTICLE */
+  article.post{padding:70px 0 90px;background:var(--cream);}
+  article.post .meta-strip{display:flex;gap:16px;align-items:center;margin-bottom:22px;font-family:var(--sans);font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em;}
+  article.post .meta-strip .cat{font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);}
+  article.post h1{font-size:48px;line-height:1.06;margin-bottom:20px;}
+  article.post h1 em{font-style:italic;color:var(--rust);}
+  article.post .lede{font-size:20px;line-height:1.55;color:var(--ink-soft);margin-bottom:36px;padding-bottom:26px;border-bottom:1px solid var(--greige-soft);}
+  article.post h2{font-size:26px;margin:38px 0 14px;letter-spacing:-.01em;}
+  article.post h3{font-size:20px;margin:26px 0 10px;font-weight:600;}
+  article.post p{font-size:17px;color:var(--ink);margin-bottom:16px;}
+  article.post p strong{font-weight:600;color:var(--ink);}
+  article.post ul,article.post ol{margin:14px 0 22px 22px;font-size:17px;line-height:1.65;}
+  article.post li{margin-bottom:8px;color:var(--ink);}
+  article.post blockquote{border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1.45;}
+  article.post .callout{background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:8px;padding:22px 28px;margin:28px 0;font-size:15.5px;color:var(--ink-soft);line-height:1.6;}
+  article.post .callout strong{color:var(--rust);}
+  article.post hr{border:none;height:1px;background:var(--greige-soft);margin:36px 0;}
+
+  /* CTA CARD at end of each post */
+  .cta-card{background:var(--navy-deep);color:#fff;padding:44px 40px;border-radius:8px;margin:48px 0 0;text-align:center;}
+  .cta-card h3{font-family:var(--serif);font-size:26px;color:#fff;margin-bottom:12px;}
+  .cta-card p{font-size:15.5px;color:rgba(245,240,232,.85);max-width:520px;margin:0 auto 22px;line-height:1.55;}
+  .cta-card a.btn{display:inline-block;background:var(--rust);color:#fff!important;padding:13px 28px;border-radius:3px;font-weight:600;font-size:14.5px;letter-spacing:.02em;transition:.2s;}
+  .cta-card a.btn:hover{background:var(--rust-dark);}
+
+  /* BACK LINK */
+  .back-link{display:inline-block;font-size:13px;font-family:var(--sans);color:var(--rust);font-weight:500;letter-spacing:.02em;margin-bottom:24px;}
+  .back-link:hover{text-decoration:underline;}
+
+  /* BLOG INDEX */
+  .blog-hero{padding:80px 0 40px;background:var(--cream);text-align:center;}
+  .blog-hero h1{font-size:60px;line-height:1.02;margin:14px 0 16px;}
+  .blog-hero h1 em{font-style:italic;color:var(--rust);}
+  .blog-hero p{font-size:18px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
+  .post-list{padding:40px 0 100px;}
+  .post-card{display:block;padding:32px 0;border-bottom:1px solid var(--greige-soft);transition:.2s;}
+  .post-card:hover{padding-left:8px;}
+  .post-card .meta{display:flex;gap:14px;font-family:var(--sans);font-size:12px;color:var(--ink-faint);letter-spacing:.03em;margin-bottom:10px;}
+  .post-card .meta .cat{color:var(--rust);font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+  .post-card h2{font-family:var(--serif);font-size:30px;line-height:1.12;color:var(--ink);margin-bottom:10px;font-weight:600;}
+  .post-card h2:hover{color:var(--rust);}
+  .post-card p{font-size:16px;color:var(--ink-soft);line-height:1.55;margin-bottom:12px;max-width:680px;}
+  .post-card .go{color:var(--rust);font-family:var(--sans);font-size:13.5px;font-weight:600;}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:rgba(245,240,232,.7);padding:36px 0;font-family:var(--sans);font-size:13px;text-align:center;}
+  footer a{color:rgba(245,240,232,.85);border-bottom:1px solid rgba(245,240,232,.2);}
+  footer a:hover{color:var(--gold);}
+</style>
 </head>
 <body>
-  <nav>
-    <a class="brand" href="/">ToyBox Consulting</a>
-    <a href="/blog/">Blog</a><a href="/services">Services</a><a href="/resources">Tools</a>
-    <a href="/about">About</a><a href="/case-study">Work</a><a href="/contact">Contact</a>
-  </nav>
-  <main>
-    <h1>The TBCM Blog</h1>
-    <p class="sub">Operations infrastructure, governance, and build logs — the consulting work, documented.</p>
-    {% for post in site.posts %}
-    <div class="post">
-      <p class="date">{{ post.date | date: "%B %-d, %Y" }}</p>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <p class="excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+    <div class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../index.html#workshops">Workshops</a>
+      <a href="../resources.html">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../case-study.html">Work</a>
+      <a href="../events.html">Events</a>
+      <a href="./" class="active">Blog</a>
+      <a href="../contact.html">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Discovery Call</a>
     </div>
-    {% endfor %}
-  </main>
-  <footer>© 2026 ToyBox Consulting &amp; Management LLC · <a href="/privacy">Privacy</a> · <a href="/cookies">Cookies</a></footer>
+  </div>
+</nav>
+
+<header class="blog-hero">
+  <div class="wrap">
+    <div class="eyebrow">The ToyBox blog</div>
+    <h1>Frameworks. Field notes. <em>Receipts.</em></h1>
+    <p>The public voice of ToyBox Consulting & Management — twenty years of operational infrastructure, now on the record.</p>
+  </div>
+</header>
+<section class="post-list">
+  <div class="wrap">
+        <a class="post-card" href="welcome.html">
+          <div class="meta">
+            <span class="cat">Announcement</span>
+            <span>August 2, 2026</span>
+          </div>
+          <h2>Welcome to the ToyBox blog</h2>
+          <p>Frameworks, field notes, and the receipts from twenty years of building the invisible thing that lets mission-driven organizations do what they say they'll do.</p>
+          <span class="go">Read →</span>
+        </a>
+        <a class="post-card" href="seattle-consultant-roster-2026.html">
+          <div class="meta">
+            <span class="cat">Rosters</span>
+            <span>August 2, 2026</span>
+          </div>
+          <h2>Selected to 10 City of Seattle Consultant Rosters</h2>
+          <p>Pre-qualified across 10 City of Seattle Consultant Roster categories (2025–2030). Here's what that means for department leads — and how to bring ToyBox in on a task order without running a full procurement.</p>
+          <span class="go">Read →</span>
+        </a>
+        <a class="post-card" href="certifications-qbo-comptia-2026.html">
+          <div class="meta">
+            <span class="cat">Credentials</span>
+            <span>August 2, 2026</span>
+          </div>
+          <h2>Two Certifications, One Degree — What Actually Unlocks the Work</h2>
+          <p>Intuit QBO Certified User (2026), CompTIA Project+, and a B.S. in Business–Marketing from WGU. Two of these run the work. One of them is why ToyBox exists at all.</p>
+          <span class="go">Read →</span>
+        </a>
+        <a class="post-card" href="golden-hour-unboxed-story.html">
+          <div class="meta">
+            <span class="cat">Programs</span>
+            <span>August 2, 2026</span>
+          </div>
+          <h2>Golden Hour Unboxed — The Story of an Eastside First</h2>
+          <p>A first-of-its-kind cross-cultural convening celebrating Black entrepreneurship on the Eastside — at Bellevue Botanical Garden, during golden hour, on August 23. Here is the story of how it came to be.</p>
+          <span class="go">Read →</span>
+        </a>
+        <a class="post-card" href="looking-for-partners-and-capital.html">
+          <div class="meta">
+            <span class="cat">Growth</span>
+            <span>August 2, 2026</span>
+          </div>
+          <h2>Looking for Growth Capital, Strategic Partners & Program Sponsors</h2>
+          <p>Scaling ToyBox from a founder-led firm to an operational infrastructure practice that can hold multiple engagements simultaneously. The open door — for growth capital, strategic partners, and program sponsors.</p>
+          <span class="go">Read →</span>
+        </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide">
+    <p>© <script>document.write(new Date().getFullYear())</script> ToyBox Consulting &amp; Management, LLC · Bellevue, WA · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+  </div>
+</footer>
 </body>
 </html>
