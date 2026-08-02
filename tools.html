@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link rel="canonical" href="https://www.toyboxconsulting.net/tools">
+<link rel="canonical" href="https://www.toyboxconsulting.net/tools.html">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=()">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -17,7 +17,7 @@
 <meta property="og:title" content="Free Tools for Mission-Driven Leaders — ToyBox Consulting" />
 <meta property="og:description" content="Seven free, browser-based tools — operational health check, COO ROI calculator, grant readiness, board governance, financial controls, conflict of interest, and reserve calculator. Run any of them in your browser. Free. Private. Print or email yourself a branded report." />
 <meta property="og:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
-<meta property="og:url" content="https://www.toyboxconsulting.net/tools" />
+<meta property="og:url" content="https://www.toyboxconsulting.net/tools.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Free Tools for Mission-Driven Leaders — ToyBox Consulting" />
 <meta name="twitter:description" content="Seven free, browser-based tools — diagnostics, calculators, and self-assessments. Free, private, no sign-up." />
@@ -113,21 +113,36 @@
   }
 
   /* ANNOUNCEMENT BAR (shared) */
+  .botbn-bar{display:none;background:linear-gradient(90deg,#C9943A 0%,#D6A247 100%);color:#142C46;font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;padding:11px 60px 11px 24px;text-align:center;position:relative;border-bottom:1px solid rgba(20,44,70,.18);line-height:1.4;z-index:100;}
+  .botbn-bar strong{font-weight:700;}
+  .botbn-bar em{font-style:italic;font-weight:600;color:#8B2C14;}
+  .botbn-bar a.botbn-cta{color:#142C46;font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:8px;white-space:nowrap;}
+  .botbn-bar a.botbn-cta:hover{color:#B73A1A;}
+  .botbn-bar .botbn-dismiss{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#142C46;font-size:22px;cursor:pointer;line-height:1;opacity:.65;padding:6px 12px;font-weight:300;}
+  .botbn-bar .botbn-dismiss:hover{opacity:1;}
+  @media (max-width:820px){.botbn-bar{font-size:12.5px;padding:10px 46px 10px 18px;}.botbn-bar a.botbn-cta{display:inline-block;margin-top:2px;}}
 </style>
 </head>
 <body data-screen-label="ToyBox — Tools index">
 
+<div class="botbn-bar" id="botbn-bar" data-source="toybox" style="display:none;">
+  Katoya R. Palmer nominated for <strong>Best Community Leader</strong> in <em>The Seattle Medium’s Best of the Best Northwest</em>
+  <a class="botbn-cta" id="botbn-vote" href="https://www.bestofthebestnorthwest.com/?utm_source=toyboxconsulting&utm_medium=announcement_bar&utm_campaign=botbn_vote_2026" target="_blank" rel="noopener noreferrer">Vote by June 19 →</a>
+  <button class="botbn-dismiss" id="botbn-dismiss" aria-label="Dismiss announcement">×</button>
+</div>
+
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="/"><img decoding="async" loading="lazy" src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+    <a class="nav-logo" href="index.html"><img decoding="async" loading="lazy" src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
     <div class="nav-links">
-      <a href="/services">Services</a>
-      <a href="/#workshops">Workshops</a>
-      <a class="active" href="/resources">Tools</a>
-      <a href="/about">About</a>
-      <a href="/case-study">Work</a>
-      <a href="/events">Events</a>
-      <a href="/partners">Partners</a>      <a href="/contact">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#workshops">Workshops</a>
+      <a class="active" href="resources.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="case-study.html">Work</a>
+      <a href="events.html">Events</a>
+        <a href="blog/">Blog</a>
+      <a href="partners.html">Partners</a>      <a href="contact.html">Contact</a>
       <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a Discovery Call</a>
     </div>
   </div>
@@ -155,25 +170,25 @@
       <div class="count">Start here if you’re not sure where to begin</div>
     </div>
     <div class="tool-grid">
-      <a class="tool" href="/tools/operational-health-check">
+      <a class="tool" href="tools/operational-health-check.html">
         <span class="tag flag">Start here</span>
         <h3>Operational Health Check</h3>
         <p>A 25-point diagnostic across Governance, Finance, People, Programs &amp; Technology — live health score, weak-spot bars, and where to focus first.</p>
         <span class="go">Take the health check <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/tools/grant-readiness">
+      <a class="tool" href="tools/grant-readiness.html">
         <span class="tag">Free tool</span>
         <h3>Grant Readiness Assessment</h3>
         <p>Before you chase public money, make sure you can hold it — registration, financial capacity, compliance, and reporting against what funders expect.</p>
         <span class="go">Check your readiness <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/tools/board-governance">
+      <a class="tool" href="tools/board-governance.html">
         <span class="tag">Free tool</span>
         <h3>Board Governance Self-Assessment</h3>
         <p>Rate your board across composition, roles, fiduciary oversight, policies &amp; engagement. Great to run together as a board.</p>
         <span class="go">Assess your board <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/tools/financial-controls">
+      <a class="tool" href="tools/financial-controls.html">
         <span class="tag">Free tool</span>
         <h3>Financial Controls Self-Assessment</h3>
         <p>A readiness check for publicly-funded nonprofits — auto-detects your WA reporting tier, flags gaps across 30+ controls, prints a gap report.</p>
@@ -186,25 +201,25 @@
       <div class="count">For when you have a specific question</div>
     </div>
     <div class="tool-grid">
-      <a class="tool" href="/tools/coo-roi-calculator">
+      <a class="tool" href="tools/coo-roi-calculator.html">
         <span class="tag">Free tool</span>
         <h3>Do I Need a Fractional COO?</h3>
         <p>A fit &amp; ROI snapshot — see the senior leadership time your operations are quietly eating, and how it compares to a fractional engagement.</p>
         <span class="go">Run the numbers <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/tools/reserve-calculator">
+      <a class="tool" href="tools/reserve-calculator.html">
         <span class="tag">Free tool</span>
         <h3>Operating Reserve &amp; Runway</h3>
         <p>How many months could you keep the lights on if the money stopped? See your runway, a healthy target, and the gap to close.</p>
         <span class="go">Calculate your runway <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/tools/conflict-of-interest">
+      <a class="tool" href="tools/conflict-of-interest.html">
         <span class="tag">Free tool</span>
         <h3>Conflict of Interest Self-Check</h3>
         <p>The gut-check for the conflicts boards most often miss — answer honestly and it assembles a sign-ready annual disclosure.</p>
         <span class="go">Open the self-check <span class="arrow">→</span></span>
       </a>
-      <a class="tool" href="/playbook/build-with-claude">
+      <a class="tool" href="playbook/build-with-claude.html">
         <span class="tag reading">Free Playbook</span>
         <h3>How I Built My Site With Claude</h3>
         <p>A 15-page playbook — the exact path from a paid Wix subscription to a GitHub-hosted, fully analytics-instrumented stack. Free PDF download.</p>
@@ -233,17 +248,17 @@
     </div>
     <div class="fcol">
       <h4>Explore</h4>
-      <a href="/">Home</a>
-      <a href="/services">Services &amp; rates</a>
-      <a href="/about">About Katoya</a>
-      <a href="/case-study">Work</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services &amp; rates</a>
+      <a href="about.html">About Katoya</a>
+      <a href="case-study.html">Work</a>
     </div>
     <div class="fcol">
       <h4>Connect</h4>
       <a href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Schedule a call</a>
       <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>
       <a href="https://katoyapalmer.substack.com">katoyapalmer.substack.com</a>
-      <a href="/contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
   <div class="foot-bottom">
@@ -251,6 +266,17 @@
     <span>What's next out the box?</span>
   </div>
 </footer>
+
+<script>(function(){var EXPIRE=new Date('2026-06-20T06:59:59Z');
+if(new Date()>EXPIRE)return;
+if(localStorage.getItem('botbn_dismissed_2026'))return;
+var bar=document.getElementById('botbn-bar');if(!bar)return;
+bar.style.display='block';
+var d=document.getElementById('botbn-dismiss');
+if(d)d.addEventListener('click',function(e){e.preventDefault();localStorage.setItem('botbn_dismissed_2026','1');bar.style.display='none';});
+var v=document.getElementById('botbn-vote');
+if(v)v.addEventListener('click',function(){if(window.gtag)gtag('event','vote_click',{campaign:'botbn_2026',source:bar.dataset.source||''});});
+})();</script>
 
 <!-- Sitewide Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e77598fcc78b422885ae3087ca52fac9"}'></script>
