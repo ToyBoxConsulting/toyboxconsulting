@@ -14,3 +14,4 @@ description: "Fractional COO and operations consulting for mission-driven organi
 url: "https://www.toyboxconsulting.net"
 plugins:
 - jekyll-feed
+- jekyll-redirect-from
