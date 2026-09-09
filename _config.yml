@@ -7,3 +7,10 @@ include:
 # TBCM blog (added 2026-07-07)
 permalink: /blog/:year/:title/
 markdown: kramdown
+
+# RSS feed (added 2026-09-09)
+title: "ToyBox Consulting & Management"
+description: "Fractional COO and operations consulting for mission-driven organizations. Katoya Raquell Palmer, Bellevue, Washington."
+url: "https://www.toyboxconsulting.net"
+plugins:
+- jekyll-feed
