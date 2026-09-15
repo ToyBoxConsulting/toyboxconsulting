@@ -9,18 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Build-With-Claude Playbook — ToyBox Consulting</title>
 <link rel="icon" type="image/png" href="../assets/logo-rust.png" />
-<meta name="description" content="A 15-page step-by-step playbook on how Katoya Palmer migrated three brand sites off paid hosting and onto a fully analytics-instrumented, search-indexed, SSL-secured GitHub Pages stack — using Claude as her co-pilot. Free PDF." />
+<meta name="description" content="Second edition, September 2026. A 13-phase step-by-step playbook on how Katoya Palmer migrated three brand sites off paid hosting and onto a fully analytics-instrumented, search-indexed, SSL-secured GitHub Pages stack — using Claude as her co-pilot. Now with browser-native tools, a Jekyll blog, and a chapter on what drifts after launch. Free PDF." />
 <meta name="author" content="Katoya Raquell Palmer" />
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ToyBox Consulting" />
-<meta property="og:title" content="The Build-With-Claude Playbook — Free PDF" />
-<meta property="og:description" content="The exact path from paid Wix subscription to GitHub-hosted, fully analytics-instrumented, search-indexed stack — using Claude as your co-pilot. Free, 15 pages, no fluff." />
+<meta property="og:title" content="The Build-With-Claude Playbook — Free PDF, Second Edition" />
+<meta property="og:description" content="The exact path from paid Wix subscription to GitHub-hosted, fully analytics-instrumented, search-indexed stack — using Claude as your co-pilot. Free, second edition, no fluff." />
 <meta property="og:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg" />
 <meta property="og:url" content="https://www.toyboxconsulting.net/playbook/build-with-claude.html" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Build-With-Claude Playbook — Free PDF" />
-<meta name="twitter:description" content="From paid Wix to free GitHub-hosted, with Claude as co-pilot. 15 pages, free, no fluff." />
+<meta name="twitter:description" content="From paid Wix to free GitHub-hosted, with Claude as co-pilot. Second edition, free, no fluff." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -107,6 +107,11 @@
   .form-box button:hover{background:var(--rust-dark);}
   .form-box button:disabled{opacity:.6;cursor:wait;}
   .form-box .fine{margin-top:14px;font-size:12px;color:rgba(245,240,232,.6);}
+  .disclaimer{max-width:600px;margin:0 auto 38px;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(245,240,232,.16);border-top:3px solid var(--rust);border-radius:6px;padding:22px 26px 10px;}
+  .disclaimer .dh{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;}
+  .disclaimer p{font-size:13.5px;line-height:1.65;color:rgba(245,240,232,.78);margin:0 0 12px;}
+  .disclaimer p strong{color:#fff;font-weight:600;}
+  @media(max-width:700px){.disclaimer{padding:18px 18px 6px;}}
   .form-box .fine a{color:var(--gold);text-decoration:underline;}
   /* Honeypot — visually hidden */
   .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
@@ -211,12 +216,12 @@
       <div>
         <div class="eyebrow">Free Playbook · No 01</div>
         <h1>How I built my site <em>with Claude.</em></h1>
-        <p class="lede">The exact path from a paid Wix subscription to a GitHub-hosted, fully analytics-instrumented, search-indexed, mobile-polished, SSL-secured stack — for three live brand sites. Hosting now costs me almost nothing.</p>
+        <p class="lede">The exact path from a paid Wix subscription to a GitHub-hosted, fully analytics-instrumented, search-indexed, mobile-polished, SSL-secured stack — for three live brand sites. Hosting now costs me almost nothing. <strong>Second edition:</strong> three months on, the sites have grown a tools layer, a blog, and a maintenance problem. All three are in here now.</p>
         <div class="stats">
-          <div class="stat"><strong>15</strong>pages</div>
-          <div class="stat"><strong>11</strong>phases</div>
+          <div class="stat"><strong>2nd</strong>edition</div>
+          <div class="stat"><strong>13</strong>phases</div>
           <div class="stat"><strong>$0</strong>monthly hosting</div>
-          <div class="stat"><strong>~25 min</strong>read</div>
+          <div class="stat"><strong>~30 min</strong>read</div>
         </div>
       </div>
       <div class="cover-wrap">
@@ -230,8 +235,8 @@
             <div class="author">Katoya Raquell Palmer</div>
           </div>
           <div class="meta">
-            <span>15 PAGES</span>
-            <span>JUNE 2026</span>
+            <span>SECOND EDITION</span>
+            <span>SEPTEMBER 2026</span>
           </div>
         </div>
       </div>
@@ -268,21 +273,23 @@
 <section class="chapters">
   <div class="wrap">
     <div class="eyebrow" style="text-align:center;display:block;">The full table of contents</div>
-    <h2>Eleven phases, all<br/>built on what shipped.</h2>
-    <p class="sub">Every chapter is from something I actually built — not theorized about. No filler.</p>
+    <h2>Thirteen phases, all<br/>built on what shipped.</h2>
+    <p class="sub">Every chapter is from something I actually built — not theorized about. No filler. Three chapters are new or rewritten in this edition.</p>
     <div class="chap-grid">
       <div class="chap"><span class="num">01</span><span class="ttl">Plan your brand architecture</span></div>
       <div class="chap"><span class="num">02</span><span class="ttl">Set up Claude as your co-pilot</span></div>
       <div class="chap"><span class="num">03</span><span class="ttl">GitHub, domains, and DNS</span></div>
       <div class="chap"><span class="num">04</span><span class="ttl">Design your pages with Claude</span></div>
-      <div class="chap"><span class="num">05</span><span class="ttl">Deploy to GitHub Pages</span></div>
+      <div class="chap"><span class="num">05</span><span class="ttl">Deploy — and keep deploying <em>(rewritten)</em></span></div>
       <div class="chap"><span class="num">06</span><span class="ttl">SEO and search-engine discovery</span></div>
       <div class="chap"><span class="num">07</span><span class="ttl">Install your analytics stack</span></div>
       <div class="chap"><span class="num">08</span><span class="ttl">Mobile, accessibility, security</span></div>
       <div class="chap"><span class="num">09</span><span class="ttl">Legal pages and consent</span></div>
       <div class="chap"><span class="num">10</span><span class="ttl">Email and audience</span></div>
       <div class="chap"><span class="num">11</span><span class="ttl">Real-time visitor pings</span></div>
-      <div class="chap"><span class="num">+</span><span class="ttl">Closing: what I'd do differently</span></div>
+      <div class="chap"><span class="num">12</span><span class="ttl">Build real tools with no backend <em>(new)</em></span></div>
+      <div class="chap"><span class="num">13</span><span class="ttl">Add a blog without adding a platform <em>(new)</em></span></div>
+      <div class="chap"><span class="num">+</span><span class="ttl">Closing: what drifts, and how to catch it <em>(new)</em></span></div>
     </div>
   </div>
 </section>
@@ -293,6 +300,13 @@
     <div class="eyebrow">Get the playbook</div>
     <h2>Drop your email. <em>Get the PDF.</em></h2>
     <p class="sub">I'll send the playbook straight to your inbox and add you to ToyBox's quarterly Systems &amp; Ops note. Unsubscribe in one click — I respect inboxes.</p>
+
+    <div class="disclaimer">
+      <div class="dh">Before you start</div>
+      <p>This playbook is an account of what I did on my own sites. It is not professional advice, and it is not a guarantee that any of it will work the same way on yours. <strong>Use it at your own discretion, and take the proper precautions.</strong></p>
+      <p>That means: back up anything you can't afford to lose before you change it. Don't practice on a live site people depend on. Read what an AI co-pilot writes before you ship it &mdash; especially anything touching security headers, privacy language, consent, or analytics. Third-party tools and interfaces change constantly, so check the current documentation rather than trusting a screenshot from September 2026. And if your site is business-critical, handles payments, or sits under a compliance obligation, get someone qualified involved.</p>
+      <p>ToyBox Consulting &amp; Management, LLC makes no warranty and accepts no liability for outcomes. What you build is yours &mdash; including the mistakes.</p>
+    </div>
 
     <div class="form-box">
       <!-- Brevo form: ToyBox Mailing List Signup -->
