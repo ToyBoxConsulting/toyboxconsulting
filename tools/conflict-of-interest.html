@@ -25,8 +25,8 @@
 <style>
   :root{
     --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
-    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
-    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A; --green:#4A7A52;
+    --rust:#a32225; --rust-dark:#7A1A1D; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C2A14D; --green:#4A7A52;
     --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
     --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
   }
@@ -179,7 +179,7 @@
     transition: background 0.18s, border-color 0.18s;
   }
   #tb-cookie-banner .tb-btn-primary, #tb-cookie-modal .tb-btn-primary {
-    background: #B73A1A; color: #fff; border-color: #B73A1A;
+    background: #a32225; color: #fff; border-color: #a32225;
   }
   #tb-cookie-banner .tb-btn-primary:hover, #tb-cookie-modal .tb-btn-primary:hover {
     background: #9c2f15; border-color: #9c2f15;
@@ -190,7 +190,7 @@
   #tb-cookie-banner .tb-btn-secondary:hover, #tb-cookie-modal .tb-btn-secondary:hover {
     border-color: #1a1a1a;
   }
-  #tb-cookie-banner a { color: #B73A1A; text-decoration: underline; }
+  #tb-cookie-banner a { color: #a32225; text-decoration: underline; }
   #tb-cookie-modal {
     position: fixed; inset: 0;
     background: rgba(16, 36, 58, 0.6);
@@ -500,8 +500,8 @@
 
 <div class="layout">
   <main>
-    <div class="principle" style="background:#fff8f0;border-left-color:#B73A1A;">
-      <p style="margin:0;font-size:14.5px;line-height:1.55;color:#5A544B;"><b style="color:#B73A1A;">This tool drafts a starting template — not a finished disclosure.</b> What you print is a working document for your board secretary or counsel to review, revise, and finalize against your organization's own policy. It is not legal advice and not a substitute for the disclosure process your board has adopted.</p>
+    <div class="principle" style="background:#fff8f0;border-left-color:#a32225;">
+      <p style="margin:0;font-size:14.5px;line-height:1.55;color:#5A544B;"><b style="color:#a32225;">This tool drafts a starting template — not a finished disclosure.</b> What you print is a working document for your board secretary or counsel to review, revise, and finalize against your organization's own policy. It is not legal advice and not a substitute for the disclosure process your board has adopted.</p>
     </div>
     <div class="principle">
       <p><b>A conflict of interest is a situation, not an accusation.</b> Almost everyone who serves a nonprofit has outside roles and loyalties — having them is normal. The test isn't whether you'd actually be improperly influenced; it's whether <b>a reasonable, well-informed observer might question your impartiality.</b> When in doubt, disclose. Disclosure protects both you and the organization.</p>
@@ -537,7 +537,7 @@
   <aside class="side">
     <div class="discl">
       <div class="lab">Your disclosure</div>
-      <h3 id="dHead">Annual COI Disclosure <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#B73A1A;margin-left:6px;">Draft</span></h3>
+      <h3 id="dHead">Annual COI Disclosure <span style="font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#a32225;margin-left:6px;">Draft</span></h3>
       <div class="stat-row">
         <div class="stat"><div class="n" id="sFlag">0</div><div class="x">Interests flagged</div></div>
         <div class="stat"><div class="n" id="sAff">0/5</div><div class="x">Affirmations</div></div>
@@ -704,7 +704,7 @@ function buildPrint(){
   const p=state.profile;
   const d=p.date?new Date(p.date+'T00:00').toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}):'';
   const flagged=TYPES.filter(t=>state.flags[t.id]==='yes');
-  let html=`<div class="printbrand-row" style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #B73A1A;padding-bottom:10px;margin-bottom:18px;"><img decoding="async" loading="lazy" src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" style="height:40px;"><div style="text-align:right;font-size:10.5px;color:#555;line-height:1.5;">Annual COI Disclosure<br>toyboxconsulting.net</div></div><h2>Annual Conflict of Interest Disclosure</h2><div class="meta">${(p.name||'[Name]')}${p.role?' · '+p.role:''}${p.org?' · '+p.org:''}${d?' · '+d:''}</div>`;
+  let html=`<div class="printbrand-row" style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #a32225;padding-bottom:10px;margin-bottom:18px;"><img decoding="async" loading="lazy" src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" style="height:40px;"><div style="text-align:right;font-size:10.5px;color:#555;line-height:1.5;">Annual COI Disclosure<br>toyboxconsulting.net</div></div><h2>Annual Conflict of Interest Disclosure</h2><div class="meta">${(p.name||'[Name]')}${p.role?' · '+p.role:''}${p.org?' · '+p.org:''}${d?' · '+d:''}</div>`;
   if(flagged.length===0){ html+=`<div class="blk">I have reviewed the categories of potential conflict and, to the best of my knowledge, I have no conflict of interest to report at this time.</div>`; }
   else { html+=`<div class="blk"><b>Disclosed interest(s):</b></div>`; flagged.forEach((t,i)=>{ html+=`<div class="blk"><b>${i+1}. ${t.t}</b>${(state.details[t.id]||'[detail to be provided]')}</div>`; }); }
   const affMap={received:'I have received a copy of the Conflict of Interest Policy.',read:'I have read and understand the Policy.',comply:'I agree to comply with the Policy.',charitable:'I understand the organization is charitable and must primarily serve its tax-exempt purposes.',current:'This disclosure is current and complete; I will update it as circumstances change.'};

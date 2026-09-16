@@ -25,9 +25,9 @@
 <style>
   :root{
     --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
-    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
-    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A;
-    --green:#4A7A52; --amber:#C9943A;
+    --rust:#a32225; --rust-dark:#7A1A1D; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C2A14D;
+    --green:#4A7A52; --amber:#C2A14D;
     --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
     --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
   }
@@ -129,7 +129,7 @@
   .printbrand,.printfoot{display:none;}
   /* gap report (print) */
   @media print{
-    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #B73A1A;padding-bottom:12px;margin-bottom:22px;}
+    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #a32225;padding-bottom:12px;margin-bottom:22px;}
     .printbrand img{height:42px;}
     .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
     .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
@@ -194,7 +194,7 @@
     transition: background 0.18s, border-color 0.18s;
   }
   #tb-cookie-banner .tb-btn-primary, #tb-cookie-modal .tb-btn-primary {
-    background: #B73A1A; color: #fff; border-color: #B73A1A;
+    background: #a32225; color: #fff; border-color: #a32225;
   }
   #tb-cookie-banner .tb-btn-primary:hover, #tb-cookie-modal .tb-btn-primary:hover {
     background: #9c2f15; border-color: #9c2f15;
@@ -205,7 +205,7 @@
   #tb-cookie-banner .tb-btn-secondary:hover, #tb-cookie-modal .tb-btn-secondary:hover {
     border-color: #1a1a1a;
   }
-  #tb-cookie-banner a { color: #B73A1A; text-decoration: underline; }
+  #tb-cookie-banner a { color: #a32225; text-decoration: underline; }
   #tb-cookie-modal {
     position: fixed; inset: 0;
     background: rgba(16, 36, 58, 0.6);
@@ -555,14 +555,14 @@
         <div class="ring">
           <svg width="150" height="150" viewBox="0 0 150 150">
             <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="13"/>
-            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C9943A" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C2A14D" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
           </svg>
           <div class="pct"><span class="n" id="scoreN">0%</span><span class="x">In place</span></div>
         </div>
       </div>
       <div class="legend">
         <div class="legrow"><span class="k"><span class="dot" style="background:#4A7A52"></span>In place</span><span class="v" id="cIn">0</span></div>
-        <div class="legrow"><span class="k"><span class="dot" style="background:#C9943A"></span>Gaps to remediate</span><span class="v" id="cGap">0</span></div>
+        <div class="legrow"><span class="k"><span class="dot" style="background:#C2A14D"></span>Gaps to remediate</span><span class="v" id="cGap">0</span></div>
         <div class="legrow"><span class="k"><span class="dot" style="background:#938B7D"></span>Not applicable</span><span class="v" id="cNa">0</span></div>
         <div class="legrow"><span class="k"><span class="dot" style="background:rgba(255,255,255,.3)"></span>Not yet assessed</span><span class="v" id="cTodo">0</span></div>
       </div>

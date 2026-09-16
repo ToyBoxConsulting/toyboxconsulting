@@ -25,9 +25,9 @@
 <style>
   :root{
     --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
-    --rust:#B73A1A; --rust-dark:#8B2C14; --greige:#C4B9A8; --greige-soft:#E3DBCD;
-    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C9943A;
-    --green:#4A7A52; --amber:#C9943A; --red:#B5482F;
+    --rust:#a32225; --rust-dark:#7A1A1D; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C2A14D;
+    --green:#4A7A52; --amber:#C2A14D; --red:#B5482F;
     --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#938B7D;
     --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
   }
@@ -111,7 +111,7 @@
   @media print{
     header.bar,.hero,.side,.actions,.bar-in .cta,.field input{display:none!important;}
     .layout{grid-template-columns:1fr;padding:0;} body{background:#fff;}
-    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #B73A1A;padding-bottom:12px;margin-bottom:22px;}
+    .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #a32225;padding-bottom:12px;margin-bottom:22px;}
     .printbrand img{height:42px;} .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
     .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
   }
@@ -171,7 +171,7 @@
     transition: background 0.18s, border-color 0.18s;
   }
   #tb-cookie-banner .tb-btn-primary, #tb-cookie-modal .tb-btn-primary {
-    background: #B73A1A; color: #fff; border-color: #B73A1A;
+    background: #a32225; color: #fff; border-color: #a32225;
   }
   #tb-cookie-banner .tb-btn-primary:hover, #tb-cookie-modal .tb-btn-primary:hover {
     background: #9c2f15; border-color: #9c2f15;
@@ -182,7 +182,7 @@
   #tb-cookie-banner .tb-btn-secondary:hover, #tb-cookie-modal .tb-btn-secondary:hover {
     border-color: #1a1a1a;
   }
-  #tb-cookie-banner a { color: #B73A1A; text-decoration: underline; }
+  #tb-cookie-banner a { color: #a32225; text-decoration: underline; }
   #tb-cookie-modal {
     position: fixed; inset: 0;
     background: rgba(16, 36, 58, 0.6);
@@ -514,7 +514,7 @@
         <div class="ring">
           <svg width="150" height="150" viewBox="0 0 150 150">
             <circle cx="75" cy="75" r="64" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="13"/>
-            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C9943A" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
+            <circle id="ringFill" cx="75" cy="75" r="64" fill="none" stroke="#C2A14D" stroke-width="13" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402"/>
           </svg>
           <div class="pct"><span class="n" id="scoreN">—</span><span class="x">Ready</span></div>
         </div>
@@ -604,7 +604,7 @@ document.querySelectorAll('.rate button').forEach(b=>{
 function syncRow(id){ const set=document.querySelector(`.rate[data-set="${id}"]`); set.querySelectorAll('button').forEach(x=>x.classList.toggle('sel', state.scores[id]===x.dataset.v)); }
 ['org','prep'].forEach(f=>{ const el=document.getElementById(f); if(state.profile[f])el.value=state.profile[f]; el.addEventListener('input',()=>{state.profile[f]=el.value;save();}); });
 function domainPct(si){ let got=0,max=0; DATA[si].items.forEach((_,ii)=>{ const v=state.scores[si+'-'+ii]; if(v===undefined||v==='na')return; got+=parseInt(v);max+=2; }); return max?Math.round(got/max*100):null; }
-function color(p){ return p>=80?'#6FAE79':p>=60?'#C9943A':'#D0644A'; }
+function color(p){ return p>=80?'#6FAE79':p>=60?'#C2A14D':'#D0644A'; }
 function recompute(){
   const bars=document.getElementById('bars'); bars.innerHTML='';
   let got=0,max=0,answered=0; const weak=[];
@@ -621,7 +621,7 @@ function recompute(){
   const overall=max?Math.round(got/max*100):null;
   document.getElementById('scoreN').textContent=overall===null?'—':overall+'%';
   document.getElementById('ringFill').style.strokeDashoffset=overall===null?402:402-(402*overall/100);
-  document.getElementById('ringFill').style.stroke=overall===null?'#C9943A':color(overall);
+  document.getElementById('ringFill').style.stroke=overall===null?'#C2A14D':color(overall);
   const v=document.getElementById('verdict');
   if(overall===null)v.textContent='Start rating →';
   else if(overall>=85)v.textContent='Grant-ready';
