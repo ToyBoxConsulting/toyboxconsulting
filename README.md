@@ -5,7 +5,7 @@ A complete, self-contained static website. No build step.
 ```
 toyboxconsulting-site/
 ├── index.html          ← Home  (hero, sectors, approach, services, workshop video, about, recognition)
-├── services.html       ← Services & Investment (rate card + free client tools)
+├── services.html       ← Services (service catalog + free client tools)
 ├── about.html          ← About Katoya (story, timeline, credentials, boards)
 ├── case-study.html     ← Featured engagement ($12M crisis turnaround)
 ├── contact.html        ← Calendly meeting types + note form + booking disclaimer
