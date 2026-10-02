@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+  Email gate approved by Katoya, published 2026-10-02 (push5).
+  Base = live tools/board-governance.html (identical to push2\tools). Changes: hero sentence, sidebar gate panel,
+  gate CSS, and the results/email script. CSP, consent, analytics, Crisp, Turnstile loader: unchanged.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -113,6 +118,34 @@
     .printbrand{display:flex!important;align-items:center;justify-content:space-between;border-bottom:2px solid #a32225;padding-bottom:12px;margin-bottom:22px;}
     .printbrand img{height:42px;} .printbrand .pm{text-align:right;font-size:10.5px;color:#555;line-height:1.5;}
     .printfoot{display:block!important;margin-top:26px;border-top:1px solid #ccc;padding-top:10px;font-size:10px;color:#888;}
+  }
+
+  /* ===== Email gate (push5, 2026-10-02) ===== */
+  [hidden]{display:none!important;}
+  .lead .lead-sub{font-size:13px;color:rgba(245,240,232,.84);margin-bottom:11px;line-height:1.45;}
+  .lead input:focus{border-color:var(--gold);}
+  .lead label.consent{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:rgba(245,240,232,.84);line-height:1.45;margin:2px 0 8px;cursor:pointer;}
+  .lead label.consent input{width:16px;height:16px;flex:none;margin:2px 0 0;padding:0;accent-color:#C2A14D;}
+  .lead .gate-err{font-size:12.5px;color:#F4C2B4;margin:0 0 4px;}
+  .lead .gate-err:empty{display:none;}
+  .lead .gate-ok{font-size:13px;color:#fff;line-height:1.5;margin-bottom:10px;}
+  .lead .lead-note a{color:inherit;}
+  .reco-locked{font-size:14px;color:var(--ink-soft);line-height:1.55;}
+  .reco-locked b{color:var(--ink);}
+  .tb-locked #printBtn{display:none;}
+  @media(min-width:981px){.side{max-height:calc(100vh - 100px);overflow-y:auto;}}
+  @media print{.lead{display:none!important;}}
+  /* Mobile fix (pre-existing on the live tools): the fixed 250-318px rating column pushed the page
+     wider than a phone screen, so it scrolled sideways. Stack question and buttons under 600px. */
+  .layout>*{min-width:0;}
+  @media(max-width:600px){
+    .bar-in{padding:12px 16px;}
+    .hero{padding:38px 16px 32px;} .hero h1{font-size:30px;} .hero p{font-size:15.5px;}
+    .layout{padding:22px 16px 60px;gap:24px;}
+    .card{padding:22px 18px;}
+    .sec-h{padding:14px 18px;}
+    .q{grid-template-columns:1fr;gap:10px;padding:14px 18px;}
+    .footnote{padding:0 16px 40px;}
   }
 </style>
 <!--
@@ -485,7 +518,7 @@
   <div class="hero-in">
     <div class="lab">ToyBox · Client Tool</div>
     <h1>Board Governance Self-Assessment</h1>
-    <p>A healthy board is the difference between an organization that wobbles and one that holds. Rate your board across composition, roles, fiduciary oversight, policies, and engagement — your governance score and focus areas update live, in your browser. Great to run as a board, too.</p>
+    <p>A healthy board is the difference between an organization that wobbles and one that holds. Rate your board across composition, roles, fiduciary oversight, policies, and engagement. Your overall governance score appears when you finish; add your email to see the area-by-area breakdown and focus areas. Great to run as a board, too.</p>
   </div>
 </section>
 <div class="layout">
@@ -521,16 +554,26 @@
       <div class="verdict" id="verdict">Start rating →</div>
       <div class="bars" id="bars"></div>
       <div class="actions">
-        <button class="btn btn-rust" onclick="window.print()">Download / print report</button>
+        <button class="btn btn-rust" id="printBtn" onclick="window.print()">Download / print report</button>
         <button class="btn btn-line" id="resetBtn">Reset</button>
       </div>
-      <div class="lead">
-        <div class="lead-h">Email me my results</div>
-        <input id="leadEmail" type="email" placeholder="you@organization.org" />
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAADdaBxGQR-Ydi8HM" data-theme="light" data-action="tool-email" style="margin:10px 0 6px"></div>
-        <button class="btn btn-rust" id="emailBtn">Send my results →</button>
-        <a class="btn btn-line" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Book a call to review your results →</a>
-        <p class="lead-note">We email your results to you and copy Katoya so we can pick up where you left off. Inputs aren't stored on our servers — they live only in the email.</p>
+      <div class="lead" id="gate">
+        <div class="lead-h" id="gateH">Your full results</div>
+        <p class="lead-sub" id="gateMsg">Answer every question to see your overall score.</p>
+        <form id="gateForm" novalidate hidden>
+          <input id="leadFirst" type="text" autocomplete="given-name" placeholder="First name" aria-label="First name" required />
+          <input id="leadEmail" type="email" autocomplete="email" placeholder="you@organization.org" aria-label="Email" required />
+          <input id="leadOrg" type="text" autocomplete="organization" placeholder="Organization" aria-label="Organization" required />
+          <label class="consent"><input type="checkbox" id="leadConsent" /><span id="consentText">Yes, ToyBox can also email occasional operations tips and offers. Unsubscribe anytime.</span></label>
+          <div id="tsBox" style="margin:8px 0 8px;"></div>
+          <button type="submit" class="btn btn-rust" id="emailBtn">Show the full results →</button>
+          <p class="gate-err" id="gateErr" role="alert" aria-live="polite"></p>
+          <p class="lead-note">ToyBox emails your full results to you and copies Katoya, so a follow-up call can pick up where you left off. Your answers aren't stored on ToyBox servers; they live only in that email. <a href="/privacy">Privacy Policy</a></p>
+        </form>
+        <div id="gateDone" hidden>
+          <p class="gate-ok" id="gateOk"></p>
+          <a class="btn btn-rust" href="https://calendly.com/toyboxcm/30" target="_blank" rel="noopener noreferrer">Book a 30-minute call to review your results →</a>
+        </div>
       </div>
     </div>
   </aside>
@@ -603,64 +646,161 @@ function syncRow(id){ const set=document.querySelector(`.rate[data-set="${id}"]`
 ['org','prep'].forEach(f=>{ const el=document.getElementById(f); if(state.profile[f])el.value=state.profile[f]; el.addEventListener('input',()=>{state.profile[f]=el.value;save();}); });
 function domainPct(si){ let got=0,max=0; DATA[si].items.forEach((_,ii)=>{ const v=state.scores[si+'-'+ii]; if(v===undefined||v==='na')return; got+=parseInt(v);max+=2; }); return max?Math.round(got/max*100):null; }
 function color(p){ return p>=80?'#6FAE79':p>=60?'#C2A14D':'#D0644A'; }
-function recompute(){
+/* ===== Email gate (push5, 2026-10-02) =====================================================
+   Flow: rate every item -> teaser (overall score + band only) -> first name, email, organization,
+   marketing-consent checkbox -> full results (domain bars, focus areas, print).
+   Endpoint: the EXISTING Cloudflare Worker that already sends "email me my results" (Turnstile-verified,
+   sends through Brevo, copies katoya@toyboxconsulting.net). Same JSON fields as before, plus firstName,
+   marketingConsent, consentText, consentAt, source, page. CSP already allows it (connect-src). No CSP change.
+   Fail open: if Turnstile or the Worker fails or times out, the results still unlock and the error is logged.
+================================================================================================ */
+const LEAD_ENDPOINT = "https://toybox-tools-mail.katoya.workers.dev"; // [KATOYA: confirm] existing Worker
+const TURNSTILE_SITEKEY = "0x4AAAAAADdaBxGQR-Ydi8HM";                // existing site key (public)
+const REQUIRE_MARKETING_CONSENT = false; // [KATOYA: decide] true = the box must be ticked to see results
+const CALL_URL = "https://calendly.com/toyboxcm/30";
+const SUBMIT_TIMEOUT_MS = 10000;
+const TOOL_NAME = "Board Governance Self-Assessment";
+const TOTAL = DATA.reduce((n,s)=>n+s.items.length,0);
+let wasComplete = null;
+
+function answeredCount(){ let n=0; DATA.forEach((s,si)=>s.items.forEach((_,ii)=>{ if(state.scores[si+'-'+ii]!==undefined) n++; })); return n; }
+function overallPct(){ let got=0,max=0; Object.values(state.scores).forEach(v=>{ if(v!=='na'){ got+=parseInt(v); max+=2; } }); return max?Math.round(got/max*100):null; }
+function verdictFor(overall){ return overall>=85?'Strong board':overall>=70?'Healthy, with gaps':overall>=45?'Needs attention':'At risk — prioritize'; }
+function plain(s){ return s.replace(/&amp;/g,'&'); }
+
+function renderBars(){
   const bars=document.getElementById('bars'); bars.innerHTML='';
-  let got=0,max=0,answered=0; const weak=[];
   DATA.forEach((sec,si)=>{
     const pct=domainPct(si);
-    sec.items.forEach((_,ii)=>{ const v=state.scores[si+'-'+ii]; if(v!==undefined)answered++; if(v!==undefined&&v!=='na'){got+=parseInt(v);max+=2;} });
-    const mini=document.querySelector(`[data-mini="${si}"]`); if(mini)mini.textContent=pct===null?'—':pct+'%';
     const row=document.createElement('div'); row.className='bar';
-    row.innerHTML=`<div class="top"><span>${sec.title.replace('&amp;','&')}</span><b>${pct===null?'—':pct+'%'}</b></div><div class="track"><div class="fill"></div></div>`;
+    row.innerHTML=`<div class="top"><span>${plain(sec.title)}</span><b>${pct===null?'—':pct+'%'}</b></div><div class="track"><div class="fill"></div></div>`;
     bars.appendChild(row);
-    const fill=row.querySelector('.fill'); if(pct!==null){fill.style.width=pct+'%';fill.style.background=color(pct);}
-    if(pct!==null&&pct<70) weak.push(sec);
+    const fill=row.querySelector('.fill'); if(pct!==null){ fill.style.width=pct+'%'; fill.style.background=color(pct); }
   });
-  const overall=max?Math.round(got/max*100):null;
-  document.getElementById('scoreN').textContent=overall===null?'—':overall+'%';
-  document.getElementById('ringFill').style.strokeDashoffset=overall===null?402:402-(402*overall/100);
-  document.getElementById('ringFill').style.stroke=overall===null?'#C2A14D':color(overall);
-  const v=document.getElementById('verdict');
-  if(overall===null)v.textContent='Start rating →';
-  else if(overall>=85)v.textContent='Strong board';
-  else if(overall>=70)v.textContent='Healthy, with gaps';
-  else if(overall>=45)v.textContent='Needs attention';
-  else v.textContent='At risk — prioritize';
-  const reco=document.getElementById('reco');
-  if(answered===0){ reco.innerHTML='<div class="reco-empty">Rate the items above and your governance focus areas will appear here.</div>'; return; }
-  if(weak.length===0){ reco.innerHTML='<h3>No major governance gaps flagged.</h3><div class="sub">Every area you have rated is at 70% or above. The next step is moving from compliant to truly high-functioning — a discovery call can pinpoint where.</div>'; return; }
-  reco.innerHTML='<h3>Where to strengthen first</h3><div class="sub">Areas under 70% — matched to the work that strengthens them.</div>'+
-    weak.map(s=>`<div class="reco-item"><span class="d" style="background:${color(domainPct(DATA.indexOf(s)))}"></span><div><b>${s.title.replace('&amp;','&')}</b> — ${domainPct(DATA.indexOf(s))}%<br><span class="svc">→ ${s.svc.replace('&amp;','&')}</span></div></div>`).join('');
 }
-document.getElementById('resetBtn').addEventListener('click',()=>{ if(!confirm('Clear all answers on this device?'))return; localStorage.removeItem(KEY); location.reload(); });
-document.getElementById('emailBtn').addEventListener('click',()=>{
-  const email=(document.getElementById('leadEmail').value||'').trim();
-  const _cfToken=(document.querySelector('input[name="cf-turnstile-response"]')||{}).value||'';
-  if(!_cfToken){alert('Please complete the spam check before sending.');return;}
-  const org=(state.profile.org||'').trim()||'(organization)';
-  let lines=DATA.map((s,si)=>{const p=domainPct(si);return s.title.replace('&amp;','&')+': '+(p===null?'not rated':p+'%');}).join('\n');
-  const subject='Board Governance Self-Assessment — '+org;
-  const body='Organization: '+org+'\nOverall governance health: '+document.getElementById('scoreN').textContent+'\n\n'+lines+'\n\nLet\u2019s set up a call to review these results: https://calendly.com/toyboxcm/discovery-call\n\n(Generated at toyboxconsulting.net)';
-  const _btn=document.getElementById('emailBtn');
-  const _orig=_btn.textContent;
-  _btn.disabled=true;_btn.textContent='Sending…';
-  fetch('https://toybox-tools-mail.katoya.workers.dev',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      'cf-turnstile-response':_cfToken,
-      toolName:'Board Governance Self-Assessment',
-      subject:subject,
-      userEmail:email,
-      userName:(email?email.split('@')[0]:''),
-      organization:org,
-      results:body
-    })
-  }).then(r=>r.json()).then(d=>{
-    if(d.success){_btn.textContent='Sent ✓ check your inbox';setTimeout(()=>{_btn.textContent=_orig;_btn.disabled=false;},6000);}
-    else{_btn.textContent='Send failed — try again';_btn.disabled=false;console.error('Worker error',d);}
-  }).catch(e=>{_btn.textContent='Send failed — try again';_btn.disabled=false;console.error(e);});
+function weakAreas(){ return DATA.filter((s,si)=>{ const p=domainPct(si); return p!==null && p<70; }); }
+function renderReco(){
+  const reco=document.getElementById('reco'); const weak=weakAreas();
+  if(weak.length===0){ reco.innerHTML='<h3>No major governance gaps flagged.</h3><div class="sub">Every area you have rated is at 70% or above. The next step is moving from compliant to truly high-functioning. A 30-minute call can pinpoint where.</div>'; return; }
+  reco.innerHTML='<h3>Where to strengthen first</h3><div class="sub">Areas under 70%, matched to the work that strengthens them.</div>'+
+    weak.map(s=>`<div class="reco-item"><span class="d" style="background:${color(domainPct(DATA.indexOf(s)))}"></span><div><b>${plain(s.title)}</b> — ${domainPct(DATA.indexOf(s))}%<br><span class="svc">→ ${plain(s.svc)}</span></div></div>`).join('');
+}
+
+function recompute(){
+  const answered=answeredCount(), complete=answered>=TOTAL, unlocked=!!state.unlocked;
+  const overall=overallPct(), showScore=complete||unlocked;
+  document.body.classList.toggle('tb-locked', !unlocked);
+  // Teaser: overall score + band only, and only once every item is answered.
+  document.getElementById('scoreN').textContent = (showScore && overall!==null) ? overall+'%' : '—';
+  const ring=document.getElementById('ringFill');
+  ring.style.strokeDashoffset = (showScore && overall!==null) ? 402-(402*overall/100) : 402-(402*answered/TOTAL);
+  ring.style.stroke = (showScore && overall!==null) ? color(overall) : 'rgba(194,161,77,.55)';
+  const v=document.getElementById('verdict');
+  if(!showScore) v.textContent = answered===0 ? 'Start rating →' : answered+' of '+TOTAL+' answered';
+  else v.textContent = overall===null ? 'Rate at least one item' : verdictFor(overall);
+  // Full results: domain bars, section scores, focus areas.
+  DATA.forEach((_,si)=>{ const m=document.querySelector(`[data-mini="${si}"]`); if(m){ const p=domainPct(si); m.textContent = unlocked ? (p===null?'—':p+'%') : ''; } });
+  const reco=document.getElementById('reco');
+  if(unlocked){ renderBars(); if(answered===0) reco.innerHTML='<div class="reco-empty">Rate the items above and your focus areas will appear here.</div>'; else renderReco(); }
+  else {
+    document.getElementById('bars').innerHTML='';
+    reco.innerHTML = complete
+      ? '<div class="reco-locked"><b>Your focus areas are ready.</b> Add your name and email in the results panel to see the area-by-area breakdown and where to focus first.</div>'
+      : '<div class="reco-locked">Answer every question to see your overall score. Then add your email to see the area-by-area breakdown and where to focus first.</div>';
+  }
+  // Gate panel state.
+  const form=document.getElementById('gateForm'), done=document.getElementById('gateDone'), msg=document.getElementById('gateMsg'), h=document.getElementById('gateH');
+  if(unlocked){ form.hidden=true; done.hidden=false; msg.hidden=true; h.textContent='Your full results'; }
+  else if(complete){ form.hidden=false; done.hidden=true; msg.hidden=false; h.textContent='See your full results';
+    msg.textContent='That is your overall score. Add your details to see the area-by-area breakdown and where to focus first. ToyBox emails you a copy.';
+    ensureTurnstile();
+    if(wasComplete===false){ document.getElementById('gate').scrollIntoView({behavior:'smooth',block:'center'}); }
+  } else { form.hidden=true; done.hidden=true; msg.hidden=false; h.textContent='Your full results';
+    msg.textContent = answered===0 ? 'Answer every question to see your overall score.' : (TOTAL-answered)+' to go. Your overall score appears when every item is answered.'; }
+  wasComplete=complete;
+}
+
+// ---- Turnstile (explicit render once the gate opens; the page already loads api.js) ----
+let tsWidget=null, tsToken='', tsFailed=false, tsWaits=0, tokenlessTries=0;
+function ensureTurnstile(){
+  if(tsWidget!==null || tsFailed) return;
+  if(!window.turnstile){ if(++tsWaits>24){ tsFailed=true; console.warn('[tool-gate] Turnstile did not load; gate will fail open'); return; } setTimeout(ensureTurnstile,500); return; }
+  try{
+    const box=document.getElementById('tsBox');
+    tsWidget=window.turnstile.render(box,{ sitekey:TURNSTILE_SITEKEY, theme:'light', action:'tool-email',
+      size:(box.clientWidth && box.clientWidth<300)?'compact':'normal',
+      callback:t=>{ tsToken=t; }, 'expired-callback':()=>{ tsToken=''; },
+      'error-callback':()=>{ tsFailed=true; console.warn('[tool-gate] Turnstile error; gate will fail open'); } });
+  }catch(e){ tsFailed=true; console.error('[tool-gate] Turnstile render failed',e); }
+}
+
+function resultsText(org, first, consent){
+  const lines=DATA.map((s,si)=>{ const p=domainPct(si); return plain(s.title)+': '+(p===null?'not rated':p+'%'); }).join('\n');
+  const weak=weakAreas();
+  const focus=weak.length ? weak.map(s=>'- '+plain(s.title)+' → '+plain(s.svc)).join('\n') : '- No area under 70%.';
+  const overall=overallPct();
+  return 'Name: '+first+'\nOrganization: '+org+'\nOverall governance health: '+(overall===null?'not rated':overall+'%')+' ('+(overall===null?'':verdictFor(overall))+')\n\n'+
+    lines+'\n\nWhere to focus first:\n'+focus+'\n\nEmail updates from ToyBox: '+(consent?'yes':'no')+
+    '\n\nBook a 30-minute call to review these results: '+CALL_URL+'\n\n(Generated at toyboxconsulting.net)';
+}
+
+function unlock(sent){
+  state.unlocked=true; state.unlockedAt=new Date().toISOString(); save();
+  document.getElementById('gateOk').textContent = sent
+    ? 'Your full results are on this page, and a copy is on its way to your inbox.'
+    : 'Your full results are on this page. The email copy did not go through, so use Download / print to keep one.';
+  recompute();
+  try{ if(window.gtag) window.gtag('event', sent?'generate_lead':'tool_gate_unlocked_unsent', {tool_name:TOOL_NAME}); }catch(e){}
+  const target=document.getElementById('bars'); if(target) target.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+const leadOrg=document.getElementById('leadOrg'), orgMain=document.getElementById('org');
+leadOrg.value=state.profile.org||'';
+leadOrg.addEventListener('input',()=>{ state.profile.org=leadOrg.value; orgMain.value=leadOrg.value; save(); });
+orgMain.addEventListener('input',()=>{ leadOrg.value=orgMain.value; });
+
+let submitting=false;
+document.getElementById('gateForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  if(submitting || state.unlocked) return;
+  const errEl=document.getElementById('gateErr'), btn=document.getElementById('emailBtn');
+  const first=document.getElementById('leadFirst').value.trim();
+  const email=document.getElementById('leadEmail').value.trim();
+  const org=leadOrg.value.trim();
+  const consent=document.getElementById('leadConsent').checked;
+  const fail=m=>{ errEl.textContent=m; };
+  errEl.textContent='';
+  if(!first) return fail('Please add your first name.');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('Please enter a valid email address.');
+  if(!org) return fail('Please add your organization.');
+  if(REQUIRE_MARKETING_CONSENT && !consent) return fail('Please tick the box to continue.');
+  if(!tsToken && !tsFailed && window.turnstile && tokenlessTries++<1) return fail('Please complete the quick spam check above the button, then try again.');
+  submitting=true; btn.disabled=true; const orig=btn.textContent; btn.textContent='Opening your results…';
+  let sent=false;
+  if(/^\[/.test(LEAD_ENDPOINT)){ console.warn('[tool-gate] LEAD_ENDPOINT is a placeholder; results unlocked without sending'); }
+  else {
+    const payload={
+      'cf-turnstile-response':tsToken, toolName:TOOL_NAME, subject:TOOL_NAME+' — '+org,
+      userEmail:email, userName:first, firstName:first, organization:org,
+      marketingConsent:consent, consentText:document.getElementById('consentText').textContent,
+      consentAt:new Date().toISOString(), source:'tool-email-gate', page:location.href.split('?')[0],
+      results:resultsText(org, first, consent)
+    };
+    try{
+      const ctl=new AbortController(); const tm=setTimeout(()=>ctl.abort(), SUBMIT_TIMEOUT_MS);
+      const r=await fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:ctl.signal});
+      clearTimeout(tm);
+      const d=await r.json().catch(()=>({}));
+      sent=!!d.success;
+      if(!sent) console.error('[tool-gate] Worker did not confirm the send', r.status, d);
+    }catch(x){ console.error('[tool-gate] submit failed; unlocking anyway', x); }
+  }
+  try{ if(tsWidget!==null) window.turnstile.reset(tsWidget); }catch(e){}
+  tsToken=''; btn.disabled=false; btn.textContent=orig; submitting=false;
+  unlock(sent);
 });
+
+document.getElementById('resetBtn').addEventListener('click',()=>{ if(!confirm('Clear all answers on this device?'))return; localStorage.removeItem(KEY); location.reload(); });
 Object.keys(state.scores).forEach(syncRow);
 recompute();
 </script>
