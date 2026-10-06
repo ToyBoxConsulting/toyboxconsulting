@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://toyboxconsulting.net/blog/it-and-data-for-mission-driven-teams.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https:; connect-src 'self' https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IT &amp; Data for Mission-Driven Teams — ToyBox Consulting</title>
+<link rel="icon" type="image/png" href="../assets/logo-rust.png" />
+<meta name="description" content="Project-management habits that keep technology from becoming the problem: scope, ownership, access, backups, software selection, change control, clean data and government tech compliance." />
+<meta name="author" content="Katoya R. Palmer" />
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ToyBox Consulting" />
+<meta property="og:title" content="IT &amp; Data for Mission-Driven Teams — ToyBox Consulting" />
+<meta property="og:description" content="Project-management habits that keep technology from becoming the problem: scope, ownership, access, backups, software selection, change control, clean data and government tech compliance." />
+<meta property="og:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta property="og:url" content="https://toyboxconsulting.net/blog/it-and-data-for-mission-driven-teams.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="IT &amp; Data for Mission-Driven Teams — ToyBox Consulting" />
+<meta name="twitter:description" content="Project-management habits that keep technology from becoming the problem: scope, ownership, access, backups, software selection, change control, clean data and government tech compliance." />
+<meta name="twitter:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#a32225; --rust-dark:#7A1A1D; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C2A14D; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 40px;}
+  .wrap-wide{max-width:1200px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.7;}
+
+  /* NAV (matches other TBCM pages) */
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+  @media(max-width:900px){.nav-links{display:none;}.nav-cta{display:inline-block!important;}}
+
+  /* ARTICLE */
+  article.post{padding:70px 0 90px;background:var(--cream);}
+  article.post .meta-strip{display:flex;gap:16px;align-items:center;margin-bottom:22px;font-family:var(--sans);font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em;}
+  article.post .meta-strip .cat{font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);}
+  article.post h1{font-size:48px;line-height:1.06;margin-bottom:20px;}
+  article.post h1 em{font-style:italic;color:var(--rust);}
+  article.post .lede{font-size:20px;line-height:1.55;color:var(--ink-soft);margin-bottom:36px;padding-bottom:26px;border-bottom:1px solid var(--greige-soft);}
+  article.post h2{font-size:26px;margin:38px 0 14px;letter-spacing:-.01em;}
+  article.post h3{font-size:20px;margin:26px 0 10px;font-weight:600;}
+  article.post p{font-size:17px;color:var(--ink);margin-bottom:16px;}
+  article.post p strong{font-weight:600;color:var(--ink);}
+  article.post ul,article.post ol{margin:14px 0 22px 22px;font-size:17px;line-height:1.65;}
+  article.post li{margin-bottom:8px;color:var(--ink);}
+  article.post blockquote{border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1.45;}
+  article.post .callout{background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:8px;padding:22px 28px;margin:28px 0;font-size:15.5px;color:var(--ink-soft);line-height:1.6;}
+  article.post .callout strong{color:var(--rust);}
+  article.post hr{border:none;height:1px;background:var(--greige-soft);margin:36px 0;}
+
+  /* CTA CARD at end of each post */
+  .cta-card{background:var(--navy-deep);color:#fff;padding:44px 40px;border-radius:8px;margin:48px 0 0;text-align:center;}
+  .cta-card h3{font-family:var(--serif);font-size:26px;color:#fff;margin-bottom:12px;}
+  article.post .cta-card p{font-size:15.5px;color:rgba(245,240,232,.85);max-width:520px;margin:0 auto 22px;line-height:1.55;}
+  .cta-card a.btn{display:inline-block;background:var(--rust);color:#fff!important;padding:13px 28px;border-radius:3px;font-weight:600;font-size:14.5px;letter-spacing:.02em;transition:.2s;}
+  .cta-card a.btn:hover{background:var(--rust-dark);}
+article.post .cta-card p a{color:#e8c77a;font-weight:600;}
+
+  /* BACK LINK */
+  .back-link{display:inline-block;font-size:13px;font-family:var(--sans);color:var(--rust);font-weight:500;letter-spacing:.02em;margin-bottom:24px;}
+  .back-link:hover{text-decoration:underline;}
+
+  /* BLOG INDEX */
+  .blog-hero{padding:80px 0 40px;background:var(--cream);text-align:center;}
+  .blog-hero h1{font-size:60px;line-height:1.02;margin:14px 0 16px;}
+  .blog-hero h1 em{font-style:italic;color:var(--rust);}
+  .blog-hero p{font-size:18px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
+  .post-list{padding:40px 0 100px;}
+  .post-card{display:block;padding:32px 0;border-bottom:1px solid var(--greige-soft);transition:.2s;}
+  .post-card:hover{padding-left:8px;}
+  .post-card .meta{display:flex;gap:14px;font-family:var(--sans);font-size:12px;color:var(--ink-faint);letter-spacing:.03em;margin-bottom:10px;}
+  .post-card .meta .cat{color:var(--rust);font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+  .post-card h2{font-family:var(--serif);font-size:30px;line-height:1.12;color:var(--ink);margin-bottom:10px;font-weight:600;}
+  .post-card h2:hover{color:var(--rust);}
+  .post-card p{font-size:16px;color:var(--ink-soft);line-height:1.55;margin-bottom:12px;max-width:680px;}
+  .post-card .go{color:var(--rust);font-family:var(--sans);font-size:13.5px;font-weight:600;}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:rgba(245,240,232,.7);padding:36px 0;font-family:var(--sans);font-size:13px;text-align:center;}
+  footer a{color:rgba(245,240,232,.85);border-bottom:1px solid rgba(245,240,232,.2);}
+  footer a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+    <div class="nav-links">
+      <a href="../public-sector.html">Public Sector</a>
+        <a href="../business.html">Business</a>
+      <a href="../index.html#workshops">Workshops</a>
+      <a href="../resources.html">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../case-study.html">Work</a>
+      <a href="../events.html">Events</a>
+      <a href="./" class="active">Blog</a>
+      <a href="../contact.html">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Discovery Call</a>
+    </div>
+  </div>
+</nav>
+
+<article class="post">
+  <div class="wrap">
+    <a class="back-link" href="./">← All posts</a>
+    <div class="meta-strip"><span class="cat">Guides</span><span>·</span><span>October 2026</span><span>·</span><span>Katoya R. Palmer</span></div>
+    <h1>IT &amp; Data for Mission-Driven Teams</h1>
+    <p class="lede">Project-management habits that keep technology from becoming the problem: scope, ownership, access, backups, software selection, change control, clean data and government tech compliance.</p>
+<p>This guide collects a ToyBox series in one place. Each section is also shared, one at a time, on ToyBox's social channels.</p>
+<ol><li><a href="#part1">Tech projects fail at scope, not at code.</a></li><li><a href="#part2">Who owns this spreadsheet? Meet the RACI chart.</a></li><li><a href="#part3">The offboarding checklist nobody writes until it&#x27;s too late.</a></li><li><a href="#part4">Synced is not backed up. The 3-2-1 rule.</a></li><li><a href="#part5">Choose software with a requirements list, not a demo.</a></li><li><a href="#part6">&quot;Can it also just…&quot; Scope creep and the change request.</a></li><li><a href="#part7">Clean the data before you move it.</a></li><li><a href="#part8">Government tech compliance: accessibility, privacy and records.</a></li></ol>
+
+<h2 id="part1">1. Tech projects fail at scope, not at code.</h2>
+<p>Most technology projects don&#x27;t fail because the software is bad. They fail because nobody agreed on what the project was.</p>
+<p>ToyBox founder Katoya R. Palmer is a CompTIA Project+ certified project manager. And the pattern is consistent. A new database, a website, a CRM. Everyone has a different picture of what it will do. Halfway through, the picture changes. The budget doesn&#x27;t.</p>
+<p>Scope is the fix. Before anyone buys anything, write down what&#x27;s in, what&#x27;s out, who makes the final call, and what &quot;done&quot; looks like. One page is enough. If it&#x27;s not on the page, it&#x27;s a change, and changes get decided, not absorbed.</p>
+<p>It feels slow at the start. It&#x27;s the fastest way to finish.</p>
+<p>Technology is not a luxury. It&#x27;s governance, and scope is where governance starts.</p>
+<p class="callout"><strong>Try this:</strong> What&#x27;s a tech project at your organization that never quite finished?</p>
+<h2 id="part2">2. Who owns this spreadsheet? Meet the RACI chart.</h2>
+<p>Every organization has a spreadsheet nobody owns and everybody edits.</p>
+<p>A RACI chart fixes that with four letters. Responsible: the person who does the work. Accountable: the one person who makes the final call and answers for it. Consulted: people whose input you need before deciding. Informed: people who need to know after.</p>
+<p>The rule that matters most: only one person is accountable for each item. Two accountable people means nobody is.</p>
+<p>Use it for your systems as well as your projects. Who is accountable for the donor database? The shared drive? The website? The password manager? If the answer is &quot;kind of everyone,&quot; the answer is no one, and the first time something breaks, you&#x27;ll find out.</p>
+<p>A system without an owner is a liability with a login.</p>
+<p class="callout"><strong>Try this:</strong> Which system at your organization has no clear owner?</p>
+<h2 id="part3">3. The offboarding checklist nobody writes until it&#x27;s too late.</h2>
+<p>When someone leaves an organization, their access should leave with them. In a lot of small organizations, it doesn&#x27;t.</p>
+<p>Former staff still in the shared drive. A volunteer still holding the only admin login to the website. A vendor portal tied to a personal email nobody can reach. None of it is malicious. All of it is risk.</p>
+<p>A short offboarding checklist covers most of it. Transfer admin rights before the last day, not after. Turn off email and file access, and forward what needs forwarding. Change shared passwords, and move them into a password manager if they aren&#x27;t already. Check vendor and funder portals. Get devices back and wiped.</p>
+<p>Then do the same checklist in reverse for onboarding, so new people get exactly the access they need and nothing they don&#x27;t.</p>
+<p>Readiness is equity. So is knowing who can see your data.</p>
+<p class="callout"><strong>Try this:</strong> When was the last time your organization checked who still has access?</p>
+<h2 id="part4">4. Synced is not backed up. The 3-2-1 rule.</h2>
+<p>If a file gets deleted in a synced folder, the deletion syncs too. That&#x27;s why synced is not the same as backed up.</p>
+<p>The 3-2-1 rule is the simplest standard to remember. Keep three copies of your important data. Store them on two different kinds of storage. Keep one copy off-site, or in a separate cloud account, so one fire, theft or ransomware attack can&#x27;t take everything.</p>
+<p>Then the step almost everyone skips: test a restore. Pick a file, pretend it&#x27;s gone, and get it back. A backup you&#x27;ve never restored is a hope, not a plan.</p>
+<p>Start with what would hurt most to lose: the financial records, the grant files, the donor or client database, and anything a funder or auditor could ask for later.</p>
+<p>Prevention isn&#x27;t theory. It&#x27;s infrastructure.</p>
+<p class="callout"><strong>Try this:</strong> When did your organization last restore a file from backup on purpose?</p>
+<h2 id="part5">5. Choose software with a requirements list, not a demo.</h2>
+<p>Software demos are designed to impress. They show the best features on perfect data. Then you buy it, and your real Tuesday looks nothing like the demo.</p>
+<p>Write your requirements before you watch anything. List what the system must do, what would be nice, and what it absolutely can&#x27;t do. Bring in the people who will use it every day, not just the people who sign the contract.</p>
+<p>Then ask the questions vendors don&#x27;t volunteer. How do we get our data out if we leave? What does it cost in year two and year three? Who do we call when it breaks, and how fast do they answer? Does it meet the accessibility and security standards our funders require?</p>
+<p>Score each option against your list, not against the demo.</p>
+<p>The best software is the one your team will actually use.</p>
+<p class="callout"><strong>Try this:</strong> What&#x27;s a tool your organization bought that nobody uses?</p>
+<h2 id="part6">6. &quot;Can it also just…&quot; Scope creep and the change request.</h2>
+<p>&quot;Can it also just…&quot; are the four most expensive words in a technology project.</p>
+<p>Scope creep is how a three-month project becomes a nine-month project without anyone deciding it should. Each request is small and reasonable. Together, they move the deadline and drain the budget.</p>
+<p>A change request process doesn&#x27;t mean saying no. It means deciding on purpose. Write the change down. Estimate what it costs in time and money. Have the accountable person approve or decline it. Then update the plan, so everyone is working from the same version.</p>
+<p>Some changes are worth it. The point is that someone chose them.</p>
+<p>Speed without structure doesn&#x27;t equal progress. It just moves the problem.</p>
+<p class="callout"><strong>Try this:</strong> What&#x27;s the biggest &quot;can it also just&quot; your organization has said yes to?</p>
+<h2 id="part7">7. Clean the data before you move it.</h2>
+<p>A new system won&#x27;t fix messy data. It will import the mess faithfully and then make it harder to find.</p>
+<p>Before any migration, whether a new CRM, accounting system or database, clean first. Find the duplicates, like the same donor entered three ways. Decide which fields actually matter, and stop carrying the ones nobody uses. Standardize formats for names, dates, addresses and phone numbers. Archive old records you&#x27;re required to keep but don&#x27;t need in the new system.</p>
+<p>Then do a test migration with a small slice of the data, check it with the people who use it, and fix the rules before moving everything.</p>
+<p>It&#x27;s tedious. It&#x27;s also the difference between a new system people trust and a new system people work around.</p>
+<p>Coding was never the point. Systems literacy was.</p>
+<p class="callout"><strong>Try this:</strong> What&#x27;s the messiest data your organization would have to clean before a move?</p>
+<h2 id="part8">8. Government tech compliance: accessibility, privacy and records.</h2>
+<p>When an organization takes public money, the technology comes with rules too. Three show up most.</p>
+<p>Accessibility. Federal rules adopted in 2024 set a web accessibility standard, WCAG 2.1 Level AA, for state and local governments and for many organizations that receive federal funds. In 2026 those deadlines were extended, and the first ones now fall in 2027. That covers websites, online forms and the documents you post. Don&#x27;t wait for the date. Accessible is better for everyone now.</p>
+<p>Privacy. Federal award rules expect organizations to take reasonable steps to protect personal information they collect. Think client records, case notes and anything with a Social Security number.</p>
+<p>Records. Award agreements usually require keeping records for a set number of years, and public agencies have public records laws on top of that. If you can&#x27;t find it, you can&#x27;t prove it.</p>
+<p>Your agreement and your funder&#x27;s guidance decide what applies to you. Read them, then build the habits.</p>
+<p>Standards don&#x27;t erase community culture. They protect it.</p>
+<p class="callout"><strong>Try this:</strong> Has a funder ever asked about your website&#x27;s accessibility?</p>
+<p><em>General information, not legal, tax or accounting advice. Your award agreements and your funders' rules come first.</em></p>
+<hr><h3>Sources</h3><ul><li><a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II web accessibility rule (2024)</a></li><li><a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ extension of compliance dates (April 2026)</a></li><li><a href="https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">HHS Section 504 extension of compliance dates (May 2026)</a></li></ul>
+    <div class="cta-card">
+      <h3>Does your organization deal with this?</h3>
+      <p>Tell ToyBox about a problem you're working through. The first conversation is a 30-minute call.</p>
+      <a class="btn" href="https://calendly.com/toyboxcm/30" target="_blank" rel="noopener noreferrer">Book a 30-minute call</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap-wide">
+    <p>© <script>document.write(new Date().getFullYear())</script> ToyBox Consulting &amp; Management, LLC · Bellevue, WA · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="canonical" href="https://toyboxconsulting.net/blog/grant-compliance-101.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://serve.albacross.com https://track.albacross.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https:; connect-src 'self' https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://serve.albacross.com https://track.albacross.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grant Compliance 101 — ToyBox Consulting</title>
+<link rel="icon" type="image/png" href="../assets/logo-rust.png" />
+<meta name="description" content="Restricted money, fund accounting, the Uniform Guidance, pass-through layers, spend-downs, clawbacks and the QuickBooks problem, in plain language." />
+<meta name="author" content="Katoya R. Palmer" />
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ToyBox Consulting" />
+<meta property="og:title" content="Grant Compliance 101 — ToyBox Consulting" />
+<meta property="og:description" content="Restricted money, fund accounting, the Uniform Guidance, pass-through layers, spend-downs, clawbacks and the QuickBooks problem, in plain language." />
+<meta property="og:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<meta property="og:url" content="https://toyboxconsulting.net/blog/grant-compliance-101.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Grant Compliance 101 — ToyBox Consulting" />
+<meta name="twitter:description" content="Restricted money, fund accounting, the Uniform Guidance, pass-through layers, spend-downs, clawbacks and the QuickBooks problem, in plain language." />
+<meta name="twitter:image" content="https://toyboxconsulting.net/assets/katoya-keynote.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F5F0E8; --cream-2:#FBF8F2; --paper:#FFFFFF;
+    --rust:#a32225; --rust-dark:#7A1A1D; --greige:#C4B9A8; --greige-soft:#E3DBCD;
+    --navy:#1B3A5C; --navy-deep:#142C46; --gold:#C2A14D; --green:#4A7A52;
+    --ink:#1A1A1A; --ink-soft:#5A544B; --ink-faint:#8C8578;
+    --serif:"Playfair Display",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 40px;}
+  .wrap-wide{max-width:1200px;margin:0 auto;padding:0 64px;}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.015em;color:var(--ink);}
+  p{line-height:1.7;}
+
+  /* NAV (matches other TBCM pages) */
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,44,70,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(196,185,168,.18);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 64px;max-width:1240px;margin:0 auto;}
+  .nav-logo img{height:46px;display:block;}
+  .nav-links{display:flex;gap:26px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:rgba(245,240,232,.82);transition:.18s;}
+  .nav-links a:hover{color:var(--gold);} .nav-links a.active{color:var(--gold);}
+  .nav-cta{font-size:14px!important;font-weight:600!important;color:#fff!important;background:var(--rust);border:1px solid var(--rust);padding:10px 20px;border-radius:3px;}
+  .nav-cta:hover{background:var(--rust-dark);}
+  @media(max-width:900px){.nav-links{display:none;}.nav-cta{display:inline-block!important;}}
+
+  /* ARTICLE */
+  article.post{padding:70px 0 90px;background:var(--cream);}
+  article.post .meta-strip{display:flex;gap:16px;align-items:center;margin-bottom:22px;font-family:var(--sans);font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em;}
+  article.post .meta-strip .cat{font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);}
+  article.post h1{font-size:48px;line-height:1.06;margin-bottom:20px;}
+  article.post h1 em{font-style:italic;color:var(--rust);}
+  article.post .lede{font-size:20px;line-height:1.55;color:var(--ink-soft);margin-bottom:36px;padding-bottom:26px;border-bottom:1px solid var(--greige-soft);}
+  article.post h2{font-size:26px;margin:38px 0 14px;letter-spacing:-.01em;}
+  article.post h3{font-size:20px;margin:26px 0 10px;font-weight:600;}
+  article.post p{font-size:17px;color:var(--ink);margin-bottom:16px;}
+  article.post p strong{font-weight:600;color:var(--ink);}
+  article.post ul,article.post ol{margin:14px 0 22px 22px;font-size:17px;line-height:1.65;}
+  article.post li{margin-bottom:8px;color:var(--ink);}
+  article.post blockquote{border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:26px 0;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1.45;}
+  article.post .callout{background:var(--cream-2);border:1px solid var(--greige-soft);border-radius:8px;padding:22px 28px;margin:28px 0;font-size:15.5px;color:var(--ink-soft);line-height:1.6;}
+  article.post .callout strong{color:var(--rust);}
+  article.post hr{border:none;height:1px;background:var(--greige-soft);margin:36px 0;}
+
+  /* CTA CARD at end of each post */
+  .cta-card{background:var(--navy-deep);color:#fff;padding:44px 40px;border-radius:8px;margin:48px 0 0;text-align:center;}
+  .cta-card h3{font-family:var(--serif);font-size:26px;color:#fff;margin-bottom:12px;}
+  article.post .cta-card p{font-size:15.5px;color:rgba(245,240,232,.85);max-width:520px;margin:0 auto 22px;line-height:1.55;}
+  .cta-card a.btn{display:inline-block;background:var(--rust);color:#fff!important;padding:13px 28px;border-radius:3px;font-weight:600;font-size:14.5px;letter-spacing:.02em;transition:.2s;}
+  .cta-card a.btn:hover{background:var(--rust-dark);}
+article.post .cta-card p a{color:#e8c77a;font-weight:600;}
+
+  /* BACK LINK */
+  .back-link{display:inline-block;font-size:13px;font-family:var(--sans);color:var(--rust);font-weight:500;letter-spacing:.02em;margin-bottom:24px;}
+  .back-link:hover{text-decoration:underline;}
+
+  /* BLOG INDEX */
+  .blog-hero{padding:80px 0 40px;background:var(--cream);text-align:center;}
+  .blog-hero h1{font-size:60px;line-height:1.02;margin:14px 0 16px;}
+  .blog-hero h1 em{font-style:italic;color:var(--rust);}
+  .blog-hero p{font-size:18px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
+  .post-list{padding:40px 0 100px;}
+  .post-card{display:block;padding:32px 0;border-bottom:1px solid var(--greige-soft);transition:.2s;}
+  .post-card:hover{padding-left:8px;}
+  .post-card .meta{display:flex;gap:14px;font-family:var(--sans);font-size:12px;color:var(--ink-faint);letter-spacing:.03em;margin-bottom:10px;}
+  .post-card .meta .cat{color:var(--rust);font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+  .post-card h2{font-family:var(--serif);font-size:30px;line-height:1.12;color:var(--ink);margin-bottom:10px;font-weight:600;}
+  .post-card h2:hover{color:var(--rust);}
+  .post-card p{font-size:16px;color:var(--ink-soft);line-height:1.55;margin-bottom:12px;max-width:680px;}
+  .post-card .go{color:var(--rust);font-family:var(--sans);font-size:13.5px;font-weight:600;}
+
+  /* FOOTER */
+  footer{background:var(--navy-deep);color:rgba(245,240,232,.7);padding:36px 0;font-family:var(--sans);font-size:13px;text-align:center;}
+  footer a{color:rgba(245,240,232,.85);border-bottom:1px solid rgba(245,240,232,.2);}
+  footer a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
+    <div class="nav-links">
+      <a href="../public-sector.html">Public Sector</a>
+        <a href="../business.html">Business</a>
+      <a href="../index.html#workshops">Workshops</a>
+      <a href="../resources.html">Tools</a>
+      <a href="../about.html">About</a>
+      <a href="../case-study.html">Work</a>
+      <a href="../events.html">Events</a>
+      <a href="./" class="active">Blog</a>
+      <a href="../contact.html">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Discovery Call</a>
+    </div>
+  </div>
+</nav>
+
+<article class="post">
+  <div class="wrap">
+    <a class="back-link" href="./">← All posts</a>
+    <div class="meta-strip"><span class="cat">Guides</span><span>·</span><span>October 2026</span><span>·</span><span>Katoya R. Palmer</span></div>
+    <h1>Grant Compliance 101</h1>
+    <p class="lede">Restricted money, fund accounting, the Uniform Guidance, pass-through layers, spend-downs, clawbacks and the QuickBooks problem, in plain language.</p>
+<p>This guide collects a ToyBox series in one place. Each section is also shared, one at a time, on ToyBox's social channels.</p>
+<ol><li><a href="#part1">Money in the bank isn&#x27;t money you can spend.</a></li><li><a href="#part2">Fund accounting: every grant is its own small budget.</a></li><li><a href="#part3">2 CFR Part 200: the tests every federal cost has to pass.</a></li><li><a href="#part4">City, county, state, federal: why compliance feels like a moving goal post.</a></li><li><a href="#part5">Spend-downs and closeout: the end date is a bigger deal than you think.</a></li><li><a href="#part6">Clawbacks: how they happen and how to never be there.</a></li><li><a href="#part7">Why QuickBooks makes nonprofit finance hard.</a></li></ol>
+
+<h2 id="part1">1. Money in the bank isn&#x27;t money you can spend.</h2>
+<p>&quot;We have money in the bank&quot; and &quot;we can make payroll&quot; are two different sentences.</p>
+<p>Nonprofit money comes in two kinds. Restricted money comes with instructions: a funder or donor decided what it can be spent on, and sometimes when. Unrestricted money is the organization&#x27;s to direct, by the board.</p>
+<p>The trap is quiet. The bank balance looks healthy, so restricted dollars get used to cover rent or payroll for a few weeks, with every intention of paying it back. Then the reimbursement is late, the report is due, and the money that was promised to a program isn&#x27;t there.</p>
+<p>That isn&#x27;t a character flaw. It&#x27;s a systems gap. The fix is to know, at any moment, how much of your cash is spoken for. That means tracking restricted funds separately from the day the award letter arrives, and reading the balance as two numbers, not one.</p>
+<p>A healthy bank balance is not the same as healthy cash. Restricted money is a promise you&#x27;re holding.</p>
+<p class="callout"><strong>Try this:</strong> Could your organization say today how much of its cash is restricted?</p>
+<h2 id="part2">2. Fund accounting: every grant is its own small budget.</h2>
+<p>Fund accounting sounds technical. The idea is simple: every grant is its own small budget, inside your bigger one.</p>
+<p>Each funding source gets its own lane. Money in is tracked by source. Money out is coded to the source that&#x27;s paying for it. At any point you can answer three questions per grant: how much did we receive, how much have we spent, and on what.</p>
+<p>The hard part is shared costs. Rent, a program manager who works on two grants, the copier. Those need a written allocation method, like time sheets or square footage, applied the same way every month. &quot;We split it about half and half&quot; won&#x27;t hold up when a funder asks.</p>
+<p>Then run a budget-versus-actual report for every grant, every month. Not at the end. Problems are cheap in month three and expensive in month eleven.</p>
+<p>Compliance isn&#x27;t paperwork. It&#x27;s proof the money did what you said it would.</p>
+<p class="callout"><strong>Try this:</strong> How does your organization split shared costs between grants today?</p>
+<h2 id="part3">3. 2 CFR Part 200: the tests every federal cost has to pass.</h2>
+<p>If your organization receives federal money, directly or passed through a state or city, one rulebook sits behind it: 2 CFR Part 200, also called the Uniform Guidance.</p>
+<p>Most of it comes down to whether a cost is allowable. A cost generally has to pass a few tests. Is it necessary and reasonable for the work? Is it allocable to this award, meaning the award actually benefits from it? Is it treated consistently with your own policies, the same way you&#x27;d treat it with any other money? And is it adequately documented?</p>
+<p>The 2024 update raised several thresholds for awards made on or after October 1, 2024. The single audit threshold went up to $1 million in federal spending in a year, the de minimis indirect cost rate went up to 15 percent, and the equipment threshold went up to $10,000.</p>
+<p>None of this replaces reading your actual award terms. Your agreement and your funder&#x27;s rules come first.</p>
+<p>A receipt is not documentation. A receipt plus the reason it belongs to this award is.</p>
+<p class="callout"><strong>Try this:</strong> Which of the four tests is hardest for your team to prove?</p>
+<h2 id="part4">4. City, county, state, federal: why compliance feels like a moving goal post.</h2>
+<p>If grant compliance ever feels like a moving goal post, it might be because it is. Just not for the reason you think.</p>
+<p>A lot of public money doesn&#x27;t come straight from the source. Federal dollars often pass through the state, then the county, then the city, before they reach a nonprofit. Under the Uniform Guidance, each pass-through entity can add its own requirements on top of the federal ones. So the same federal program can come with different forms, reporting schedules and documentation rules depending on who handed it to you.</p>
+<p>The calendars don&#x27;t match either. The federal fiscal year starts October 1, Washington State&#x27;s starts July 1, and many cities and counties run on the calendar year. Deadlines stack up in different months for the same work.</p>
+<p>Closeout shifts too. A direct federal recipient generally has 120 days after the period of performance to submit final reports. A subrecipient generally has 90, or less if the pass-through sets an earlier date.</p>
+<p>The fix: read every layer&#x27;s agreement, list each requirement in one place, and build your system to meet the strictest one. Then every layer is satisfied at once.</p>
+<p>The goal post isn&#x27;t moving. There are just more of them than anyone told you.</p>
+<p class="callout"><strong>Try this:</strong> How many layers does your largest grant pass through before it reaches you?</p>
+<h2 id="part5">5. Spend-downs and closeout: the end date is a bigger deal than you think.</h2>
+<p>Every grant has an end date, and the end date is a bigger deal than most teams plan for.</p>
+<p>The period of performance is the window when costs can be charged to the award. Costs outside that window generally aren&#x27;t allowable. That&#x27;s why the last quarter of a grant gets frantic: teams discover they&#x27;re underspent, try to spend it all in six weeks, and end up buying things that are hard to justify.</p>
+<p>The fix starts in month one. Track your burn rate, meaning how much you&#x27;ve spent compared with how far you are through the period. If you&#x27;re 50 percent through the time and 20 percent through the money, that&#x27;s a conversation to have with your funder now, not in month eleven.</p>
+<p>Then plan for closeout. Under the Uniform Guidance, a direct recipient generally has 120 days after the period of performance ends to submit final reports and liquidate obligations. Subrecipients generally get 90 days, or less if the pass-through entity sets an earlier date. Unspent funds may need to be returned. Check your award for its exact terms.</p>
+<p>A spend-down is not a shopping spree. It&#x27;s the last test of whether the plan was real.</p>
+<p class="callout"><strong>Try this:</strong> How far into your current grant are you, in time and in money?</p>
+<h2 id="part6">6. Clawbacks: how they happen and how to never be there.</h2>
+<p>A clawback is when a funder asks for money back. It usually arrives after the work is done and the money is spent, which is exactly why it hurts.</p>
+<p>They tend to come from a few places. Costs that weren&#x27;t allowable under the award. Costs that may have been fine but can&#x27;t be documented. Deliverables or outcomes that the agreement required and the organization can&#x27;t show. And sometimes spending outside the period of performance.</p>
+<p>The common thread isn&#x27;t bad intent. It&#x27;s that nobody was checking until the auditor or the program officer did.</p>
+<p>Prevention is boring, and that&#x27;s the point. A monthly review of charges against each award. Documentation filed when the cost happens, not reconstructed later. A deliverables tracker that someone owns. And a habit of asking the funder in writing before spending on anything gray.</p>
+<p>Accountability isn&#x27;t punishment. It&#x27;s protection, for the organization and the people it serves.</p>
+<p class="callout"><strong>Try this:</strong> Has your organization ever had to pay money back to a funder?</p>
+<h2 id="part7">7. Why QuickBooks makes nonprofit finance hard.</h2>
+<p>QuickBooks is the most common accounting software in small nonprofits. It also wasn&#x27;t designed for how nonprofits have to account for money.</p>
+<p>Nonprofits need fund accounting: tracking each grant and each restriction separately. QuickBooks Online doesn&#x27;t do that natively, so organizations use workarounds such as classes, locations, projects and tags to mark which fund a transaction belongs to. It can work. It only works if every person who touches the books codes every transaction the same way, every time.</p>
+<p>Other friction points: grant years rarely line up with fiscal years, so per-grant reporting means custom reports. Releasing money from restriction usually takes manual journal entries. And a single uncoded transaction can quietly throw off a funder report.</p>
+<p>ToyBox founder Katoya R. Palmer is an Intuit QuickBooks Online Certified User. The pattern she sees most often isn&#x27;t a software problem. It&#x27;s a missing chart of accounts and coding rule that everyone follows.</p>
+<p>The tool is not the system. The rules are.</p>
+<p class="callout"><strong>Try this:</strong> What&#x27;s the biggest headache your books give you at reporting time?</p>
+<p><em>General information, not legal, tax or accounting advice. Your award agreements and your funders' rules come first.</em></p>
+<hr><h3>Sources</h3><ul><li><a href="https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200" target="_blank" rel="noopener noreferrer">2 CFR Part 200 (Uniform Guidance), eCFR</a></li><li><a href="https://www.whitehouse.gov/wp-content/uploads/2024/04/M-24-11-Revisions-to-2-CFR.pdf" target="_blank" rel="noopener noreferrer">OMB M-24-11, Revisions to 2 CFR (effective for awards on or after Oct 1, 2024)</a></li></ul>
+    <div class="cta-card">
+      <h3>Does your organization deal with this?</h3>
+      <p>Tell ToyBox about a problem you're working through. The first conversation is a 30-minute call.</p>
+      <a class="btn" href="https://calendly.com/toyboxcm/30" target="_blank" rel="noopener noreferrer">Book a 30-minute call</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap-wide">
+    <p>© <script>document.write(new Date().getFullYear())</script> ToyBox Consulting &amp; Management, LLC · Bellevue, WA · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
+  </div>
+</footer>
+</body>
+</html>
