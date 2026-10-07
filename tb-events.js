@@ -9,6 +9,7 @@
  *   calendly_clicked   — any click/middle-click on a link to calendly.com (link_url, page_path, cta_text)
  *   crisp_opened       — Crisp chat window opened
  *   outbound_click     — any external (non-self-domain) link click
+ *   newsletter_clicked — click on a data-cta="newsletter" link (page_path, link_url); outbound_click also fires
  *   scroll_depth       — 25/50/75/100% page scroll
  *   time_on_page       — 30s / 60s / 180s milestones (max 3 events/page)
  *   form_submit        — successful site form submission (form_id, page_path)
@@ -72,6 +73,9 @@
     if (!href) return;
     var text = (a.textContent || a.getAttribute('aria-label') || a.getAttribute('title') || '')
       .replace(/\s+/g, ' ').trim().slice(0, 100);
+    if (a.getAttribute('data-cta') === 'newsletter') {
+      tbEvent('newsletter_clicked', { page_path: location.pathname, link_url: href });
+    }
     if (/calendly\.com/i.test(href)) {
       tbEvent('calendly_clicked', { link_url: href, page_path: location.pathname, cta_text: text });
       return;
