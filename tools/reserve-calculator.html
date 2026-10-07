@@ -456,7 +456,7 @@
 <header class="bar">
   <div class="bar-in">
     <a href="/" aria-label="ToyBox home"><img decoding="async" loading="lazy" src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /></a>
-    <a class="cta" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Book a call</a>
+    <a class="cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=tool-reserve-calculator" target="_blank" rel="noopener noreferrer">Book a call</a>
   </div>
 </header>
 <section class="hero">
@@ -502,7 +502,7 @@
         <input id="leadEmail" type="email" placeholder="you@organization.org" />
         <div class="cf-turnstile" data-sitekey="0x4AAAAAADdaBxGQR-Ydi8HM" data-theme="light" data-action="tool-email" style="margin:10px 0 6px"></div>
         <button class="btn btn-rust" id="emailBtn">Send my results →</button>
-        <a class="btn btn-line" href="https://calendly.com/toyboxcm/discovery-call" target="_blank" rel="noopener noreferrer">Book a call to review your results →</a>
+        <a class="btn btn-line" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=tool-reserve-calculator" target="_blank" rel="noopener noreferrer">Book a call to review your results →</a>
         <p class="lead-note">We email your results to you and copy Katoya so we can pick up where you left off. Inputs aren't stored on our servers — they live only in the email.</p>
       </div>
     </div>
@@ -556,7 +556,7 @@ document.getElementById('emailBtn').addEventListener('click',()=>{
   const subject='Operating reserve & runway snapshot';
   const body='Current runway: '+document.getElementById('monthsN').textContent+' months ('+document.getElementById('verdict').textContent+')'+
     '\nMonthly burn: '+document.getElementById('figBurn').textContent+'\nTarget reserve: '+document.getElementById('figTarget').textContent+'\nGap to target: '+document.getElementById('figGap').textContent+
-    '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/discovery-call\n\n(Generated at toyboxconsulting.net)';
+    '\n\nLet\u2019s set up a call to review this: https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&utm_medium=website&utm_campaign=fall26_leadgen&utm_content=tool-reserve-calculator\n\n(Generated at toyboxconsulting.net)';
   const _btn=document.getElementById('emailBtn');
   const _orig=_btn.textContent;
   _btn.disabled=true;_btn.textContent='Sending…';
