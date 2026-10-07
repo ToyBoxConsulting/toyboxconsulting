@@ -385,7 +385,7 @@
   function setModalState(c) {
     document.getElementById('tb-cat-analytics').checked = !!c.analytics;
     document.getElementById('tb-cat-ads').checked       = !!c.ads;
-    document.getElementById('tb-cat-b2b').checked       = !!c.b2b;
+    var b2bBox = document.getElementById('tb-cat-b2b'); if (b2bBox) b2bBox.checked = !!c.b2b;
   }
 
   function init() {
@@ -668,5 +668,6 @@ if(d)d.addEventListener('click',function(e){e.preventDefault();localStorage.setI
 var v=document.getElementById('botbn-vote');
 if(v)v.addEventListener('click',function(){if(window.gtag)gtag('event','vote_click',{campaign:'botbn_2026',source:bar.dataset.source||''});});
 })();</script>
+<img src="https://tracker.metricool.com/c3po.jpg?hash=4687cf7329d86c754e5213cb46e01fc6" alt="" width="1" height="1" style="display:none" />
 </body>
 </html>

@@ -478,7 +478,7 @@
   function setModalState(c) {
     document.getElementById('tb-cat-analytics').checked = !!c.analytics;
     document.getElementById('tb-cat-ads').checked       = !!c.ads;
-    document.getElementById('tb-cat-b2b').checked       = !!c.b2b;
+    var b2bBox = document.getElementById('tb-cat-b2b'); if (b2bBox) b2bBox.checked = !!c.b2b;
   }
 
   function init() {
@@ -872,7 +872,7 @@
         <h2 style="font-size:34px;color:var(--ink);margin:12px 0 12px;">Systems notes for mission-driven leaders.</h2>
         <p style="font-size:16px;color:var(--ink-soft);max-width:420px;">Essays on accountability, leadership, and the systems that hold organizations together — including the “Five Windows” series. No spam, unsubscribe anytime.</p>
       </div>
-      <form onsubmit="window.open('https://katoyapalmer.substack.com/subscribe','_blank');return false;" style="display:flex;gap:10px;flex-wrap:wrap;">
+      <form id="substackForm" data-tb-track="submit" onsubmit="window.open('https://katoyapalmer.substack.com/subscribe','_blank');return false;" style="display:flex;gap:10px;flex-wrap:wrap;">
         <input type="email" placeholder="you@organization.org" required style="flex:1;min-width:220px;font-family:var(--sans);font-size:15px;padding:14px 16px;border:1px solid var(--greige);border-radius:3px;background:#fff;outline:none;" />
         <button type="submit" style="font-family:var(--sans);font-weight:600;font-size:15px;color:#fff;background:var(--rust);border:none;border-radius:3px;padding:14px 26px;cursor:pointer;">Subscribe</button>
       </form>

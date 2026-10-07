@@ -314,6 +314,14 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){ window.dataLayer.push(arguments); }
     window.gtag = gtag;
+    // Consent Mode v2 — default DENIED. Cookieless pings still record pageviews. (aligned with index.html 2026-10-06)
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
     gtag('js', new Date());
     gtag('config', CONFIG.ga4MeasurementId, { anonymize_ip: true });
   }
@@ -340,7 +348,7 @@
 
   // ===== Apply consent decisions =====
   function applyConsent(c) {
-    if (c.analytics) { loadGA4(); loadClarity(); loadCloudflareAnalytics(); }
+    if (c.analytics) { if (window.gtag) gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied' }); if (window.clarity) clarity('consent'); }
     if (c.ads)       { loadBingUET(); }
     if (c.b2b)       { }
     // No tear-down for already-loaded trackers — page reload may be needed if user withdraws.
@@ -361,10 +369,16 @@
   function setModalState(c) {
     document.getElementById('tb-cat-analytics').checked = !!c.analytics;
     document.getElementById('tb-cat-ads').checked       = !!c.ads;
-    document.getElementById('tb-cat-b2b').checked       = !!c.b2b;
+    var b2bBox = document.getElementById('tb-cat-b2b'); if (b2bBox) b2bBox.checked = !!c.b2b;
   }
 
   function init() {
+    // ALWAYS-ON cookieless trackers, same as index.html: CF Web Analytics (no cookies),
+    // GA4 under Consent Mode v2 (denied until consent), Clarity (cookieless until clarity('consent')).
+    loadCloudflareAnalytics();
+    loadGA4();
+    loadClarity();
+
     var existing = readConsent();
 
     // Honor GPC as an opt-out of "sharing" (ads, b2b).
@@ -526,5 +540,6 @@
       <span>What's next out the box?</span>
     </div>
   </footer>
+<img src="https://tracker.metricool.com/c3po.jpg?hash=4687cf7329d86c754e5213cb46e01fc6" alt="" width="1" height="1" style="display:none" />
 </body>
 </html>

@@ -6,12 +6,12 @@
  * Events emitted (consent-gated):
  *   tool_view          — auto on tool page load
  *   tool_email_sent    — when "Send my results" clicked successfully
- *   calendly_clicked   — any Calendly link click
+ *   calendly_clicked   — any click/middle-click on a link to calendly.com (link_url, page_path, cta_text)
  *   crisp_opened       — Crisp chat window opened
  *   outbound_click     — any external (non-self-domain) link click
  *   scroll_depth       — 25/50/75/100% page scroll
  *   time_on_page       — 30s / 60s / 180s milestones (max 3 events/page)
- *   form_submitted     — Web3Forms contact form submit
+ *   form_submit        — successful site form submission (form_id, page_path)
  *
  * No data is collected if visitor rejected analytics. All events respect the
  * toybox_consent cookie set by the consent banner.
@@ -54,18 +54,35 @@
   }
 
   // ===== Outbound + Calendly link tracking =====
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a');
-    if (!a || !a.href) return;
-    var href = a.href;
-    var isExternal = /^https?:\/\//.test(href) && href.indexOf(location.hostname) === -1;
-    var text = (a.textContent || '').trim().slice(0, 80);
-    if (/calendly\.com/.test(href)) {
-      tbEvent('calendly_clicked', { url: href, text: text });
-    } else if (isExternal) {
-      tbEvent('outbound_click', { url: href, text: text });
+  // Delegated on document (capture phase) so it also sees links injected later by JS
+  // (tool result panels, etc.) and clicks whose page handlers stop propagation.
+  function linkHref(a) {
+    var h = a.href;
+    if (h && typeof h === 'object' && 'baseVal' in h) h = h.baseVal; // <a> inside SVG
+    return String(h || a.getAttribute('href') || a.getAttribute('xlink:href') || '');
+  }
+  function bareHost(h) { return String(h || '').toLowerCase().replace(/^www\./, ''); }
+  function onLinkClick(e) {
+    if (e.type === 'auxclick' && e.button !== 1) return; // middle-click opens in new tab
+    var t = e.target;
+    if (t && t.nodeType !== 1) t = t.parentElement;
+    var a = t && t.closest ? t.closest('a, area') : null;
+    if (!a) return;
+    var href = linkHref(a);
+    if (!href) return;
+    var text = (a.textContent || a.getAttribute('aria-label') || a.getAttribute('title') || '')
+      .replace(/\s+/g, ' ').trim().slice(0, 100);
+    if (/calendly\.com/i.test(href)) {
+      tbEvent('calendly_clicked', { link_url: href, page_path: location.pathname, cta_text: text });
+      return;
     }
-  }, true);
+    var m = href.match(/^https?:\/\/([^\/?#:]+)/i);
+    if (m && bareHost(m[1]) !== bareHost(location.hostname)) {
+      tbEvent('outbound_click', { url: href, text: text.slice(0, 80) });
+    }
+  }
+  document.addEventListener('click', onLinkClick, true);
+  document.addEventListener('auxclick', onLinkClick, true);
 
   // ===== Tool email-sent tracking =====
   var emailBtn = document.getElementById('emailBtn');
@@ -75,13 +92,23 @@
     }, true);
   }
 
-  // ===== Contact form submission =====
-  var cfForm = document.querySelector('form#cf_form, form[data-form="contact"]');
-  if (cfForm) {
-    cfForm.addEventListener('submit', function () {
-      tbEvent('form_submitted', { form: 'contact' });
-    }, true);
+  // ===== Form submissions (form_submit) =====
+  // Site forms post via fetch (Web3Forms, the toybox-tools-mail Worker, Brevo), so the page code
+  // signals success itself:  document.dispatchEvent(new CustomEvent('tb:form_submit', {detail:{form_id:'contactForm'}}))
+  // Forms with no success callback opt in with data-tb-track="submit" and are counted on the submit event.
+  function formSubmit(formId) {
+    tbEvent('form_submit', { form_id: String(formId || '(unnamed)'), page_path: location.pathname });
   }
+  window.tbFormSubmit = formSubmit;
+  document.addEventListener('tb:form_submit', function (e) {
+    formSubmit(e && e.detail && e.detail.form_id);
+  });
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.getAttribute && f.getAttribute('data-tb-track') === 'submit') {
+      formSubmit(f.id || f.getAttribute('name'));
+    }
+  }, true);
 
   // ===== Scroll depth tracking =====
   var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
