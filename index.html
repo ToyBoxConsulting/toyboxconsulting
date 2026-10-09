@@ -141,6 +141,7 @@
   .bio .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;}
   .bio-portrait{aspect-ratio:4/5;border-radius:5px;overflow:hidden;box-shadow:0 30px 60px -34px rgba(0,0,0,.45);position:relative;background:var(--greige-soft);}
   .bio-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;}
+  .bio-portrait .credit{position:absolute;right:12px;bottom:10px;font-size:11px;letter-spacing:.04em;color:rgba(245,240,232,.85);text-shadow:0 1px 3px rgba(0,0,0,.6);}
   .bio .lab{color:var(--rust);}
   .bio h2{font-size:38px;color:var(--ink);margin:14px 0 18px;}
   .bio p{font-size:16.5px;color:var(--ink-soft);margin-bottom:18px;}
@@ -910,6 +911,7 @@
     <div class="wrap">
       <div class="bio-portrait">
         <img decoding="async" loading="lazy" src="assets/katoya-ghu-bench.jpg" alt="Katoya Palmer seated on a garden bench at Golden Hour Unboxed" />
+        <div class="credit">Photo: Erik &ldquo;Kalligraphy&rdquo; Wilson</div>
       </div>
       <div>
         <div class="lab">About Katoya</div>
@@ -968,21 +970,6 @@
         <p>ToyBox's monthly newsletter: practical lessons, recognitions and a note from Katoya. One email a month. Unsubscribe anytime.</p>
       </div>
       <div class="otb-go"><a class="btn btn-rust" href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=index_section" target="_blank" rel="noopener noreferrer" data-cta="newsletter">Subscribe to Out the Box <span class="arrow">→</span></a></div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section style="background:var(--cream);padding:64px 0;border-top:1px solid var(--greige-soft);">
-    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-      <div>
-        <div class="lab" style="color:var(--rust);">Founder essays on Substack</div>
-        <h2 style="font-size:34px;color:var(--ink);margin:12px 0 12px;">Systems notes for mission-driven leaders.</h2>
-        <p style="font-size:16px;color:var(--ink-soft);max-width:420px;">Essays on accountability, leadership, and the systems that hold organizations together — including the “Five Windows” series. No spam, unsubscribe anytime.</p>
-      </div>
-      <form id="substackForm" data-tb-track="submit" onsubmit="window.open('https://katoyapalmer.substack.com/subscribe','_blank');return false;" style="display:flex;gap:10px;flex-wrap:wrap;">
-        <input type="email" placeholder="you@organization.org" required style="flex:1;min-width:220px;font-family:var(--sans);font-size:15px;padding:14px 16px;border:1px solid var(--greige);border-radius:3px;background:#fff;outline:none;" />
-        <button type="submit" style="font-family:var(--sans);font-weight:600;font-size:15px;color:#fff;background:var(--rust);border:none;border-radius:3px;padding:14px 26px;cursor:pointer;">Subscribe</button>
-      </form>
     </div>
   </section>
 
