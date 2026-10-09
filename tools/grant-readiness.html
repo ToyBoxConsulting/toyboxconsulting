@@ -645,7 +645,7 @@ function recompute(){
   else v.textContent='Not yet ready';
   const reco=document.getElementById('reco');
   if(answered===0){ reco.innerHTML='<div class="reco-empty">Rate the items above and your readiness gaps will appear here.</div>'; return; }
-  if(weak.length===0){ reco.innerHTML='<h3>No major readiness gaps flagged.</h3><div class="sub">Every area you have rated is at 70% or above. You are in strong shape to pursue funding — a discovery call can help target the right opportunities and sharpen the application.</div>'; return; }
+  if(weak.length===0){ reco.innerHTML='<h3>No major readiness gaps flagged.</h3><div class="sub">Every area you have rated is at 70% or above. You are in strong shape to pursue funding. A free 30-minute intro call can help target the right opportunities and sharpen the application.</div>'; return; }
   reco.innerHTML='<h3>Close these before you apply</h3><div class="sub">Areas under 70% — matched to the work that closes them.</div>'+
     weak.map(s=>`<div class="reco-item"><span class="d" style="background:${color(domainPct(DATA.indexOf(s)))}"></span><div><b>${s.title.replace('&amp;','&')}</b> — ${domainPct(DATA.indexOf(s))}%<br><span class="svc">→ ${s.svc.replace('&amp;','&')}</span></div></div>`).join('');
 }
