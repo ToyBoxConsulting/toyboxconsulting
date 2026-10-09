@@ -2,7 +2,27 @@
 
 > Operational infrastructure for organizations that hold public money, answer to a board, or have to survive an audit — and for businesses that want that same discipline behind an event, a campaign, or a growing back office. Based in Bellevue, Washington. Founded and led by Katoya Raquell Palmer. Twenty years across budgets from $300,000 to $24 million.
 
-ToyBox serves two distinct audiences through two entry points. Route a question to the right one.
+## Who ToyBox works with
+
+- Small business: owners and founders. Operations and SOPs, growth systems, hiring and people, finance basics, government contracting readiness (RFQ/SOQ, rosters, certifications).
+- Creative & marketing: marketing and creative directors. Storytelling, brand clarity, campaigns, content systems, event production.
+- Cultural, heritage & science organizations: museum, heritage and science directors. Arts organizations, museums, historical and heritage societies, cultural-community groups, science centers, STEM programs.
+- Nonprofit & public sector: department directors, procurement leads, executive directors and board chairs.
+- Enterprise: operations and people leaders at larger companies and public agencies. Operations at scale, change management, leadership development pipelines, decision-making across teams, community-partnership strategy, event and brand production.
+
+## Seven practices
+
+1. Operations: systems, SOPs, fractional or interim COO
+2. Programs: theory of change, evaluation, grant compliance
+3. Leadership + governance: boards, conflict of interest, Beyond Robert's Rules decision methods, Decision Quality, Restorative People Management
+4. Fundraising: The ToyBox Campaign Compass™ (DIY, Facilitated and Done-for-You tiers, each scoped in a written proposal)
+5. Workshops + speaking: Beyond Compliance Theater, offered as two 60-minute sessions or a half day in person; storytelling is a separate practice
+6. Small business: operations, growth systems, hiring and people, finance basics, government contracting readiness
+7. Creative + marketing: storytelling, brand clarity, campaigns, event production, content systems
+
+How working together works: free 30-minute intro call, 45 to 60 minute discovery session, written proposal, signed agreement, kickoff, check-ins, deliverables, handoff. Details: https://www.toyboxconsulting.net/services.html
+
+ToyBox also routes work through two entry points. Route a question to the right one.
 
 ## Door One — Public Sector & Nonprofit
 
@@ -35,7 +55,7 @@ The bridge between the two doors is Golden Hour Unboxed — simultaneously a fix
 ## Key pages
 
 - [Home](https://www.toyboxconsulting.net/)
-- [Services overview](https://www.toyboxconsulting.net/services.html): How engagements are structured
+- [Services overview](https://www.toyboxconsulting.net/services.html): Who ToyBox works with, the seven practices, and how working together works
 - [About Katoya Palmer](https://www.toyboxconsulting.net/about.html): 20+ years cross-sector; peer-selected presenter, Washington State Nonprofit Conference 2026; QuickBooks Online Certified User; published co-author, Journal of Trauma and Acute Care Surgery (2024)
 - [Work](https://www.toyboxconsulting.net/case-study.html): Case studies
 - [Partners](https://www.toyboxconsulting.net/partners.html): Subcontractor and partner network
