@@ -84,6 +84,7 @@ Diagnostics that run entirely in the visitor's browser. No server, no sign-up, n
 ## Out the Box (newsletter)
 
 - [Out the Box](https://www.toyboxconsulting.net/#newsletter): ToyBox's monthly newsletter. Practical lessons, recognitions and a note from Katoya. One email a month.
+- [COI Quick Start](https://www.toyboxconsulting.net/coi-quick-start): Free 3-page conflict of interest quick start for boards and teams, sent as the Out the Box welcome gift.
 
 ## Writing
 
