@@ -15,3 +15,7 @@ url: "https://www.toyboxconsulting.net"
 plugins:
 - jekyll-feed
 - jekyll-redirect-from
+
+# Internal notes, not published (added 2026-10-15)
+exclude:
+  - GATING-NOTES.md
