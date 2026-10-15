@@ -5,19 +5,19 @@
 <link rel="canonical" href="https://www.toyboxconsulting.net/tools/ccc-diagnostic">
 <meta property="og:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The CCC Diagnostic — Where is your organization actually stuck?">
-<meta name="twitter:description" content="Nine questions across Clarity, Culture, and Credibility show you exactly where the gap is. Free, private, no sign-up.">
+<meta name="twitter:title" content="The CCC Diagnostic: Where is your organization actually stuck?">
+<meta name="twitter:description" content="Nine questions on Clarity, Culture and Credibility show where your organization is stuck. Free and private. No sign-up needed.">
 <meta name="twitter:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.googletagmanager.com https://www.google-analytics.com https://client.crisp.chat https://widget.crisp.chat https://challenges.cloudflare.com https://assets.calendly.com https://calendly.com https://api.web3forms.com https://toybox-tools-mail.katoya.workers.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://client.crisp.chat https://assets.calendly.com; font-src 'self' data: https://fonts.gstatic.com https://client.crisp.chat; img-src 'self' data: blob: https: https://www.google-analytics.com https://*.google-analytics.com https://client.crisp.chat https://image.crisp.chat https://c.clarity.ms https://www.clarity.ms; connect-src 'self' https://toybox-tools-mail.katoya.workers.dev https://api.web3forms.com https://challenges.cloudflare.com https://*.google-analytics.com https://*.googletagmanager.com https://ddwl4m2hdecbv.cloudfront.net https://*.rb2b.com https://www.clarity.ms https://c.clarity.ms https://*.clarity.ms https://cloudflareinsights.com https://*.cloudflareinsights.com https://static.cloudflareinsights.com https://client.crisp.chat https://image.crisp.chat wss://client.relay.crisp.chat wss://*.crisp.chat; frame-src 'self' https://calendly.com https://*.calendly.com https://player.vimeo.com https://*.substack.com https://www.eventbrite.com https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(), display-capture=()">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The CCC Diagnostic — Where is your organization actually stuck? · ToyBox</title>
-<meta name="description" content="Where is your organization actually stuck? A 2-minute diagnostic across Clarity, Culture, and Credibility — the CCC Cycle from ToyBox Consulting & Management." />
+<title>The CCC Diagnostic: Where is your organization actually stuck? · ToyBox</title>
+<meta name="description" content="Where is your organization actually stuck? A 2-minute check of Clarity, Culture and Credibility, the CCC Cycle from ToyBox Consulting &amp; Management." />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="ToyBox Consulting &amp; Management" />
-<meta property="og:title" content="The CCC Diagnostic — Where is your organization actually stuck?" />
-<meta property="og:description" content="Nine questions across Clarity, Culture, and Credibility show you exactly where the gap is. Free, private, no sign-up." />
+<meta property="og:title" content="The CCC Diagnostic: Where is your organization actually stuck?" />
+<meta property="og:description" content="Nine questions on Clarity, Culture and Credibility show where your organization is stuck. Free and private. No sign-up needed." />
 <meta property="og:url" content="https://www.toyboxconsulting.net/tools/ccc-diagnostic" />
 <link rel="icon" type="image/png" href="../assets/logo-rust.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -302,7 +302,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p class="eyebrow">The CCC Cycle · A ToyBox diagnostic</p>
       <h1>Where is your organization <span class="cyc">actually</span> stuck?</h1>
       <p class="lede" id="lede"></p>
-      <p class="aud-label">Tailor it to your world</p>
+      <p class="aud-label">Choose your type of organization</p>
       <div class="aud" id="aud" role="tablist" aria-label="Choose audience">
         <button data-aud="business" role="tab">Business</button>
         <button data-aud="nonprofit" role="tab">Nonprofit</button>
@@ -328,7 +328,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         </svg>
       </div>
       <p class="meta">Takes about <span>2 minutes</span> · No signup needed</p>
-      <button class="btn gold" id="start">Start the diagnostic →</button>
+      <button class="btn gold" id="start">Start the diagnostic <span aria-hidden="true">→</span></button>
     </section>
     <!-- QUESTIONS -->
     <section id="screen-q" class="hide">
@@ -341,7 +341,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <p class="question" id="qtext"></p>
       <div class="scale" id="scale"></div>
       <div class="navrow">
-        <button class="back" id="back">← Back</button>
+        <button class="back" id="back"><span aria-hidden="true">←</span> Back</button>
         <span class="qtag qcount" id="qofn" style="letter-spacing:.12em"></span>
       </div>
     </section>
@@ -413,74 +413,77 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   ];
   var CONTENT = {
     business:{
-      lede:"Whether you're scaling a team or steadying one, most companies know something's off but can't name it. Nine questions across Clarity, Culture, and Credibility show you exactly where the gap is.",
+      lede:"Most companies know something is wrong but cannot name it. This is true whether a team is growing or settling down. Nine questions on Clarity, Culture and Credibility show you where the gap is.",
       items:[
         // Clarity
-        [ "Our leadership team would state our top three priorities the same way — without checking the deck.",
-          "We have current financials — cash, margin, pipeline — that we actually run the business on.",
-          "Roles and decision rights are clear. People know who owns what, and who decides." ],
+        [ "Our leaders would name our top three priorities the same way, without looking at notes.",
+          "We use current numbers on cash, profit margin and expected sales to run the business.",
+          "Roles and decision rights are clear. People know who owns each task and who makes each decision." ],
         // Culture
-        [ "We operate from shared standards, not individual habits and heroics.",
-          "We can surface bad news and disagree without it getting personal or buried.",
-          "Our processes scale with us instead of breaking every time we grow." ],
+        [ "We work from shared standards, not from personal habits or a few people working extra hard.",
+          "People can share bad news and disagree without it becoming personal or getting hidden.",
+          "Our processes keep working as we grow, instead of breaking each time." ],
         // Credibility
-        [ "Customers and partners trust us to deliver what we promised, on time.",
-          "We meet our contractual, financial, and regulatory obligations without last-minute scrambles.",
-          "Our brand promise and the actual customer experience are the same thing." ]
+        [ "Customers and partners trust us to deliver what we promise, on time.",
+          "We meet our contract, financial and legal duties without a last-minute rush.",
+          "What our brand promises matches what customers actually get." ]
       ],
       insight:{
         Clarity:[
-          "Priorities and numbers are fuzzy. Naming three real priorities and getting financials you run the business on is the first unlock — growth built on guesswork gets expensive fast.",
-          "You have direction, but it drifts when things get busy. Tightening decision rights and financial visibility keeps strategy from slipping as you scale.",
-          "Direction and numbers are solid. Protect it — this clarity is what lets you move fast without breaking things."
+          "Your priorities and numbers are unclear. Start by naming three real priorities. Then get financial reports you can run the business on. Growth without clear numbers gets expensive fast.",
+          "You have a direction, but it slips when work gets busy. Clear decision rights and better financial reports will keep your strategy on track as you grow.",
+          "Your direction and numbers are solid. Protect them. This clarity lets you move fast without breaking things."
         ],
         Culture:[
-          "The team is running on heroics. Shared standards and honest conflict need real scaffolding before more growth compounds the strain.",
-          "The culture mostly holds, but friction and unspoken tension tax every project. Small fixes to norms and process pay back quickly.",
-          "People trust each other and the process. That's your real capacity to absorb growth and change."
+          "Your team depends on a few people working extra hard. Build shared standards and safe ways to disagree before more growth adds strain.",
+          "Your culture mostly works, but friction and unspoken tension slow every project. Small fixes to team habits and processes pay off quickly.",
+          "People trust each other and the process. That trust is what lets your team handle growth and change."
         ],
         Credibility:[
-          "Customer and partner trust is fragile — missed promises and obligation scrambles put revenue and reputation at risk. This is where a stumble costs the most.",
-          "You're credible, with a few exposures. Closing the gap between the brand promise and the actual customer experience is your highest-leverage move.",
-          "Customers, partners, and investors trust you to deliver. Lead with this — it's an asset, not just a safeguard."
+          "Customer and partner trust is weak. Missed promises and last-minute rushes put revenue and reputation at risk. A mistake here costs the most.",
+          "You are trusted, with a few weak spots. Your most useful step is to make the customer experience match what your brand promises.",
+          "Customers, partners and investors trust you to deliver. Lead with this trust. It is something to build on, not just protect."
         ]
       }
     },
     nonprofit:{
-      lede:"Most nonprofits know something's off but can't name it. Nine questions across Clarity, Culture, and Credibility will show you exactly where the gap is — and what to do about it.",
+      lede:"Most nonprofits know something is wrong but cannot name it. Nine questions on Clarity, Culture and Credibility show you where the gap is and what to do first.",
       items:[
-        [ "Leadership and board would describe our top three priorities the same way — without checking notes.",
-          "We have current financial reporting that leadership actually uses to make decisions.",
-          "People know who owns what. Decision rights are clear, not assumed." ],
-        [ "We operate from shared values, not a patchwork of individual preferences.",
-          "We can name hard truths and disagree without it getting personal or stuck.",
-          "Our internal processes support the work instead of adding friction." ],
-        [ "Funders and partners trust our reporting and our follow-through.",
-          "We meet compliance and governance obligations without a last-minute scramble.",
-          "Our public story and our internal reality are the same story." ]
+        // Clarity
+        [ "Our leaders and board would name our top three priorities the same way, without looking at notes.",
+          "Our leaders use current financial reports to make decisions.",
+          "People know who owns each task. Decision rights are clear, not assumed." ],
+        // Culture
+        [ "We work from shared values, not a mix of personal preferences.",
+          "People can say hard truths and disagree without it becoming personal or getting stuck.",
+          "Our internal processes support the work instead of slowing it down." ],
+        // Credibility
+        [ "Funders and partners trust our reports and trust us to follow through.",
+          "We meet compliance and board governance duties without a last-minute rush.",
+          "The story we tell the public matches what is true inside the organization." ]
       ],
       insight:{
         Clarity:[
-          "Priorities and money are blurry right now. Naming three real priorities and getting reporting leadership trusts is the first unlock — everything downstream depends on it.",
-          "You have direction, but it drifts under pressure. Tightening decision rights and financial visibility will keep the strategy from slipping when things get busy.",
-          "Your direction and numbers are solid. Protect this — clarity is the foundation the other two C's stand on."
+          "Your priorities and finances are unclear right now. Start by naming three real priorities. Then get financial reports your leaders trust. Everything else depends on this.",
+          "You have a direction, but it slips under pressure. Clear decision rights and better financial reports will keep your strategy on track when work gets busy.",
+          "Your direction and numbers are solid. Protect them. Clarity is the base that Culture and Credibility rest on."
         ],
         Culture:[
-          "The internal engine is straining. Shared values and honest conflict need scaffolding here before new strategy will stick.",
-          "The culture mostly holds, but friction and unspoken tension leak energy. Small process and norm fixes compound fast.",
-          "People trust each other and the process. That's rare and valuable — it's your capacity to absorb change."
+          "Your team is under strain. Build shared values and safe ways to disagree before you add a new strategy. Otherwise the new plan will not last.",
+          "Your culture mostly works, but friction and unspoken tension drain energy. Small fixes to team habits and processes add up quickly.",
+          "People trust each other and the process. That is rare and valuable. It is what lets your team handle change."
         ],
         Credibility:[
-          "External trust is fragile — compliance scrambles and story-reality gaps put funding at risk. This is where a stumble costs the most.",
-          "You're credible, with a few exposures. Closing the gap between the public story and the internal reality is the highest-leverage move.",
-          "Funders and partners trust you, and your house is in order. This is an asset to lead with, not just defend."
+          "Trust from funders and partners is weak. Last-minute compliance rushes and gaps between your public story and daily reality put funding at risk. A mistake here costs the most.",
+          "You are trusted, with a few weak spots. Your most useful step is to make your public story match what happens inside the organization.",
+          "Funders and partners trust you, and your organization is well run. Lead with this trust. It is something to build on, not just protect."
         ]
       }
     }
   };
   var LABELS = ["Strongly disagree","Disagree","Mixed","Agree","Strongly agree"];
   var BANDS = [ {max:54,name:"Emerging"}, {max:78,name:"Developing"}, {max:101,name:"Strong"} ];
-  var TITLES = ["Your foundation needs shoring up.","You've got real momentum to build on.","You're operating from strength."];
+  var TITLES = ["Your foundation needs work first.", "You have a good base to build on.", "Your organization is in a strong position."];
   /* ---- PATTERN READOUTS -------------------------------------------------
      One paragraph for every combination of bands across the three C's.
      Key = Clarity band + Culture band + Credibility band
@@ -489,62 +492,62 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
      These read the RELATIONSHIP between scores — edit freely.            */
   var PATTERNS = {
     business:{
-      "000":"Everything is under strain at once — direction, team, and external trust are all running on fumes. The honest read: don't try to fix all three. Start with Clarity, because until priorities and numbers are nailed down, culture fixes won't stick and promises to customers will keep slipping.",
-      "001":"Your external reputation is holding up better than what's behind it — customers still trust you, but internally, direction is foggy and the team is straining. That gap is borrowed time. Lock down priorities and decision rights first, before the internal wobble starts showing up in delivery.",
-      "002":"Customers trust you and you deliver — but inside, priorities are fuzzy and the team is running on heroics. You've built credibility on effort, not systems, and effort doesn't scale. Clarity is the fix: name the priorities, fix the numbers, and let your strong reputation buy you the time to do it.",
-      "010":"Your team's culture is the one thing holding while direction and external trust both wobble. That's an asset — people who trust each other can absorb hard changes. Spend that trust on a clarity reset: priorities, financial visibility, decision rights. Credibility recovers once the inside is coherent.",
-      "011":"Culture and credibility are workable, but everything sits on a foggy foundation — unclear priorities, soft numbers, assumed decision rights. Teams like yours often feel busy and productive right up until a growth spurt exposes the fog. Fix Clarity now, while the other two C's can still cover for it.",
-      "012":"You deliver, and customers know it — but ask three people on your team what the top priority is and you'd get three answers. Strong credibility with weak clarity means you're winning on execution while steering by feel. Naming real priorities and tightening the numbers turns a good operation into a scalable one.",
-      "020":"Your team is genuinely strong — shared standards, honest conflict — but it's pointed in an unclear direction and customers are feeling the wobble. A great engine with no map. Clarity work here pays off fast, because a healthy culture executes a clear strategy almost immediately.",
-      "021":"A strong team is compensating for a fuzzy strategy, and mostly pulling it off — credibility is holding at decent levels. But compensating is expensive: your best people are burning judgment on decisions that clear priorities would make automatic. Give this culture a clear direction and everything compounds.",
-      "022":"Your team and your reputation are both strong — the only thing missing is a sharp answer to 'what are we actually building, and how do the numbers say it's going?' That's a champagne problem, but a real one: strong execution of an unclear strategy eventually scales the wrong things. Clarity is your unlock.",
-      "100":"You have a rough sense of direction, but the team is straining and external trust is fragile — the strategy exists mostly on paper. The move is Culture first: shared standards and honest conflict are what turn a written strategy into delivered promises. Credibility follows delivery.",
-      "101":"Direction and reputation are both middling while the team runs on heroics underneath. Heroics feel like commitment, but they're actually your biggest risk — one departure or one bad quarter and both other C's drop with it. Invest in Culture: standards, process, and the ability to say hard things out loud.",
-      "102":"Customers trust you — genuinely strong credibility — but internally the team is straining and the strategy is only half-clear. You're delivering on relationships and effort. Culture is the priority: build the shared standards that make delivery repeatable, so your reputation stops depending on individual burnout.",
-      "110":"Direction and team are both developing, but external trust is lagging behind — promises are slipping somewhere between intention and delivery. That's usually a follow-through problem, not a strategy problem. Focus on Credibility: pick the two or three obligations you keep scrambling on and systematize them.",
-      "111":"Everything is at a workable middle — nothing broken, nothing strong. That's the most common profile and the most deceptive one, because 'fine everywhere' often means 'exceptional nowhere.' Pick the C closest to your next growth move and push it to strong; the other two will get pulled along.",
-      "112":"Customers trust you more than your internal state would predict — credibility is your strong suit while direction and culture are still developing. Protect that asset by closing the gap behind it: sharpen priorities and standards now, so the outside story and inside reality stay the same story.",
-      "120":"Your culture is genuinely strong and your direction is workable, but external trust is fragile — obligations get scrambled, promises slip. A team this healthy can fix credibility fast; it's usually a systems gap, not a people gap. Pick your three most visible external obligations and make them boringly reliable.",
-      "121":"A strong team, decent direction, decent reputation. The pattern says your culture is ahead of your systems — people are good, process is catching up. The highest-leverage move is finishing the Clarity work: crisp priorities and numbers turn a good team's energy into compounding results.",
-      "122":"Culture and credibility are both strong — people trust each other inside and customers trust you outside. Direction is the lagging piece, and with this foundation, that's very fixable. A focused clarity sprint (three priorities, real financial visibility, named decision rights) is likely all that separates you from firing on all cylinders.",
-      "200":"Your strategy is sharp — priorities, numbers, decision rights all clear — but the engine executing it is straining and customers are feeling it. Clarity without culture is a plan without a team. Shift your energy to Culture: shared standards and honest conflict are what convert your clear strategy into kept promises.",
-      "201":"You know exactly where you're going; the strain is in how you're getting there. A clear strategy with a straining team means your best thinking is being executed by people running on fumes — and credibility is only holding at middling because of it. Culture is the bottleneck, and the fix.",
-      "202":"Sharp strategy, trusted brand — and a team quietly straining in the middle. This profile often belongs to founder-led companies where clarity and reputation both flow from one person. The Culture work — standards, process, honest conflict — is what makes the whole thing survivable and sellable beyond you.",
-      "210":"Direction is sharp and the team is solid, but external trust hasn't caught up — obligations slip, promises wobble. With this internal strength, credibility is the easiest C to fix: it's almost always a follow-through system, not a capability gap. Make your external commitments boringly reliable and the profile completes itself.",
-      "211":"Strong clarity with everything else developing is the classic scaling profile: the strategy has outrun the organization. That's normal and fixable — the risk is only if it persists. Focus on Culture next; shared standards are what let the team execute the strategy without you in every room.",
-      "212":"Clear strategy, trusted reputation, and a culture that's good but not yet great. You're one push from a genuinely strong profile. The move: invest in the team's operating standards — the processes and norms that make your clarity executable by everyone, not just leadership.",
-      "220":"Inside, you're excellent — sharp direction, strong team. Outside, trust is fragile, which usually means a delivery or follow-through gap that your internal strength hasn't been aimed at yet. Point this organization at Credibility deliberately: audit where promises slip and systematize the fixes. It will move fast.",
-      "221":"Strong direction, strong team, decent reputation — you're close. The last mile is making external trust as reliable as your internal operation: contractual obligations met without scrambles, brand promise matching customer experience every time. Small, boring reliability wins finish this profile.",
-      "222":"Strong across all three C's — clear direction, healthy team, trusted brand. The work now isn't fixing; it's protecting and leveraging. Lead with this credibility in your market, and guard the clarity as you grow, because scale is what erodes strong profiles first."
+      "000":"All three areas are under strain: direction, team and outside trust. Do not try to fix all three at once. Start with Clarity. Until priorities and numbers are clear, culture fixes will not last. Promises to customers will also keep slipping.",
+      "001":"Your outside reputation is stronger than what supports it. Customers still trust you. Inside, direction is unclear and the team is under strain. That gap will not last. Set clear priorities and decision rights first. Do it before internal problems start to show up in your delivery.",
+      "002":"Customers trust you, and you deliver. Inside, priorities are unclear and the team depends on extra effort. You built trust through hard work, not systems, and hard work does not grow with you. Clarity is the fix. Name the priorities and fix the numbers. Your strong reputation gives you time to do it.",
+      "010":"Your team culture is holding, while direction and outside trust are both slipping. That is a real strength. People who trust each other can handle hard changes. Use that trust to reset Clarity: priorities, financial reports and decision rights. Credibility will recover once things are clear inside.",
+      "011":"Culture and Credibility are workable, but they rest on an unclear base. Priorities are vague, numbers are weak and decision rights are assumed. Teams like this feel busy and productive until fast growth exposes the problem. Fix Clarity now, while the other two areas can still cover for it.",
+      "012":"You deliver, and customers know it. But ask three people on your team for the top priority, and you may get three answers. You are winning on execution while guessing at direction. Name real priorities and improve your numbers. That turns a good operation into one that can grow.",
+      "020":"Your team is strong. It has shared standards and handles disagreement well. But its direction is unclear, and customers notice. Clarity work will pay off fast here. A healthy team can carry out a clear strategy almost right away. Set the priorities, and this team will act on them.",
+      "021":"A strong team is making up for an unclear strategy, and mostly succeeding. Credibility is holding. But this costs a lot. Your best people spend time on decisions that clear priorities would settle. Give this team a clear direction, and its results will grow.",
+      "022":"Your team and your reputation are both strong. What is missing is a clear answer to two questions. What are you building? What do the numbers say about progress? Strong work on an unclear strategy can grow the wrong things. Clarity is your next step.",
+      "100":"You have a rough sense of direction. But the team is under strain and outside trust is weak. Your strategy is written down but not yet in practice. Start with Culture. Shared standards and safe ways to disagree turn a written plan into kept promises. Credibility follows delivery.",
+      "101":"Direction and reputation are both in the middle range. Underneath, the team depends on a few people working extra hard. That feels like commitment, but it is your biggest risk. One departure or one bad quarter could pull the other two areas down. Invest in Culture: standards, processes and honest talk.",
+      "102":"Customers truly trust you. Inside, the team is under strain and the strategy is only partly clear. You deliver through relationships and effort. Make Culture the priority. Build shared standards so delivery can be repeated. Then your reputation will not depend on a few people working until they burn out.",
+      "110":"Direction and team are both developing, but outside trust is behind. Promises slip somewhere between plan and delivery. This is usually a follow-through problem, not a strategy problem. Focus on Credibility. Pick the two or three duties you keep rushing to meet. Then build a simple system for each one.",
+      "111":"All three areas are in the middle range. Nothing is broken, and nothing is strong. This is the most common result, and it can hide problems. Being fine everywhere often means being excellent nowhere. Pick the area closest to your next growth step and make it strong. The other two will improve with it.",
+      "112":"Customers trust you more than your inside state would suggest. Credibility is your strength, while direction and culture are still developing. Protect that trust by closing the gap behind it. Set clearer priorities and standards now. That way, what customers see and what happens inside stay the same.",
+      "120":"Your culture is strong and your direction is workable. But outside trust is weak, with missed duties and slipping promises. A team this healthy can fix Credibility fast. The cause is usually a missing system, not the people. Pick your three most visible outside duties and make them reliable every time.",
+      "121":"You have a strong team, a fair direction and a fair reputation. Your people are ahead of your systems. The most useful step is to finish the Clarity work. Clear priorities and numbers turn your team's energy into results that keep growing.",
+      "122":"Culture and Credibility are both strong. People trust each other inside, and customers trust you outside. Direction is the weak area, and with this base it is very fixable. A short, focused Clarity effort may be all you need. Set three priorities, get real financial reports and name who decides what.",
+      "200":"Your strategy is clear: priorities, numbers and decision rights are all set. But the team carrying it out is under strain, and customers feel it. A plan without a working team will not deliver. Shift your focus to Culture. Shared standards and honest disagreement turn a clear strategy into kept promises.",
+      "201":"You know where you are going. The strain is in how you get there. Your clear strategy depends on a team that is worn out. Credibility is only in the middle range because of it. Culture is what is holding you back, and it is where to start.",
+      "202":"You have a clear strategy and a trusted brand, but the team in the middle is under strain. This is common in founder-led companies, where clarity and reputation come from one person. Culture work builds standards, processes and honest disagreement. It lets the company run, and be sold, without depending on you.",
+      "210":"Direction is clear and the team is solid, but outside trust has not caught up. Duties slip and promises are missed. With this inside strength, Credibility is the easiest area to fix. The cause is usually a follow-through system, not a skills gap. Make your outside promises reliable, and all three areas will be strong.",
+      "211":"Strong Clarity with the other two areas developing is common for growing companies. The strategy has moved ahead of the organization. That is normal and fixable. It is only a risk if it lasts. Focus on Culture next. Shared standards let the team carry out the strategy without you in every meeting.",
+      "212":"You have a clear strategy, a trusted reputation and a culture that is good but not yet great. One more step would make all three strong. Invest in your team's working standards. These are the processes and habits that let everyone act on your strategy, not just the leaders.",
+      "220":"Inside, you are excellent, with clear direction and a strong team. Outside, trust is weak. This usually means a delivery or follow-through gap your team has not focused on yet. Point your organization at Credibility on purpose. Find where promises slip and build systems to fix them. Progress will be fast.",
+      "221":"You have strong direction, a strong team and a fair reputation. You are close. The final step is to make outside trust as reliable as your inside work. Meet contract duties without a rush. Make the customer experience match your brand promise every time. Small, steady improvements will complete this profile.",
+      "222":"You are strong in all three areas: clear direction, a healthy team and a trusted brand. The work now is to protect and use these strengths, not fix them. Lead with your credibility in your market. Guard your clarity as you grow, because growth is what weakens strong organizations first."
     },
     nonprofit:{
-      "000":"Everything is under strain at once — direction, culture, and funder trust are all running on fumes. The honest read: don't try to fix all three. Start with Clarity, because until priorities and reporting are nailed down, culture fixes won't stick and external trust will keep eroding.",
-      "001":"Your external reputation is holding better than what's behind it — funders still trust you, but internally direction is foggy and the team is straining. That gap is borrowed time. Lock down priorities and decision rights first, before the internal wobble shows up in your reporting.",
-      "002":"Funders and partners trust you — but inside, priorities are fuzzy and the culture is straining. You've built credibility on relationships and effort, and effort doesn't scale. Clarity is the fix: name the priorities, fix the reporting, and let your strong reputation buy the time to do it.",
-      "010":"Your culture is the one thing holding while direction and external trust both wobble. That's a real asset — people who share values and trust each other can absorb hard change. Spend that trust on a clarity reset: priorities, financial visibility, decision rights. Credibility recovers once the inside is coherent.",
-      "011":"Culture and credibility are workable, but everything sits on a foggy foundation — unclear priorities, reporting no one fully trusts, assumed decision rights. Organizations like yours feel busy and mission-driven right up until a big grant or audit exposes the fog. Fix Clarity now, while the other C's can cover for it.",
-      "012":"Funders trust you, and your team mostly holds together — but ask three people what the top priority is and you'd get three answers. Strong credibility with weak clarity means you're winning on reputation while steering by feel. Real priorities and reporting leadership trusts turn a good organization into a durable one.",
-      "020":"Your culture is genuinely strong — shared values, honest conflict — but it's pointed in an unclear direction and funders are sensing the wobble. A great team with no map. Clarity work pays off fast here, because a healthy culture executes a clear strategy almost immediately.",
-      "021":"A strong culture is compensating for a fuzzy strategy, and mostly pulling it off — credibility is holding. But compensating is expensive: your best people are burning judgment on decisions that clear priorities would make automatic. Give this culture a clear direction and everything compounds.",
-      "022":"Your culture and your reputation are both strong — what's missing is a sharp answer to 'what are our real priorities, and what do the numbers say?' A champagne problem, but a real one: strong execution of an unclear strategy eventually scales the wrong programs. Clarity is your unlock.",
-      "100":"You have a rough sense of direction, but the culture is straining and funder trust is fragile — the strategy exists mostly on paper. The move is Culture first: shared values and honest conflict are what turn a written strategy into kept commitments. Credibility follows follow-through.",
-      "101":"Direction and reputation are both middling while the team runs on heroics underneath. Heroics feel like mission commitment, but they're your biggest risk — one departure or one hard quarter drops the other two C's with it. Invest in Culture: shared norms, process, and the ability to name hard truths.",
-      "102":"Funders and partners genuinely trust you — but internally the culture is straining and the strategy is half-clear. You're delivering on relationships and dedication. Culture is the priority: build the shared norms that make the work repeatable, so your reputation stops depending on individual burnout.",
-      "110":"Direction and culture are both developing, but external trust is lagging — reporting slips, compliance scrambles happen. That's usually a follow-through problem, not a mission problem. Focus on Credibility: pick the two or three obligations you keep scrambling on and systematize them.",
-      "111":"Everything is at a workable middle — nothing broken, nothing strong. That's the most common profile and the most deceptive one, because 'fine everywhere' often means 'exceptional nowhere.' Pick the C closest to your next big move — a campaign, a grant cycle, a leadership transition — and push it to strong.",
-      "112":"Funders trust you more than your internal state would predict — credibility is your strong suit while direction and culture are still developing. Protect that asset by closing the gap behind it: sharpen priorities and norms now, so the public story and the internal reality stay the same story.",
-      "120":"Your culture is genuinely strong and direction is workable, but external trust is fragile — compliance scrambles, reporting slips. A team this healthy can fix credibility fast; it's a systems gap, not a people gap. Pick your three most visible external obligations and make them boringly reliable.",
-      "121":"A strong culture, decent direction, decent reputation. The pattern says your people are ahead of your systems. The highest-leverage move is finishing the Clarity work: crisp priorities and reporting leadership trusts turn this team's energy into compounding results.",
-      "122":"Culture and credibility are both strong — people trust each other inside and funders trust you outside. Direction is the lagging piece, and with this foundation it's very fixable. A focused clarity sprint — three priorities, real financial visibility, named decision rights — is likely all that separates you from full strength.",
-      "200":"Your strategy is sharp — priorities, reporting, decision rights all clear — but the culture executing it is straining and funders are feeling it. Clarity without culture is a plan without a team. Shift energy to Culture: shared values and honest conflict convert your clear strategy into kept commitments.",
-      "201":"You know exactly where you're going; the strain is in how you're getting there. Clear strategy, straining culture — your best thinking is being executed by people running on fumes, and credibility is only holding at middling because of it. Culture is the bottleneck, and the fix.",
-      "202":"Sharp strategy, trusted reputation — and a culture quietly straining in the middle. This profile often belongs to founder- or ED-led organizations where clarity and credibility both flow from one person. The Culture work is what makes the whole thing sustainable beyond any single leader.",
-      "210":"Direction is sharp and the culture is solid, but external trust hasn't caught up — reporting slips, compliance gets scrambled. With this internal strength, credibility is the easiest C to fix: it's a follow-through system, not a capability gap. Make external commitments boringly reliable and the profile completes itself.",
-      "211":"Strong clarity with everything else developing is the classic growth profile: the strategy has outrun the organization. Normal, and fixable — the risk is only if it persists. Focus on Culture next; shared norms are what let the team execute the strategy without leadership in every room.",
-      "212":"Clear strategy, trusted reputation, and a culture that's good but not yet great. You're one push from a genuinely strong profile. The move: invest in the team's operating norms — the processes and shared standards that make your clarity executable by everyone, not just leadership.",
-      "220":"Inside, you're excellent — sharp direction, strong culture. Outside, trust is fragile, which usually means a follow-through gap your internal strength hasn't been aimed at yet. Point the organization at Credibility deliberately: audit where reporting and obligations slip, systematize the fixes. It will move fast.",
-      "221":"Strong direction, strong culture, decent reputation — you're close. The last mile is making external trust as reliable as your internal operation: obligations met without scrambles, public story matching internal reality every time. Small, boring reliability wins finish this profile.",
-      "222":"Strong across all three C's — clear direction, healthy culture, trusted reputation. The work now isn't fixing; it's protecting and leveraging. Lead with this credibility in funding conversations, and guard the clarity as you grow, because growth is what erodes strong profiles first."
+      "000":"All three areas are under strain: direction, culture and funder trust. Do not try to fix all three at once. Start with Clarity. Until priorities and financial reports are clear, culture fixes will not last. Outside trust will also keep slipping.",
+      "001":"Your outside reputation is stronger than what supports it. Funders still trust you. Inside, direction is unclear and the team is under strain. That gap will not last. Set clear priorities and decision rights first. Do it before internal problems start to show up in your reports to funders.",
+      "002":"Funders and partners trust you. Inside, priorities are unclear and the culture is under strain. You built trust through relationships and hard work, and hard work does not grow with you. Clarity is the fix. Name the priorities and fix the financial reports. Your strong reputation gives you time to do it.",
+      "010":"Your culture is holding, while direction and outside trust are both slipping. That is a real strength. People who share values and trust each other can handle hard change. Use that trust to reset Clarity: priorities, financial reports and decision rights. Credibility will recover once things are clear inside.",
+      "011":"Culture and Credibility are workable, but they rest on an unclear base. Priorities are vague, few people fully trust the financial reports and decision rights are assumed. Groups like this feel busy and focused on mission until a large grant or an audit exposes the problem. Fix Clarity now, while the other areas can cover for it.",
+      "012":"Funders trust you, and your team mostly works well together. But ask three people for the top priority, and you may get three answers. You are winning on reputation while guessing at direction. Set real priorities and get financial reports your leaders trust. That turns a good organization into one that lasts.",
+      "020":"Your culture is strong. People share values and handle disagreement well. But the direction is unclear, and funders notice. Clarity work will pay off fast here. A healthy culture can carry out a clear strategy almost right away. Set the priorities, and this team will act on them.",
+      "021":"A strong culture is making up for an unclear strategy, and mostly succeeding. Credibility is holding. But this costs a lot. Your best people spend time on decisions that clear priorities would settle. Give this culture a clear direction, and its results will grow.",
+      "022":"Your culture and your reputation are both strong. What is missing is a clear answer to two questions. What are your real priorities? What do the numbers say? Strong work on an unclear strategy can grow the wrong programs. Clarity is your next step.",
+      "100":"You have a rough sense of direction. But the culture is under strain and funder trust is weak. Your strategy is written down but not yet in practice. Start with Culture. Shared values and safe ways to disagree turn a written plan into kept commitments. Credibility follows when you follow through.",
+      "101":"Direction and reputation are both in the middle range. Underneath, the team depends on a few people working extra hard. That feels like commitment to the mission, but it is your biggest risk. One departure or one hard quarter could pull the other two areas down. Invest in Culture: shared habits, processes and honest talk.",
+      "102":"Funders and partners truly trust you. Inside, the culture is under strain and the strategy is only partly clear. You deliver through relationships and dedication. Make Culture the priority. Build shared habits so the work can be repeated. Then your reputation will not depend on a few people working until they burn out.",
+      "110":"Direction and culture are both developing, but outside trust is behind. Reports slip and compliance becomes a last-minute rush. This is usually a follow-through problem, not a mission problem. Focus on Credibility. Pick the two or three duties you keep rushing to meet. Then build a simple system for each one.",
+      "111":"All three areas are in the middle range. Nothing is broken, and nothing is strong. This is the most common result, and it can hide problems. Being fine everywhere often means being excellent nowhere. Pick the area closest to your next big step, like a campaign or a grant cycle. Then make it strong.",
+      "112":"Funders trust you more than your inside state would suggest. Credibility is your strength, while direction and culture are still developing. Protect that trust by closing the gap behind it. Set clearer priorities and shared habits now. That way, your public story and what happens inside stay the same.",
+      "120":"Your culture is strong and your direction is workable. But outside trust is weak, with last-minute compliance rushes and late reports. A team this healthy can fix Credibility fast. The cause is a missing system, not the people. Pick your three most visible outside duties and make them reliable every time.",
+      "121":"You have a strong culture, a fair direction and a fair reputation. Your people are ahead of your systems. The most useful step is to finish the Clarity work. Clear priorities and financial reports your leaders trust turn this team's energy into results that keep growing.",
+      "122":"Culture and Credibility are both strong. People trust each other inside, and funders trust you outside. Direction is the weak area, and with this base it is very fixable. A short, focused Clarity effort may be all you need. Set three priorities, get real financial reports and name who decides what.",
+      "200":"Your strategy is clear: priorities, reports and decision rights are all set. But the culture carrying it out is under strain, and funders feel it. A plan without a working team will not deliver. Shift your focus to Culture. Shared values and honest disagreement turn a clear strategy into kept commitments.",
+      "201":"You know where you are going. The strain is in how you get there. Your clear strategy depends on a team that is worn out. Credibility is only in the middle range because of it. Culture is what is holding you back, and it is where to start.",
+      "202":"You have a clear strategy and a trusted reputation, but the culture in the middle is under strain. This is common when one founder or executive director is the source of both clarity and credibility. Culture work lets the organization last beyond any single leader.",
+      "210":"Direction is clear and the culture is solid, but outside trust has not caught up. Reports slip and compliance becomes a last-minute rush. With this inside strength, Credibility is the easiest area to fix. The cause is a follow-through system, not a skills gap. Make your outside commitments reliable, and all three areas will be strong.",
+      "211":"Strong Clarity with the other two areas developing is common for growing organizations. The strategy has moved ahead of the organization. That is normal and fixable. It is only a risk if it lasts. Focus on Culture next. Shared habits let the team carry out the strategy without leaders in every meeting.",
+      "212":"You have a clear strategy, a trusted reputation and a culture that is good but not yet great. One more step would make all three strong. Invest in your team's working habits. These are the processes and shared standards that let everyone act on your strategy, not just the leaders.",
+      "220":"Inside, you are excellent, with clear direction and a strong culture. Outside, trust is weak. This usually means a follow-through gap your team has not focused on yet. Point your organization at Credibility on purpose. Find where reports and duties slip, and build systems to fix them. Progress will be fast.",
+      "221":"You have strong direction, a strong culture and a fair reputation. You are close. The final step is to make outside trust as reliable as your inside work. Meet your duties without a rush. Make your public story match what happens inside every time. Small, steady improvements will complete this profile.",
+      "222":"You are strong in all three areas: clear direction, a healthy culture and a trusted reputation. The work now is to protect and use these strengths, not fix them. Lead with your credibility when you talk with funders. Guard your clarity as you grow, because growth is what weakens strong organizations first."
     }
   };
   /* ---------------------------------------------------------------------- */
@@ -639,7 +642,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         '<p>'+ins[p.key][bi]+'</p>';
       cards.appendChild(c);
     });
-    el("ctasub").textContent="Your biggest lever right now is "+PHASE_META[focus].key+
+    el("ctasub").textContent="Your first area to work on is "+PHASE_META[focus].key+
       ". Bring this readout to a call and leave with a first step.";
     // pattern readout: key = band of each C, e.g. "201"
     var key = scores.map(function(s){ return bandIndex(s); }).join("");
