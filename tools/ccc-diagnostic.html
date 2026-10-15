@@ -257,7 +257,7 @@ function showModal(){document.getElementById('tb-cookie-modal').classList.add('v
 function hideModal(){document.getElementById('tb-cookie-modal').classList.remove('visible');}
 function consentFromModal(){return{analytics:document.getElementById('tb-cat-analytics').checked,ads:document.getElementById('tb-cat-ads').checked,b2b:document.getElementById('tb-cat-b2b').checked};}
 function setModalState(c){document.getElementById('tb-cat-analytics').checked=!!c.analytics;document.getElementById('tb-cat-ads').checked=!!c.ads;document.getElementById('tb-cat-b2b').checked=!!c.b2b;}
-function init(){loadCloudflareAnalytics();loadGA4();loadClarity();var existing=readConsent();if(gpcOn()&&existing){existing.ads=false;existing.b2b=false;saveConsent(existing);}if(existing){applyConsent(existing);}else{showBanner();}
+function init(){if(!/^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname)){loadCloudflareAnalytics();loadGA4();loadClarity();}var existing=readConsent();if(gpcOn()&&existing){existing.ads=false;existing.b2b=false;saveConsent(existing);}if(existing){applyConsent(existing);}else{showBanner();}
 document.getElementById('tb-accept-all').addEventListener('click',function(){var c=gpcOn()?{analytics:true,ads:false,b2b:false}:{analytics:true,ads:true,b2b:true};saveConsent(c);applyConsent(c);hideBanner();});
 document.getElementById('tb-reject-all').addEventListener('click',function(){var c={analytics:false,ads:false,b2b:false};saveConsent(c);hideBanner();});
 document.getElementById('tb-customize').addEventListener('click',function(){setModalState(existing||{analytics:false,ads:false,b2b:false});showModal();});

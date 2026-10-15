@@ -373,9 +373,12 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
     // Cloudflare Web Analytics — privacy-first, no cookies, no PII.
     // GA4 with Consent Mode v2 — cookieless pings until consent upgrades.
     // Clarity — loads in cookieless mode (Dashboard → Advanced → Cookies OFF); upgrades to full tracking on consent.
-    loadCloudflareAnalytics();
-    loadGA4();
-    loadClarity();
+    // Skip all trackers on local previews (localhost / 127.0.0.1) so testing never counts as traffic.
+    if (!/^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname)) {
+      loadCloudflareAnalytics();
+      loadGA4();
+      loadClarity();
+    }
 
     var existing = readConsent();
 
