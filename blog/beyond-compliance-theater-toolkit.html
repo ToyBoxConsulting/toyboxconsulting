@@ -210,7 +210,7 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
 <!-- Banner (initial state) -->
 <div id="tb-cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <p>
-    We use cookies to operate this site (required) and, with your consent, to measure usage, improve the experience, and personalize advertising. See our
+    ToyBox uses cookies to run this site (required). With your consent, it also uses them to measure visits, improve the site and personalize advertising. See the
     <a href="/cookies.html">Cookie Notice</a> and <a href="/privacy.html">Privacy Policy</a>.
   </p>
   <div class="tb-cookie-actions">
@@ -238,7 +238,7 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
       <input type="checkbox" id="tb-cat-analytics" />
       <span class="tb-cat-text">
         <strong>Analytics</strong>
-        <span>Google Analytics 4, Microsoft Clarity, Cloudflare Web Analytics — to understand site usage.</span>
+        <span>Google Analytics 4, Microsoft Clarity and Cloudflare Web Analytics, to understand how people use the site.</span>
       </span>
     </label>
 
@@ -246,7 +246,7 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
       <input type="checkbox" id="tb-cat-ads" />
       <span class="tb-cat-text">
         <strong>Advertising</strong>
-        <span>Microsoft Advertising UET — for conversion measurement and audience targeting. CCPA "sharing."</span>
+        <span>Microsoft Advertising UET (Universal Event Tracking), to measure ad results and target ads. This counts as "sharing" under the CCPA (California Consumer Privacy Act).</span>
       </span>
     </label>
 
@@ -481,8 +481,10 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
 }
 @media (max-width:420px){html.js-nav nav .nav-logo img{height:34px;}html.js-nav nav .nav-inner{gap:8px 10px;}}
 </style>
+<link rel="stylesheet" href="/assets/site-a11y.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html"><img loading="lazy" src="../assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
@@ -490,7 +492,7 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
     <div class="nav-links" id="site-nav-links">
       <a href="../services.html">Services</a>
       <a href="../case-study.html">Work</a>
-      <a href="../tools-signup.html">Tools</a>
+      <a href="../tools-signup.html">Free tools</a>
       <a href="../about.html">About</a>
       <a href="../contact.html">Contact</a>
       <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=blog_beyond_compliance_theater_toolkit_nav" target="_blank" rel="noopener noreferrer">Book a <span class="long">discovery </span>call</a>
@@ -498,6 +500,7 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
   </div>
 </nav>
 <script>(function(){var b=document.querySelector('nav .nav-toggle'),l=document.getElementById('site-nav-links');if(!b||!l)return;document.documentElement.classList.add('js-nav');b.hidden=false;function set(o){l.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!l.classList.contains('open'));});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){set(false);b.focus();}});})();</script>
+<main id="main">
 
 <article class="post">
   <div class="wrap">
@@ -579,11 +582,13 @@ article.post .cta-card p a{color:#e8c77a;font-weight:600;}
   </div>
 </article>
 
+</main>
 <footer>
   <div class="wrap-wide">
     <p style="margin:0 0 10px;"><strong style="color:rgba(245,240,232,.95);">Out the Box</strong> · ToyBox's monthly newsletter. Practical lessons, recognitions and a note from Katoya, once a month. <a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=beyond-compliance-theater-toolkit" target="_blank" rel="noopener noreferrer" data-cta="newsletter" style="white-space:nowrap;">Subscribe →</a></p>
     <p>© <script>document.write(new Date().getFullYear())</script> ToyBox Consulting &amp; Management, LLC · Bellevue, WA · <a href="../about.html">About</a> · <a href="../contact.html">Contact</a> · <a href="../events.html">Events</a> · <a href="../partners.html">Partners</a> · <a href="../contracts.html">Contracts</a> · <a href="./">Blog</a> · <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></p>
   </div>
+<p style="max-width:1160px;margin:16px auto 0;padding:0 24px;font-size:16px;line-height:1.5;" class="foot-lang">Use your browser's translate option to read this site in your language. Need help in another language? Email <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>.</p>
 </footer>
 <img src="https://tracker.metricool.com/c3po.jpg?hash=4687cf7329d86c754e5213cb46e01fc6" alt="" width="1" height="1" style="display:none" />
 </body>

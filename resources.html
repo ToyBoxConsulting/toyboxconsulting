@@ -201,7 +201,7 @@
 <!-- Banner (initial state) -->
 <div id="tb-cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <p>
-    We use cookies to operate this site (required) and, with your consent, to measure usage, improve the experience, and personalize advertising. See our
+    ToyBox uses cookies to run this site (required). With your consent, it also uses them to measure visits, improve the site and personalize advertising. See the
     <a href="cookies.html">Cookie Notice</a> and <a href="privacy.html">Privacy Policy</a>.
   </p>
   <div class="tb-cookie-actions">
@@ -229,7 +229,7 @@
       <input type="checkbox" id="tb-cat-analytics" />
       <span class="tb-cat-text">
         <strong>Analytics</strong>
-        <span>Google Analytics 4, Microsoft Clarity, Cloudflare Web Analytics — to understand site usage.</span>
+        <span>Google Analytics 4, Microsoft Clarity and Cloudflare Web Analytics, to understand how people use the site.</span>
       </span>
     </label>
 
@@ -237,7 +237,7 @@
       <input type="checkbox" id="tb-cat-ads" />
       <span class="tb-cat-text">
         <strong>Advertising</strong>
-        <span>Microsoft Advertising UET — for conversion measurement and audience targeting. CCPA "sharing."</span>
+        <span>Microsoft Advertising UET (Universal Event Tracking), to measure ad results and target ads. This counts as "sharing" under the CCPA (California Consumer Privacy Act).</span>
       </span>
     </label>
 
@@ -479,8 +479,10 @@
 }
 @media (max-width:420px){html.js-nav nav .nav-logo img{height:34px;}html.js-nav nav .nav-inner{gap:8px 10px;}}
 </style>
+<link rel="stylesheet" href="/assets/site-a11y.css">
 </head>
 <body data-screen-label="ToyBox | Resources">
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="botbn-bar" id="botbn-bar" data-source="toybox" style="display:none;">
   Katoya R. Palmer nominated for <strong>Best Community Leader</strong> in <em>The Seattle Medium’s Best of the Best Northwest</em>
   <a class="botbn-cta" id="botbn-vote" href="https://www.bestofthebestnorthwest.com/?utm_source=toyboxconsulting&utm_medium=announcement_bar&utm_campaign=botbn_vote_2026" target="_blank" rel="noopener noreferrer">Vote by June 19 →</a>
@@ -493,7 +495,7 @@
       <div class="nav-links" id="site-nav-links">
         <a href="services.html">Services</a>
         <a href="case-study.html">Work</a>
-        <a class="active" aria-current="page" href="tools-signup.html">Tools</a>
+        <a class="active" href="tools-signup.html">Free tools</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=resources_nav" target="_blank" rel="noopener noreferrer">Book a <span class="long">discovery </span>call</a>
@@ -501,6 +503,7 @@
     </div>
   </nav>
 <script>(function(){var b=document.querySelector('nav .nav-toggle'),l=document.getElementById('site-nav-links');if(!b||!l)return;document.documentElement.classList.add('js-nav');b.hidden=false;function set(o){l.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!l.classList.contains('open'));});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){set(false);b.focus();}});})();</script>
+<main id="main">
 
   <header class="hero">
     <div class="wrap">
@@ -617,7 +620,8 @@
     </div>
   </section>
 
-  <footer>
+  </main>
+<footer>
     <div class="foot-grid">
       <div>
         <div class="flogo"><img decoding="async" loading="lazy" src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></div>
@@ -655,6 +659,7 @@
         <a href="#" onclick="tbReopenConsent(); return false;">Cookie settings</a>
       </div>
     </div>
+    <p class="foot-lang">Use your browser's translate option to read this site in your language. Need help in another language? Email <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>.</p>
     <div class="foot-bottom">
       <span>© 2026 ToyBox Consulting &amp; Management, LLC</span>
       <span>What's next out the box?</span>

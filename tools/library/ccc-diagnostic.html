@@ -219,7 +219,7 @@
 </style>
 
 <div id="tb-cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-<p>We use cookies to operate this site (required) and, with your consent, to measure usage, improve the experience, and personalize advertising. See our <a href="/cookies">Cookie Notice</a> and <a href="/privacy">Privacy Policy</a>.</p>
+<p>ToyBox uses cookies to run this site (required). With your consent, it also uses them to measure visits, improve the site and personalize advertising. See the <a href="/cookies">Cookie Notice</a> and <a href="/privacy">Privacy Policy</a>.</p>
 <div class="tb-cookie-actions">
 <button class="tb-btn-primary" id="tb-accept-all">Accept all</button>
 <button class="tb-btn-secondary" id="tb-reject-all">Reject non-essential</button>
@@ -232,8 +232,8 @@
 <h2 id="tb-modal-title">Cookie settings</h2>
 <p>Choose which categories to allow. You can change this anytime via the "Cookie settings" link in the footer.</p>
 <label class="tb-cat"><input type="checkbox" checked disabled aria-label="Strictly necessary cookies (always on)" /><span class="tb-cat-text"><strong>Strictly necessary (always on)</strong><span>Required for the site to function and to remember your cookie choice.</span></span></label>
-<label class="tb-cat"><input type="checkbox" id="tb-cat-analytics" /><span class="tb-cat-text"><strong>Analytics</strong><span>Google Analytics 4, Microsoft Clarity, Cloudflare Web Analytics — to understand site usage.</span></span></label>
-<label class="tb-cat"><input type="checkbox" id="tb-cat-ads" /><span class="tb-cat-text"><strong>Advertising</strong><span>Microsoft Advertising UET — for conversion measurement and audience targeting. CCPA "sharing."</span></span></label>
+<label class="tb-cat"><input type="checkbox" id="tb-cat-analytics" /><span class="tb-cat-text"><strong>Analytics</strong><span>Google Analytics 4, Microsoft Clarity and Cloudflare Web Analytics, to understand how people use the site.</span></span></label>
+<label class="tb-cat"><input type="checkbox" id="tb-cat-ads" /><span class="tb-cat-text"><strong>Advertising</strong><span>Microsoft Advertising UET (Universal Event Tracking), to measure ad results and target ads. This counts as "sharing" under the CCPA (California Consumer Privacy Act).</span></span></label>
 <label class="tb-cat"><input type="checkbox" id="tb-cat-b2b" /><span class="tb-cat-text"><strong>Visitor identification (B2B)</strong><span>RB2B — identifies business visitors (person-level, US) where possible.</span></span></label>
 <div class="tb-modal-actions"><button class="tb-btn-secondary" id="tb-modal-cancel">Cancel</button><button class="tb-btn-primary" id="tb-modal-save">Save preferences</button></div>
 </div>
@@ -279,8 +279,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.toyboxconsulting.net/"},{"@type":"ListItem","position":2,"name":"Free tools","item":"https://www.toyboxconsulting.net/tools.html"},{"@type":"ListItem","position":3,"name":"The CCC Diagnostic — Where is your organization actually stuck? · ToyBox","item":"https://www.toyboxconsulting.net/tools/ccc-diagnostic"}]}
 </script>
+<link rel="stylesheet" href="/assets/site-a11y.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <header class="bar">
   <div class="bar-in">
     <a href="/"><img decoding="async" loading="lazy" src="../../assets/logo-rust.png" alt="ToyBox Consulting and Management" /></a>
@@ -290,6 +292,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     </div>
   </div>
 </header>
+<main id="main">
 <div class="wrap">
   <div class="stage" id="stage">
     <!-- INTRO -->
@@ -652,6 +655,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 })();
 </script>
 
+</main>
 <footer style="background:#142C46;color:#C4B9A8;padding:30px 0;margin-top:0;font-family:'Inter',system-ui,sans-serif;font-size:13px;">
   <div style="max-width:1160px;margin:0 auto 20px;padding:0 24px 20px;border-bottom:1px solid rgba(196,185,168,.18);line-height:1.6;"><strong style="color:#F5F0E8;">Out the Box</strong> &middot; ToyBox's monthly newsletter. Practical lessons, recognitions and a note from Katoya, once a month. <a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=ccc-diagnostic" target="_blank" rel="noopener noreferrer" data-cta="newsletter" style="color:#F5F0E8;font-weight:600;text-decoration:none;white-space:nowrap;">Subscribe →</a></div>
 <div style="max-width:1160px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;">
@@ -663,6 +667,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 <a href="#" onclick="tbReopenConsent(); return false;" style="color:rgba(245,240,232,.78);text-decoration:none;">Cookie settings</a>
 </div>
 </div>
+<p style="max-width:1160px;margin:16px auto 0;padding:0 24px;font-size:16px;line-height:1.5;" class="foot-lang">Use your browser's translate option to read this site in your language. Need help in another language? Email <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>.</p>
 </footer>
 <img src="https://tracker.metricool.com/c3po.jpg?hash=4687cf7329d86c754e5213cb46e01fc6" alt="" width="1" height="1" style="display:none" />
 </body>
