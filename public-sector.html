@@ -549,20 +549,18 @@
   <nav>
     <div class="nav-inner">
       <a class="nav-logo" href="index.html"><img decoding="async" loading="lazy" src="assets/logo-white.png" alt="ToyBox Consulting and Management" /></a>
-      <div class="nav-links">
-        <a class="active" href="public-sector.html">Public Sector</a>
-        <a href="business.html">Business</a>
-        <a href="index.html#workshops">Workshops</a>
-        <a href="resources.html">Tools</a>
-        <a href="about.html">About</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links" hidden><span class="bars" aria-hidden="true"></span>Menu</button>
+      <div class="nav-links" id="site-nav-links">
+        <a href="services.html">Services</a>
         <a href="case-study.html">Work</a>
-        <a href="events.html">Events</a>
-        <a href="blog/">Blog</a>
-        <a href="partners.html">Partners</a>        <a href="contact.html">Contact</a>
-        <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=public-sector" target="_blank" rel="noopener noreferrer">Free 30-minute intro call</a>
+        <a href="tools-signup.html">Tools</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=public_sector_nav" target="_blank" rel="noopener noreferrer">Book a <span class="long">discovery </span>call</a>
       </div>
     </div>
   </nav>
+<script>(function(){var b=document.querySelector('nav .nav-toggle'),l=document.getElementById('site-nav-links');if(!b||!l)return;document.documentElement.classList.add('js-nav');b.hidden=false;function set(o){l.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!l.classList.contains('open'));});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){set(false);b.focus();}});})();</script>
 
 <!-- HERO -->
 <header class="hero">
@@ -796,6 +794,9 @@
         <a href="business.html">Business</a>
           <a href="events.html">Events</a>
           <a href="tools/financial-controls.html">Free client tools</a>
+          <a href="partners.html">Partners</a>
+          <a href="contracts.html">Contracts</a>
+          <a href="blog/">Blog</a>
         </div>
         <div class="fcol">
           <h4>Connect</h4>

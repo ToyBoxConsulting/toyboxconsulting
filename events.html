@@ -197,8 +197,19 @@ a { color: inherit; text-decoration: none; }
   background: var(--gold-2);
   color: var(--plum-deep);
 }
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;border:1px solid rgba(228,166,90,.5);color:inherit;font:600 12px/1 inherit;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border-radius:999px;cursor:pointer;}
+.nav-toggle:focus-visible,.nav-links a:focus-visible{outline:2px solid #F0CB6A;outline-offset:2px;}
+.nav-toggle .bars{display:inline-block;width:14px;height:10px;border-top:2px solid currentColor;border-bottom:2px solid currentColor;position:relative;}
+.nav-toggle .bars:after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid currentColor;}
 @media (max-width: 880px) {
-  .nav-links { display: none; }
+  /* Without JS the links wrap onto their own row; with JS they sit behind the Menu button. */
+  .nav-inner { flex-wrap: wrap; gap: 10px 14px; padding: 12px 20px; }
+  .nav-links { order: 3; flex-basis: 100%; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 12px; }
+  html.js-nav .nav-toggle:not([hidden]) { display: inline-flex; margin-left: auto; }
+  html.js-nav .nav-links:not(.open) { display: none; }
+  html.js-nav .nav-links.open { flex-direction: column; align-items: stretch; gap: 0; }
+  html.js-nav .nav-links.open a { padding: 11px 0; font-size: 14px; }
+  .nav-cta { padding: 9px 14px; font-size: 11px; }
 }
 
 /* ---------- HERO ---------- */
@@ -1530,16 +1541,18 @@ footer ul li a:hover { color: var(--gold-1); }
 </svg></span>
       <span class="gold-foil">Golden&nbsp;Hour</span> <em style="font-style:italic;font-weight:300;opacity:0.7;margin-left:6px;">Unboxed</em>
     </a>
-    <div class="nav-links" aria-label="Page sections">
-      <a href="#about">About</a>
-      <a href="#program">Program</a>
-      <a href="#speakers">Speakers</a>
-      <a href="#sponsors">Sponsors</a>
-      <a href="#faq">FAQ</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links" hidden><span class="bars" aria-hidden="true"></span>Menu</button>
+    <div class="nav-links" id="site-nav-links">
+      <a href="services.html">Services</a>
+      <a href="case-study.html">Work</a>
+      <a href="tools-signup.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <a href="https://www.eventbrite.com/e/golden-hour-tickets-1982307398792?aff=oddtdtcreator" class="nav-cta" target="_blank" rel="noopener">RSVP Free</a>
+    <a href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=events_nav" class="nav-cta" target="_blank" rel="noopener noreferrer">Book a call</a>
   </div>
 </nav>
+<script>(function(){var b=document.querySelector('nav .nav-toggle'),l=document.getElementById('site-nav-links');if(!b||!l)return;document.documentElement.classList.add('js-nav');b.hidden=false;function set(o){l.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');}b.addEventListener('click',function(){set(!l.classList.contains('open'));});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&l.classList.contains('open')){set(false);b.focus();}});})();</script>
 
 <!-- ========== HERO ========== -->
 <header class="hero" id="top">
@@ -2285,8 +2298,10 @@ footer ul li a:hover { color: var(--gold-1); }
       <h4>Connect</h4>
       <ul>
         <li><a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a></li>
-        <li><a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a></li>
-        <li><a href="https://www.toyboxconsulting.net">toyboxconsulting.net</a></li>
+        <li><a href="index.html">toyboxconsulting.net</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="contracts.html">Contracts</a></li>
+        <li><a href="blog/">Blog</a></li>
       </ul>
     </div>
     <div>
