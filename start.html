@@ -14,17 +14,17 @@
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), magnetometer=(), gyroscope=(), accelerometer=(), ambient-light-sensor=(), autoplay=(), encrypted-media=(), fullscreen=(self), picture-in-picture=(), display-capture=()">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Start Here | ToyBox Consulting &amp; Management</title>
+<title>Year-End Operations Tune-Up for Nonprofits | ToyBox</title>
 <link rel="icon" type="image/png" href="assets/logo-rust.png" />
-<meta name="description" content="Operations that don't depend on one person remembering everything. Book a free 30-minute intro call, or start with a free Operational Health Check." />
+<meta name="description" content="Three December working sessions for nonprofits and small businesses: fix the three costliest operations gaps and start January with a plan. Book by Nov 20." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Start Here | ToyBox Consulting & Management" />
-<meta property="og:description" content="Operations that don't depend on one person remembering everything. Book a free 30-minute intro call, or start with a free Operational Health Check." />
+<meta property="og:title" content="Year-End Operations Tune-Up for Nonprofits | ToyBox" />
+<meta property="og:description" content="Three December working sessions for nonprofits and small businesses: fix the three costliest operations gaps and start January with a plan. Book by Nov 20." />
 <meta property="og:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg" />
 <meta property="og:url" content="https://www.toyboxconsulting.net/start" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Start Here | ToyBox Consulting & Management" />
-<meta name="twitter:description" content="Operations that don't depend on one person remembering everything. Book a free 30-minute intro call, or start with a free Operational Health Check." />
+<meta name="twitter:title" content="Year-End Operations Tune-Up for Nonprofits | ToyBox" />
+<meta name="twitter:description" content="Three December working sessions for nonprofits and small businesses: fix the three costliest operations gaps and start January with a plan. Book by Nov 20." />
 <meta name="twitter:image" content="https://www.toyboxconsulting.net/assets/katoya-keynote.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -520,7 +520,23 @@
 .prin-list li a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 .prin-list li span{line-height:1.55;}
 .prin-list li em{color:rgba(245,240,232,.7);}
-.ctaband .after{font-size:14.5px;color:rgba(255,255,255,.8);margin:18px 0 0;}
+.ctaband .after{font-size:16px;line-height:1.5;color:rgba(255,255,255,.92);margin:18px auto 0;max-width:640px;}
+/* Leaner Tune-Up page (2026-10-15): readable sizes, checklist, sessions, Read more blocks */
+.start-hero .cta-note{font-size:16px;line-height:1.5;color:var(--ink-soft);margin-top:14px;}
+.start-hero .proof{font-size:16px;line-height:1.5;color:var(--navy);font-weight:600;margin-top:8px;}
+.checklist{list-style:none;margin-top:20px;max-width:660px;}
+.checklist li{font-size:17px;line-height:1.5;color:var(--ink);padding:6px 0 6px 28px;position:relative;}
+.checklist li:before{content:"";position:absolute;left:4px;top:15px;width:10px;height:10px;background:var(--rust);border-radius:2px;}
+.models.two{grid-template-columns:repeat(2,1fr);}
+ol.sessions{list-style:none;}
+.model p,.tool p{font-size:16px;line-height:1.55;}
+.prin-list li{font-size:16px;}
+details{margin-top:24px;max-width:760px;}
+details summary{cursor:pointer;font-weight:600;font-size:16px;line-height:1.5;color:var(--rust);}
+details p{font-size:16px;line-height:1.55;color:var(--ink-soft);margin-top:10px;}
+details a,.other a{color:var(--rust);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.other{font-size:16px;line-height:1.55;color:var(--ink-soft);margin-top:26px;max-width:760px;}
+.tool .free{color:#2F5A37;}
 /* Live footer has 4 columns in a 3-column grid, so Legal wraps to its own row; give it a 4th column here. */
 @media (min-width:821px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;}}
 @media (max-width:820px){
@@ -528,6 +544,7 @@
   .start-hero .cta-row .btn{width:100%;justify-content:center;}
   .prin-list li{flex-direction:column;gap:4px;}
   .ctaband h2{font-size:30px;}
+  .models.two{grid-template-columns:1fr;}
 }
 </style>
 <script type="application/ld+json">
@@ -575,13 +592,21 @@
 
   <header class="hero start-hero">
     <div class="wrap">
-      <div class="eyebrow">Start here</div>
-      <h1>Your operations shouldn't depend on one person remembering everything.</h1>
-      <p>ToyBox Consulting &amp; Management builds the systems behind the work: the calendars, checklists, reports and roles that keep an organization running when it gets busy. Since 2008.</p>
+      <p class="crumbs"><a href="services.html">Services</a> <span aria-hidden="true">/</span> <span aria-current="page">Year-End Tune-Up</span></p>
+      <div class="eyebrow">Year-End Operations Tune-Up</div>
+      <h1>Start January with an operations plan your team can run.</h1>
+      <p>Three working sessions in December. ToyBox and your team fix the three operations gaps costing you the most. Book a call by November 20, 2026.</p>
+      <ul class="checklist">
+        <li>A one-page scorecard and your top three risks</li>
+        <li>Three fixes, built with your team and in use</li>
+        <li>A 90-day plan with an owner and a date on every item</li>
+      </ul>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Book a free 30-minute call <span class="arrow">→</span></a>
+        <a class="btn btn-primary" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start_hero" target="_blank" rel="noopener noreferrer">Book a 30-minute discovery call <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn btn-ghost" href="#free-check">Or start with a free check</a>
       </div>
+      <p class="cta-note">On the call: 30 minutes with Katoya Palmer, a read on fit and clear next steps. No pitch.</p>
+      <p class="proof">Since 2008 · 10 City of Seattle consultant rosters · 4Culture Network of Support</p>
     </div>
   </header>
 
@@ -589,55 +614,39 @@
   <section class="alt">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Who ToyBox works with</div>
-        <h2>Three kinds of organizations, one kind of problem.</h2>
+        <div class="eyebrow">Who it's for</div>
+        <h2>For nonprofits and small businesses that run on one person's memory.</h2>
       </div>
-      <div class="models">
-        <div class="model"><div class="k">Nonprofits</div><p>Boards that want clearer roles, finance reports a board can actually use, and processes that live on paper instead of in someone's head.</p></div>
-        <div class="model"><div class="k">Small businesses</div><p>Owners who have outgrown "we'll figure it out." Operations, people systems, events and marketing that run on a plan.</p></div>
-        <div class="model"><div class="k">Public sector</div><p>City and county teams that need a small, experienced firm for communications, community outreach, project management, training and race and social justice work.</p></div>
+      <div class="models two">
+        <div class="model"><div class="k">Nonprofits</div><p>Executive directors and board chairs who want filing dates, the board calendar and the month-end close written down.</p></div>
+        <div class="model"><div class="k">Small businesses</div><p>Owners who want the business to run on a plan instead of memory.</p></div>
       </div>
+      <details><summary>Read more: rosters, 4Culture and track record</summary>
+        <p>ToyBox was selected to 10 City of Seattle consultant rosters for 2025 to 2030. They cover communications, outreach, HR (human resources), project management, training and more. <a href="blog/seattle-consultant-roster-2026.html">Consultant Pool 101 explains how departments hire from a roster</a>.</p>
+        <p>ToyBox is part of 4Culture's Network of Support. Funded through a 4Culture program? Ask your 4Culture program contact. <a href="blog/network-of-support-101.html">Network of Support 101</a></p>
+        <p>In business since 2008, an LLC since 2021.</p>
+      </details>
     </div>
   </section>
 
-  <!-- WAYS -->
+  <!-- HOW IT WORKS -->
   <section>
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Ways to work together</div>
-        <h2>Three ways to work together.</h2>
-        <p>Every one of them starts the same way: a free 30-minute call about the problem in front of you.</p>
+        <div class="eyebrow">How it works</div>
+        <h2>Three sessions in December, one plan for January.</h2>
       </div>
-      <div class="models">
-        <div class="model way">
-          <div class="k">01 · Fixed scope</div>
-          <h3>Year-End Operations Tune-Up</h3>
-          <p>Three working sessions in December. ToyBox finds the three gaps costing the most, builds the fixes with your team, and hands you a January plan with an owner and a date for each item.</p>
-          <ul>
-            <li><a href="blog/year-end-operations-tune-up.html">See what's included and how it works →</a></li>
-            <li>Book by November 20 for December delivery. Space is limited.</li>
-          </ul>
-          <a class="call" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Book a 30-minute call to see if it fits →</a>
-        </div>
-        <div class="model way">
-          <div class="k">02 · Retainer or hourly</div>
-          <h3>Fractional or interim COO</h3>
-          <p>An experienced operations lead, part time, for as long as you need one. Fractional when you need steady senior help without a full-time hire. Interim when a seat is empty and the work can't wait.</p>
-          <ul>
-            <li>Retainer-based or hourly, scoped to the work after the first call.</li>
-          </ul>
-          <a class="call" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Book a 30-minute call →</a>
-        </div>
-        <div class="model way">
-          <div class="k">03 · Live sessions</div>
-          <h3>Workshops for boards and teams</h3>
-          <p>Never a 60-minute lecture. Two 60-minute sessions (Diagnose, then Design &amp; Commit) or a half day in person.</p>
-          <ul>
-            <li>Built around your board or team and the decisions in front of it.</li>
-          </ul>
-          <a class="call" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Book a 30-minute call to plan one →</a>
-        </div>
-      </div>
+      <ol class="models sessions">
+        <li class="model"><div class="k">Session 1 · 90 minutes</div><h3>Find it</h3><p>ToyBox reviews your results and records, then names your top three risks.</p></li>
+        <li class="model"><div class="k">Session 2 · 2 hours</div><h3>Fix it</h3><p>ToyBox and your team build the three quickest fixes together.</p></li>
+        <li class="model"><div class="k">Session 3 · 90 minutes</div><h3>Hand it off</h3><p>You get the 90-day plan, every template and one check-in call in January.</p></li>
+      </ol>
+      <details><summary>Read more: price, timing and what gets fixed</summary>
+        <p>The Tune-Up is one fixed price, set before any work starts, with a lower rate for smaller organizations. No hourly billing. ToyBox shares the price on the call.</p>
+        <p>Slots go in the order calls are booked. Sign a ToyBox retainer or Starter Package by January 31, 2027, and the full Tune-Up fee counts toward it.</p>
+        <p>Typical nonprofit fixes: a 2027 filing calendar, the board's annual calendar and a month-end close checklist. <a href="blog/year-end-operations-tune-up.html">Read the full Tune-Up guide</a>.</p>
+      </details>
+      <p class="other">Not a December fit? ToyBox also offers fractional or interim COO (chief operating officer) support and workshops for boards. <a href="services.html">See all services</a>.</p>
     </div>
   </section>
 
@@ -646,49 +655,33 @@
     <div class="wrap">
       <div class="sec-head">
         <div class="eyebrow">Free tools</div>
-        <h2>Start with a free check.</h2>
-        <p>About 10 minutes, no call needed. Your overall score shows when you finish. Add your email to see the full breakdown and where to focus first.</p>
+        <h2>Not ready to talk? Start with a free check.</h2>
+        <p>No call needed. Your score shows when you finish. Add your email to see the full breakdown.</p>
       </div>
       <div class="tool-grid">
         <a class="tool" href="tools/operational-health-check.html">
-          <span class="free">Free tool · 25 questions</span>
-          <h3>Nonprofit Operational Health Check</h3>
-          <p>Rate 25 practices across governance, finance, people, programs and technology. See where to focus first.</p>
-          <span class="go">Take the health check →</span>
+          <span class="free">About 10 minutes</span>
+          <h3>Operational Health Check</h3>
+          <p>Where should operations improve first? Rate 25 practices across governance, finance, people, programs and technology.</p>
+          <span class="go">Take the health check <span aria-hidden="true">→</span></span>
         </a>
         <a class="tool" href="tools/board-governance.html">
-          <span class="free">Free tool · 20 questions</span>
+          <span class="free">About 10 minutes</span>
           <h3>Board Governance Self-Assessment</h3>
-          <p>20 questions on board structure, roles, financial oversight, policies and engagement.</p>
-          <span class="go">Assess your board →</span>
+          <p>Where does your board need to get stronger? 20 questions on structure, roles, oversight, policies and engagement.</p>
+          <span class="go">Assess your board <span aria-hidden="true">→</span></span>
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- WHY -->
-  <section class="principles">
-    <div class="wrap">
-      <div>
-        <div class="eyebrow">Why organizations call ToyBox</div>
-        <h2>A small firm with a long record.</h2>
-        <p>Experienced help for the operations work that keeps getting pushed to next month.</p>
-      </div>
-      <ul class="prin-list">
-        <li><b>10 rosters</b><span>Selected to 10 City of Seattle consultant rosters, 2025 to 2030: Communications, Ethnic Community Outreach, Ethnic Media Direct, HR, Management Services, Project Management, Public Info &amp; PR, Race &amp; Social Justice, Technical Writing, and Training &amp; Counseling. <a href="blog/seattle-consultant-roster-2026.html">Consultant Pool 101 explains how departments hire from a roster.</a></span></li>
-        <li><b>4Culture</b><span>Part of 4Culture's Network of Support. Funded through a 4Culture program? Ask your 4Culture program contact about Network of Support services. <em>Network of Support is a 4Culture program.</em> <a href="blog/network-of-support-101.html">Network of Support 101</a></span></li>
-        <li><b>Since 2008</b><span>In business since 2008, an LLC since 2021.</span></li>
-      </ul>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="ctaband">
     <div class="wrap">
-      <div class="kick">Tell ToyBox what the problem is, and ToyBox will tell you how to fix it.</div>
-      <h2>Start with a free 30-minute call.</h2>
-      <a class="btn btn-light" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Book a free 30-minute call <span class="arrow">→</span></a>
-      <p class="after">After that first call, the next step is a 45 to 60 minute discovery session to scope the work.</p>
+      <h2>Book by November 20 to hold a December slot.</h2>
+      <p>On the call: 30 minutes with Katoya Palmer, a read on fit and clear next steps. No pitch.</p>
+      <a class="btn btn-light" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start_closing" target="_blank" rel="noopener noreferrer">Book a 30-minute discovery call <span class="arrow" aria-hidden="true">→</span></a>
+      <p class="after">If it fits, a discovery session sets your December dates. ToyBox is on 10 City of Seattle consultant rosters and has served Washington since 2008.</p>
     </div>
   </section>
 
@@ -703,7 +696,7 @@
 <div class="fcol" style="margin-top:24px;max-width:320px;">
   <h4>Out the Box</h4>
   <p style="font-size:13.5px;line-height:1.55;margin:0 0 8px;">ToyBox's monthly newsletter. Practical lessons, recognitions and a note from Katoya, once a month.</p>
-  <a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=start" target="_blank" rel="noopener noreferrer" data-cta="newsletter">Subscribe →</a>
+  <a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=start_footer" target="_blank" rel="noopener noreferrer" data-cta="newsletter">Subscribe <span aria-hidden="true">→</span></a>
 </div>
         </div>
         <div class="fcol">
@@ -719,8 +712,8 @@
         </div>
         <div class="fcol">
           <h4>Connect</h4>
-          <a href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Schedule a call</a>
-        <a href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start" target="_blank" rel="noopener noreferrer">Free 30-minute intro call</a>
+          <a href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start_footer" target="_blank" rel="noopener noreferrer">Schedule a call</a>
+        <a href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=start_footer" target="_blank" rel="noopener noreferrer">Free 30-minute intro call</a>
           <a href="mailto:katoya@toyboxconsulting.net">katoya@toyboxconsulting.net</a>
           <a href="https://katoyapalmer.substack.com">katoyapalmer.substack.com</a>
           <a href="#">Bellevue, Washington</a>
