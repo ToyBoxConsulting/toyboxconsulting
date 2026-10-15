@@ -177,6 +177,10 @@
   .cta-block h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:20px;margin:0 0 6px;color:#F7F8F4}
   .cta-block p{margin:0 0 16px;font-size:14.5px;color:#B9C2BB}
   .cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .cta-block .btn.ghost{color:#F7F8F4;border-color:rgba(247,248,244,.55)}
+  .cta-block .btn.ghost:hover{border-color:#F7F8F4}
+  .cta-block .toolkit-line{color:#EEF0EA;font-size:16px;line-height:1.5}
+  .cta-block .call-note{margin:14px 0 0;font-size:15px}
   .retake{display:block;margin:18px auto 0;color:var(--muted);font-size:13px;font-weight:500;text-decoration:underline;text-underline-offset:3px}
   .hide{display:none!important}
   .note{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted);text-align:center;margin-top:22px}
@@ -283,7 +287,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <div class="bar-in">
     <a href="/"><img decoding="async" loading="lazy" src="../assets/logo-rust.png" alt="ToyBox Consulting and Management" /></a>
     <div style="display:flex;align-items:center;gap:18px;">
-      <a class="alltools" href="/tools-signup.html">All tools</a>
+      <a class="alltools" href="/tools-signup.html">Free tools</a>
       <a class="cta" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=tool_ccc_diagnostic_header" target="_blank" rel="noopener noreferrer">Book a call</a>
     </div>
   </div>
@@ -320,7 +324,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
           </g>
         </svg>
       </div>
-      <p class="meta">Takes about <span>2 minutes</span> · No email required to see results</p>
+      <p class="meta">Takes about <span>2 minutes</span> · No signup needed</p>
       <button class="btn gold" id="start">Start the diagnostic →</button>
     </section>
     <!-- QUESTIONS -->
@@ -378,13 +382,14 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       </div>
       <div class="cards" id="cards"></div>
       <div class="cta-block">
-        <h3 id="ctahead">Close that gap.</h3>
+        <h3 id="ctahead">Your next step</h3>
         <p id="ctasub"></p>
+        <p class="toolkit-line">The full toolkit (operational health check, board governance, grant readiness, financial controls, reserve calculator, fractional COO ROI, conflict of interest) comes with Out the Box, ToyBox's monthly newsletter.</p>
         <div class="cta-row">
-          <a class="btn gold" id="bookcall" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=tool_ccc_diagnostic" target="_blank" rel="noopener">Book a 30-minute call to review your results →</a>
-          <a class="btn ghost" href="/tools-signup.html" target="_blank" rel="noopener">Get the free tools</a>
+          <a class="btn gold" id="bookcall" href="https://calendly.com/toyboxcm/discovery-call?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=fall26_leadgen&amp;utm_content=tool_ccc_diagnostic" target="_blank" rel="noopener noreferrer">Book a 30-minute call to review your results →</a>
+          <a class="btn ghost" href="/tools-signup.html">Get the full toolkit</a>
         </div>
-        <p style="margin:14px 0 0;"><a href="https://ee4a3130.sibforms.com/serve/MUIFAHD7T6bz4b98WGJrRC8opOmtbAESrvTeMq-830K1ISwZeIUZKcxBNDKG_CZnItZLrQaEg_4bAnfIc-jxgNWtetX2OhAVKydTgLwiXM0tKjBjFHsgr_QqXMOvV_i_QHcQxrTIqwd1HTS3-tgVnMR-v9o4_YWdRG6uXgb1gbkELNIlUQMLzCMOGLhh8AUs6ZTJTZjyI96ATSDhcw==?utm_source=toyboxconsulting.net&amp;utm_medium=website&amp;utm_campaign=out_the_box&amp;utm_content=tool_ccc_diagnostic" target="_blank" rel="noopener noreferrer" data-cta="newsletter" style="color:#F7F8F4;font-weight:600;">Subscribe to Out the Box →</a> ToyBox's monthly newsletter.</p>
+        <p class="call-note">On the call: 30 minutes with Katoya Palmer, a read on fit and clear next steps. No pitch.</p>
       </div>
       <button class="retake" id="retake">Retake the diagnostic</button>
       <p class="note">Built on the CCC Cycle · ToyBox Consulting &amp; Management</p>
@@ -618,6 +623,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     var ins=CONTENT[audience].insight;
     var cards=el("cards"); cards.innerHTML="";
     PHASE_META.forEach(function(p,pi){
+      if(pi!==focus) return; /* public teaser: focus area only */
       var s=scores[pi], bi=bandIndex(s);
       var c=document.createElement("div");
       c.className="ccard"+(pi===focus?" focus":"");
@@ -631,7 +637,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       cards.appendChild(c);
     });
     el("ctasub").textContent="Your biggest lever right now is "+PHASE_META[focus].key+
-      ". A free 30-minute intro call turns this readout into a first move.";
+      ". Bring this readout to a call and leave with a first step.";
     // pattern readout: key = band of each C, e.g. "201"
     var key = scores.map(function(s){ return bandIndex(s); }).join("");
     var pattern = (PATTERNS[audience] && PATTERNS[audience][key]) || "";

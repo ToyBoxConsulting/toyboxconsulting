@@ -670,7 +670,7 @@
   <div class="wrap">
     <div class="eyebrow">Get the playbook</div>
     <h2>Drop your email. <em>Get the PDF.</em></h2>
-    <p class="sub">I'll send the playbook straight to your inbox and add you to ToyBox's quarterly Systems &amp; Ops note. Unsubscribe in one click — I respect inboxes.</p>
+    <p class="sub">Sign up for Out the Box, ToyBox's monthly newsletter. The welcome email links to the subscriber library, where the playbook PDF lives. Unsubscribe anytime with one click.</p>
 
     <div class="disclaimer">
       <div class="dh">Before you start</div>
@@ -692,9 +692,9 @@
       <!-- SUCCESS STATE -->
       <div class="success" id="success">
         <div class="success-head">Check your inbox.</div>
-        <p class="success-msg">You'll get a confirmation email shortly. In the meantime — your playbook is below. Read it, share it, build with it.</p>
-        <a class="download-btn" href="/assets/playbook/how-i-built-my-site-with-claude.pdf" download>
-          ↓ Download the PDF
+        <p class="success-msg">Confirm your subscription in the email from ToyBox. The welcome email links to the Out the Box subscriber library, where the playbook PDF and all eight ToyBox tools are waiting.</p>
+        <a class="download-btn" href="../tools-signup.html">
+          See what else is in the library
         </a>
       </div>
     </div>
@@ -801,16 +801,10 @@
     // Track in GA if present (Brevo is no-cors, so there is no success response to wait for)
     document.dispatchEvent(new CustomEvent('tb:form_submit',{detail:{form_id:'brevo-form'}}));
     if (window.gtag) gtag('event', 'playbook_download', { method: 'build_with_claude' });
-    // Reveal success state
+    // Reveal success state. The PDF itself is in the subscriber library,
+    // linked from the Brevo welcome email, so there is no direct download here.
     form.style.display = 'none';
     success.classList.add('show');
-    // Auto-trigger download for the impatient
-    setTimeout(() => {
-      const a = document.createElement('a');
-      a.href = '/assets/playbook/how-i-built-my-site-with-claude.pdf';
-      a.download = 'How-I-Built-My-Site-With-Claude.pdf';
-      document.body.appendChild(a); a.click(); a.remove();
-    }, 600);
   });
 </script>
 
