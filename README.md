@@ -42,7 +42,7 @@ Vimeo embed, so it requires an internet connection to play.)
 - One **CNAME**, Host `www` → `YOURUSERNAME.github.io`
 
 ## Booking
-Every "Schedule / Book" button → `https://calendly.com/toyboxcm/new-meeting-1`.
+New-inquiry buttons → `https://calendly.com/toyboxcm/discovery-call` with UTM tags (`utm_campaign=fall26_leadgen`, a distinct `utm_content` per placement). Workshop, media and paid-consultation links carry the same UTM tags.
 
 ---
 © 2026 ToyBox Consulting & Management, LLC
