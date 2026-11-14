@@ -551,7 +551,7 @@
       <div class="eyebrow">Funding radar</div>
       <h1>Open funding calls for King County organizations</h1>
       <p>Grant and contract opportunities for the people ToyBox works with: nonprofits, cultural organizations, small businesses and public agencies. Every listing here was opened and read on the funder's own page, not pulled from a search result.</p>
-      <!-- REFRESH, NOT AN EXPIRY. This is the freshness claim a reader judges the whole page by. Update the date on EVERY run that re-verifies the listings, even a run that changes nothing else. Leaving it at an old date while the listings below are current understates the page; advancing it without re-reading the funders' pages is a false claim. Never delete it. -->
+      <!-- REFRESH, NOT AN EXPIRY. action: update this date on every run that re-verifies, do not delete. See the funding-radar-page-markers runbook. -->
       <p class="hero-note">Last checked: November 14, 2026. This list is reviewed every Friday.</p>
       <p class="hero-note">Listing is not recommending. <a href="#how" style="text-decoration:underline;">How this page works</a>.</p>
     </div>
@@ -561,15 +561,15 @@
     <div class="wrap">
       <div class="group-head">
         <div class="eyebrow">Open now</div>
-        <!-- DERIVED COUNT: this heading counts the listings below it. Pulling or adding one makes the heading wrong, and nothing in a listing's own marker will tell you. Recount after every change. If the count ever reaches zero, the honest page says so rather than pretending: say no call is open and point to her site. -->
-        <!-- ROLE-DEPENDENT CLAIM: no expiry exists, and this is the load-bearing sentence of the whole two-page design. It goes false the moment Katoya takes a board seat, a contract or a roster place connected to a funder listed here, on a date nobody publishes. No marker can catch that and no date can be compared against it: ONLY re-reading her current positions at source catches it, every run. The weekly-funding-radar task holds the check and the file paths. The consequence of it going stale is the exact conflict this page was built to avoid: ToyBox services sold beside a funder that pays her. If a listed funder ever becomes a tie, the listing moves to her site BEFORE anything else is touched. -->
+        <!-- DERIVED COUNT: counts the listings below. action: recount after every change. See the funding-radar-page-markers runbook. -->
+        <!-- ROLE-DEPENDENT CLAIM, no expiry. action: re-verify at source every run. See the funding-radar-page-markers runbook. -->
         <h2>Three calls you can apply to today, and get help with</h2>
         <p>Katoya Palmer has no tie to any funder on this page, so ToyBox can work on these with you: grant writing, readiness, or a read on whether it is worth your time. The ones she is connected to are on <a href="https://www.katoyapalmer.com/funding/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:4px;">her own site</a>, where she can point you to them but not work on them.</p>
         <p>Deadlines are listed as the funder states them. Confirm the date on the funder's page before you spend time on an application.</p>
       </div>
       <ul class="fund-list">
 
-        <!-- DATED LISTING: expires 2026-11-25 14:00 PT. Deadline confirmed on the funder's page 2026-11-14. When the expiry passes, delete this listing. -->
+        <!-- DATED LISTING. expires 2026-11-25 14:00 PT. confirmed-at-source 2026-11-14. action: delete. See the funding-radar-page-markers runbook. -->
         <li class="fund">
           <div class="funder">Best Starts for Kids, King County</div>
           <h3><a href="https://beststartsblog.com/2026/10/14/now-accepting-applications-for-the-workforce-development-mini-grants-apply-by-november-25/" target="_blank" rel="noopener noreferrer">Workforce Development Mini Grants, round 3</a></h3>
@@ -588,7 +588,7 @@
           <p class="checked">Checked on the Best Starts blog, November 14, 2026.</p>
         </li>
 
-        <!-- DATED LISTING: expires 2027-01-14 15:00 PT. Deadline confirmed on the funder's page 2026-11-14. When the expiry passes, delete this listing. -->
+        <!-- DATED LISTING. expires 2027-01-14 15:00 PT. confirmed-at-source 2026-11-14. action: delete. See the funding-radar-page-markers runbook. -->
         <li class="fund">
           <div class="funder">Washington State Department of Commerce</div>
           <h3><a href="https://www.commerce.wa.gov/funding/commerce-workfirst-service-providers/" target="_blank" rel="noopener noreferrer">WorkFirst service providers (request for proposals)</a></h3>
@@ -601,14 +601,14 @@
             <dd>Work experience programs for families receiving Temporary Assistance for Needy Families (TANF): case management, career development, subsidized employment and related support.</dd>
             <dt>Deadline</dt>
             <dd class="due">3 PM PT on January 14, 2027</dd>
-            <!-- SUB-EXPIRY, inside a listing that outlives it: expires 2026-11-17. This advice points at a future date. After 2026-11-17 it is stale and tells a reader to wait for a day that has passed. Confirm the RFP went live, then DELETE THIS FIELD ONLY. Do not delete the listing: it runs to 2027-01-14. -->
+            <!-- SUB-EXPIRY. expires 2026-11-17. confirmed-at-source 2026-11-14. action: delete this field only, keep the listing (expires 2027-01-14). See the funding-radar-page-markers runbook. -->
             <dt>One thing to watch</dt>
             <dd>The posting says the proposal period opens November 17, 2026. If the application is not live yet, check back after that date.</dd>
           </dl>
           <p class="checked">Checked on commerce.wa.gov, November 14, 2026.</p>
         </li>
 
-        <!-- DATED LISTING: expires 2027-06-30 23:59 PT, OR EARLIER if the funds run out: first come, first served, so the expiry alone is not enough. Confirm with the funder that money remains. Deadline confirmed on the funder's page 2026-11-14. -->
+        <!-- DATED LISTING, outer bound only (first come, first served). expires 2027-06-30 23:59 PT. confirmed-at-source 2026-11-14. action: confirm funds remain, then delete. See the funding-radar-page-markers runbook. -->
         <li class="fund">
           <div class="funder">Washington State Department of Commerce</div>
           <h3><a href="https://www.commerce.wa.gov/funding/the-behavioral-health-facilities-bhf-closure-prevention-program-is-now-accepting-applications-for-capital-projects-to-preserve-behavioral-health-facilities-through-critical-repairs-or-upgrades-nece/" target="_blank" rel="noopener noreferrer">Behavioral Health Facilities closure prevention</a></h3>
@@ -637,7 +637,7 @@
       </div>
       <ul class="fund-list">
 
-        <!-- REVIEW, NOT AN EXPIRY. Best Starts publishes a new cycle of this list roughly monthly, so this block is superseded rather than expired: there is no moment it becomes wrong, it just stops being current. The link to the landing page never goes stale; the sentence naming the November 2026 to January 2027 cycle and its November 9 date does. On every run, check for a newer cycle and rewrite that sentence. Never delete the block. -->
+        <!-- REVIEW, NOT AN EXPIRY. superseded each BSK cycle, roughly monthly. confirmed-at-source 2026-11-14. action: rewrite the sentence naming the cycle, do not delete. See the funding-radar-page-markers runbook. -->
         <li class="fund">
           <div class="funder">Best Starts for Kids, King County</div>
           <h3><a href="https://beststartsblog.com/funding-opportunities/" target="_blank" rel="noopener noreferrer">The Best Starts funding opportunities list</a></h3>
@@ -679,7 +679,7 @@
       <h3>What is listed</h3>
       <p>Open grant and contract calls that fit the areas ToyBox works in: King County and Washington State, with a focus on nonprofits, cultural and heritage organizations, small businesses, and public agencies. Sources checked every week include Best Starts for Kids, the Washington State Department of Commerce, 4Culture and the Community Reinvestment Program, and more get added over time. Anything from a funder Katoya Palmer is connected to, which today means 4Culture, the Community Reinvestment Program and United Way of King County, goes on <a href="https://www.katoyapalmer.com/funding/" target="_blank" rel="noopener noreferrer">her site</a> instead of here.</p>
 
-      <!-- ROLE-DEPENDENT CLAIM, closed list: this section names exactly three tied funders (4Culture, CRP, United Way of King County) in several places. That list is only correct as of the last time her positions were read. A new seat or contract adds a fourth and nothing here will say so. Re-check her current positions every run, per the weekly-funding-radar task, and if the list changed, fix every place this page names it, not only the first one. -->
+      <!-- ROLE-DEPENDENT CLAIM, closed list, no expiry. action: re-verify at source every run; if changed, fix every place the page names it. See the funding-radar-page-markers runbook. -->
       <h3 id="disclosures">Why some funders are not on this page</h3>
       <p>Katoya Palmer is paid by some of the funders this page would otherwise list. She serves on King County's Community Reinvestment Program Local Advisory Team, which helps decide where CRP money goes, and that seat carries a stipend paid through United Way of King County as the program's regional intermediary. She also holds a Network of Support contract with 4Culture. She has no role in United Way of King County's own grantmaking, but their calls are kept off this page too, because the stipend runs through them.</p>
       <p>These are public funding opportunities and she can tell people about them. That is part of what an advisory team member does: more organizations knowing the money exists is the point of the seat. What does not belong is putting those calls beside an offer to be hired, so they are listed on her own site instead of here.</p>
