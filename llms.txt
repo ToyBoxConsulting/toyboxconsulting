@@ -63,28 +63,28 @@ Example: Golden Hour Unboxed (August 23, 2026, Bellevue Botanical Garden), an op
 - [Home](https://www.toyboxconsulting.net/)
 - [Services overview](https://www.toyboxconsulting.net/services.html): Who ToyBox works with, the seven practices, and how working together works
 - [About Katoya Palmer](https://www.toyboxconsulting.net/about.html): 20+ years cross-sector; peer-selected presenter, Washington State Nonprofit Conference 2026; QuickBooks Online Certified User; CompTIA Project+; published co-author, Journal of Trauma and Acute Care Surgery (2024)
-- [Start here](https://www.toyboxconsulting.net/start): The shortest path to a first conversation
+- [Start here](https://www.toyboxconsulting.net/start.html): The shortest path to a first conversation
 - [Work](https://www.toyboxconsulting.net/case-study.html): Case studies
-- [Partners](https://www.toyboxconsulting.net/partners): Subcontractor and partner network
+- [Partners](https://www.toyboxconsulting.net/partners.html): Subcontractor and partner network
 - [Free tools](https://www.toyboxconsulting.net/tools.html) and [Resources](https://www.toyboxconsulting.net/resources.html)
 
 ## Free self-assessment tools
 
 Diagnostics that run entirely in the visitor's browser. No server, no sign-up, no data leaves the device.
 
-- [Operational Health Check](https://www.toyboxconsulting.net/tools/operational-health-check): 25 points across five systems, the broadest read
-- [CCC Diagnostic](https://www.toyboxconsulting.net/tools/ccc-diagnostic): Built on ToyBox's own Clarity, Culture, Credibility framework
-- [Grant Readiness Assessment](https://www.toyboxconsulting.net/tools/grant-readiness)
-- [Operating Reserve & Runway Calculator](https://www.toyboxconsulting.net/tools/reserve-calculator)
-- [Financial Controls Self-Check](https://www.toyboxconsulting.net/tools/financial-controls)
-- [Board Governance Self-Assessment](https://www.toyboxconsulting.net/tools/board-governance)
-- [Conflict of Interest Template](https://www.toyboxconsulting.net/tools/conflict-of-interest)
-- [COO ROI Calculator](https://www.toyboxconsulting.net/tools/coo-roi-calculator)
+- [Operational Health Check](https://www.toyboxconsulting.net/tools/operational-health-check.html): 25 points across five systems, the broadest read
+- [CCC Diagnostic](https://www.toyboxconsulting.net/tools/ccc-diagnostic.html): Built on ToyBox's own Clarity, Culture, Credibility framework
+- [Grant Readiness Assessment](https://www.toyboxconsulting.net/tools/grant-readiness.html)
+- [Operating Reserve & Runway Calculator](https://www.toyboxconsulting.net/tools/reserve-calculator.html)
+- [Financial Controls Self-Check](https://www.toyboxconsulting.net/tools/financial-controls.html)
+- [Board Governance Self-Assessment](https://www.toyboxconsulting.net/tools/board-governance.html)
+- [Conflict of Interest Template](https://www.toyboxconsulting.net/tools/conflict-of-interest.html)
+- [COO ROI Calculator](https://www.toyboxconsulting.net/tools/coo-roi-calculator.html)
 
 ## Out the Box (newsletter)
 
 - [Out the Box](https://www.toyboxconsulting.net/#newsletter): ToyBox's monthly newsletter. Practical lessons, recognitions and a note from Katoya. One email a month.
-- [COI Quick Start](https://www.toyboxconsulting.net/coi-quick-start): Free 3-page conflict of interest quick start for boards and teams, sent as the Out the Box welcome gift.
+- [COI Quick Start](https://www.toyboxconsulting.net/coi-quick-start.html): Free 3-page conflict of interest quick start for boards and teams, sent as the Out the Box welcome gift.
 
 ## Writing
 
