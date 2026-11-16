@@ -1,5 +1,7 @@
 ---
 layout: post
+redirect_to: https://www.toyboxconsulting.net/blog/welcome.html
+sitemap: false
 title: "Why I'm documenting the work"
 category: "Field Notes"
 ---
